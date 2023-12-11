@@ -1,0 +1,49 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	var cart = Umbraco.Content(Guid.Parse("8a41fc86-a344-478b-a478-5fba7d4b30af"));
+	var nav = cart.Value<IEnumerable<IPublishedElement>>("cartNav");
+	var cabinet = Umbraco.Content(Guid.Parse("7dc55c7c-621d-4c91-a7d6-9b8b7fe84fdf"));
+	var cnav = cabinet.Value<IEnumerable<IPublishedElement>>("nav");
+	var currURL = Model.Url;
+
+	var login = Umbraco.Content(Guid.Parse("9383cdc6-d4cb-454c-a579-df4faa984f49"));
+	var isLogined = (Umbraco.MemberIsLoggedOn() && Membership.GetUser() != null);
+}
+
+
+
+<ul class="cabinet-nav">
+	@if (User.Identity.IsAuthenticated)
+	{
+		<li class="cabinet-nav__item">
+			<a href="@(cnav.ToArray()[0].Value<IPublishedContent>("link")?.Url)">@cnav.ToArray()[0].Value("title")</a>
+		</li>
+	}
+	else
+	{		
+	}
+
+	@if (nav != null)
+	{
+		foreach (var link in nav)
+		{
+			if (currURL == link.Value<IPublishedContent>("link")?.Url)
+			{
+				<li class="cabinet-nav__item">
+					<a href="@(link.Value<IPublishedContent>("link")?.Url)" class="cabinet-nav-active">@link.Value("title")</a>
+				</li>
+			}
+			else
+			{
+				<li class="cabinet-nav__item">
+					<a href="@(link.Value<IPublishedContent>("link")?.Url)">@link.Value("title")</a>
+				</li>
+			}
+		}
+	}
+	else
+	{
+
+	}
+</ul>

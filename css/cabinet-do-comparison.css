@@ -1,0 +1,158 @@
+.do-comparison{
+    display: flex;
+    
+    /*flex-wrap: wrap;*/
+}
+
+.do-comparison-offer,
+.do-comparison-item{
+    width: 30%;
+    background: #F5F5F5;
+    margin: 0 10px;
+    padding: 20px 0;
+    box-shadow: 0 1px 6px rgb(0, 0, 0, 0.16);
+    /*margin-bottom: 20px;*/
+}
+
+.do-comparison-item{
+    position: relative;
+}
+
+.do-comparison-offer__add-wrap,
+.do-comparison-item__add-wrap{
+    display: flex;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.do-comparison-offer__img,
+.do-comparison-item__img{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin-right: 20px;
+
+}
+
+.do-comparison-offer__img img,
+.do-comparison-item__img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.do-comparison-offer__img:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.8);
+}
+
+.create-comparison{
+    color: #AAA050;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    font-size: 1.143em;
+    font-family: 'Neris-Light';
+    max-width: 125px;
+}
+
+.do-comparison__links{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.do-comparison__links a{
+    width: 50%;
+    padding: 12px 5px;
+    text-align: center;
+    background: #545456;
+    letter-spacing: 0.05em;
+    font-size: 1.143em;
+    font-family: 'Neris-Light';
+}
+
+.do-comparison__links-active{
+    background: #DCC28B !important;
+}
+
+.do-comparison-values,
+.do-comparison-keys{
+    padding: 0 40px;
+}
+
+.do-comparison-values p,
+.do-comparison-keys p{
+    color: #545456;
+    letter-spacing: 0.05em;
+    font-size: 1.143em;
+    font-family: 'Neris-Light';
+    margin-bottom: 21px;
+}
+
+.do-comparison-item__info-text{
+    margin-bottom: 23px;
+    font-size: 1.143em;
+    font-family: 'Neris-Light';
+}
+
+.do-comparison-item__info-text span{
+    font-family: 'Neris-Black';
+}
+
+.comparison-btn-wrap{
+    display: flex;
+}
+
+.comparison-btn-wrap .products-price{
+    font-size: 1em;
+    background: #000;
+    width: fit-content;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.comparison-btn-wrap-extra button{
+    width: 40px;
+    color: #fff;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.comparison-btn-wrap-extra button:first-child{
+    margin-right: 10px;
+}
+
+.do-comparison-item__add-wrap{
+    margin-bottom: 71px;
+}
+
+.do-comparison-values_mb{
+    margin-bottom: 65px !important;
+}
+
+.delete-comparison{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    transition: all 0.5s ease;
+}
+
+.delete-comparison:hover{
+    background: rgb(204, 28, 28);
+}
+
+.do-comparison-items-list{
+    display: flex;
+    max-width: 60%;
+}

@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+	var login = Umbraco.Content(Guid.Parse("9383cdc6-d4cb-454c-a579-df4faa984f49"));
+	
+}
+
+
+@if (!User.Identity.IsAuthenticated)
+{
+
+	<div class="user-links-sign">
+		<a href="/@currLang/login">@login.Value("loginRegistration")</a>				
+	</div>
+}
+else
+{
+	<a class="user-links-cabinet" href="/@currLang/cabinet">@User.Identity.Name</a>
+}

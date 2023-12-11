@@ -1,0 +1,158 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Cabinet>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Newtonsoft.Json;
+@using RezervistUmbraco.Models.Cabinet;
+
+@{
+    Layout = "master.cshtml";
+    var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+    var un = Membership.GetUser().UserName;
+    var memberService = Services.MemberService;
+    var _CurrentMember = memberService.GetByUsername(un);
+}
+@section Title{
+    <title>Rezervist | @Model.Value("mainTitle")</title>
+}
+
+<section class="cabinet">
+    <div class="container">
+        <h2 class="cabinet-title">@Model.Value("mainTitle")</h2>
+        <div class="cabinet-wrapper">
+            <div class="cabinet-left-side">
+                @Html.Partial("_CabnetNavPartial")
+            </div>
+            <div class="cabinet-right-side">
+                <div class="self-data-block">
+                    <div class="self-main-data">
+                        <h3 class="self-main-data__title">@Model.Value("mainInfo")</h3>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("yourInitials"):</p>
+                            <p class="self-main-data__value">@_CurrentMember.GetValue("memberName") @_CurrentMember.GetValue("memberMidname") @_CurrentMember.GetValue("memberSurname")</p>
+                        </div>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("email"):</p>
+                            @if (!string.IsNullOrEmpty(_CurrentMember.Email))
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.Email</p>
+                            }
+                            else
+                            {
+                                <p class="self-main-data__value">---</p>
+                            }
+                        </div>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("phone"):</p>
+                            @if (_CurrentMember.GetValue("memberPhone") != null)
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.GetValue("memberPhone")</p>
+                            }
+                            else
+                            {
+                                <p class="self-main-data__value">---</p>
+                            }
+                        </div>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("address"):</p>
+                            @if (_CurrentMember.GetValue("memberCity") != null && _CurrentMember.GetValue("memberAddress") != null && _CurrentMember.GetValue("memberIndex") != null)
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.GetValue("memberCity"), @_CurrentMember.GetValue("memberAddress"), @_CurrentMember.GetValue("memberIndex")</p>
+                            }
+                            else if (_CurrentMember.GetValue("memberCity") == null && _CurrentMember.GetValue("memberAddress") != null && _CurrentMember.GetValue("memberIndex") != null)
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.GetValue("memberAddress"), @_CurrentMember.GetValue("memberIndex")</p>
+                            }
+                            else if (_CurrentMember.GetValue("memberCity") != null && _CurrentMember.GetValue("memberAddress") == null && _CurrentMember.GetValue("memberIndex") == null)
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.GetValue("memberCity")</p>
+                            }
+                            else
+                            {
+                                <p class="self-main-data__value">---</p>
+                            }
+                        </div>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("birthdate"):</p>
+                            @if (_CurrentMember.GetValue("memberBirthdate") == null)
+                            {
+                                <p class="self-main-data__value">---</p>
+                            }
+                            else
+                            {
+                                <p class="self-main-data__value">@(string.Format("{0:yyyy-MM-dd}", _CurrentMember.GetValue<DateTime>("memberBirthdate")))</p>
+                            }
+                        </div>
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("sex"):</p>
+                            @if (_CurrentMember.GetValue("memberSex") == null)
+                            {
+                                <p class="self-main-data__value">---</p>
+                            }
+                            else
+                            {
+                                <p class="self-main-data__value">@_CurrentMember.GetValue("memberSex")</p>
+                            }
+                        </div>
+                        @*<div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("status"):</p>
+                            <p class="self-main-data__value">@((_CurrentMember.IsApproved) ? "Підтверджений" : "Очікує підтвердження")</p>
+                        </div>*@
+
+
+                        @{bool active = false; }
+                        @{DocumentsUmbracoModel sr = new DocumentsUmbracoModel();}
+                        @{
+                            if (_CurrentMember.Properties.Where(x => x.Alias == "addedDocs").Count() > 0)
+                            {
+                                if (_CurrentMember.Properties.Where(x => x.Alias == "addedDocs").FirstOrDefault().Values.Count() > 0)
+                                {
+                                    var addedDoc = _CurrentMember.Properties.Where(x => x.Alias == "addedDocs").FirstOrDefault().Values.FirstOrDefault().EditedValue.ToString();
+                                    var element = Newtonsoft.Json.Linq.JArray.Parse(addedDoc);
+                                    sr = JsonConvert.DeserializeObject<DocumentsUmbracoModel>(element[0].ToString());
+                                    if (sr.approve == 1)
+                                    { active = true; }
+                                }
+
+                            }
+                        }
+
+                        <div class="self-main-data__info-block">
+                            <p class="self-main-data__key">@Model.Value("wholesale"):</p>
+                            <p class="self-main-data__value">@((sr.approve != 0) ? "Активна":"Очікує підтвердження")</p>         
+                        </div>
+                        <div class="self-main-data__info-block">
+                            @if (active)
+                            {
+                                <p class="self-main-data__key">@Model.Value("wholesaleType"):</p>
+                                <p class="self-main-data__value">@(sr.memberCategory)</p>
+                            }
+
+                        </div>
+                    </div>
+
+                        <div class="self-main-ref">
+                            <div class="self-main-ref__buttons">
+                                <a href="/@currLang/change-data" class="cabinet-btn">@Model.Value("changePersData")</a>
+                                <a href="/@currLang/change-pass" class="cabinet-btn">@Model.Value("changePass")</a>
+                            </div>
+
+
+                            <div class="documents-ref">
+
+
+                                <a href="/@currLang/change-data" class="document-btn">@Model.Value("sendDocs")</a>
+
+                                <p class="documents-ref__text">
+                                    @Model.Value("docsDesc")
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

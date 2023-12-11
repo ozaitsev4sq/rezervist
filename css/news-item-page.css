@@ -1,0 +1,153 @@
+.news-item{
+    padding: 210px 0 100px;
+}
+
+.news-item__breadcrumbs{
+    margin-bottom: 50px;
+}
+
+.news-item__post{
+    margin-bottom: 90px;
+}
+
+.news-item__offer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.news-item__title{
+    color: #868D1F;
+    font-size: 1.857em;
+    font-family: 'Neris-Black';
+}
+
+.news-item__sub-title{
+    width: 35%;
+    text-align: left;
+    margin-left: auto;
+}
+
+.news-item__next-link{
+    color: #545456;
+    display: flex;
+    align-items: center;
+    
+}
+
+.news-item__next-link span{
+    display: inline-block;
+    margin-top: -2px;
+    font-family: 'Neris-Light';
+    position: relative;
+}
+
+.news-item__next-link svg{
+    margin-left: 30px;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.news-item__next-link span:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    background: #545456;
+    bottom: -5px;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.news-item__next-link:hover span:after{
+    width: 100%;
+}
+
+.news-item__next-link:hover svg{
+    margin-left: 15px;
+}
+
+.news-item__info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-item__text{
+    width: 35%;
+    color: #545456;
+    font-size: 1.286em;
+    letter-spacing: 0.05em;
+    font-family: 'Neris-Light';
+    line-height: 25px;
+}
+
+.share-block{
+    margin-bottom: 100px;
+}
+
+.news-item__img{
+    width: 60%;
+    background-color: #aaa;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 400px;
+    min-height: 300px;
+}
+
+.share-block__title{
+    color: #868D1F;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    font-family: 'Neris-Light';
+}
+
+.share-block__icons{
+    display: flex;
+    align-items: center;
+
+}
+
+.share-block__icons-item{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.share-block__icons-item:last-child{
+    margin-right: 0;
+}
+
+.twitter{
+    background-color: #55ACEE;
+}
+.facebook{
+    background-color: #3B5998;
+}
+.instagram{
+    background-color: #6A453B;
+}
+
+.see-all-news svg{
+    margin-right: 24px;
+    margin-left: 0;
+    display: block;
+}
+
+.prev-link svg{
+    margin-right: 15px !important;
+    margin-left: 0 !important;
+}
+
+.news-arrows-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}

@@ -1,0 +1,98 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Login>
+
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using RezervistUmbraco.Controllers
+@using Umbraco.Web
+@using Umbraco.Web.Models
+
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	var loginModel = new LoginModel();
+	loginModel.RedirectUrl = "/cabinet";
+	var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+<section class="signIn" id="signIn">
+	<div class="container">
+		<div class="singIn-wrapper">
+			<div class="signIn-block">
+				<h2 class="signIn-block__title">
+					@Model.Value("title")
+				</h2>
+
+				@using (Html.BeginUmbracoForm<UmbracoIdentityAccountController>("HandleLogin", null, new { @class = "signIn-form" }))
+				{
+					@*<form class="signIn-form" method="post" action="@Url.Action("login", "Authentication")">*@
+					@Html.AntiForgeryToken()
+
+					@Html.HiddenFor(m => loginModel.RedirectUrl)
+
+					<div class="sign-input-group" for="@Html.IdFor(m => loginModel.Username)">
+						@Html.TextBoxFor(m => loginModel.Username, new { @class = "sign-input" })
+						@*<input name="login" type="text" class="sign-input" placeholder="" required>*@
+						<span class="sign-bar"></span>
+						<label class="sign-label">@Model.Value("inputEmail")</label>
+					</div>
+					<div class="sign-input-group" for="@Html.IdFor(m => loginModel.Password)">
+						@Html.PasswordFor(m => loginModel.Password, new { @class = "sign-input" })
+						@*<input name="pass" type="password" class="sign-input" placeholder="" required>*@
+						<span class="sign-bar"></span>
+						<label class="sign-label">@Model.Value("inputPass")</label>
+					</div>
+					if (TempData["LoginErrorString"] != null)
+					{
+						<div id="error" style="padding: 15px 10px;">@TempData["LoginErrorString"]</div>
+					}
+
+					<div class="edit-personal-data-message">
+						<label class="label--checkbox">
+							<input name="rememberMe" type="checkbox" id="check" class="checkbox">
+							@Model.Value("rememberCheck")
+						</label>
+					</div>
+
+					<button type="submit" class="sign-btn">
+						@Model.Value("submitBtn")
+					</button>
+
+					<a href="/@currLang/reset-pass" class="forget-your-pass-link">@Model.Value("forgotBtn")</a>
+
+					@*<div class="signIn-form__or-wrapper">
+						<div class="signIn-form__or-wrapper-line"></div>
+						<span>@Model.Value("orText")</span>
+						<div class="signIn-form__or-wrapper-line"></div>
+					</div>*@
+
+					@*<a href="#" class="signIn-facebook">@Model.Value("FBLogin")</a>
+					<a href="#" class="signIn-google">@Model.Value("googleLogin")</a>*@
+
+					@*</form>*@
+				}
+			</div>
+			<div class="or-wrapper">
+				<div class="or-wrapper__line"></div>
+				<div class="or-wrapper__text">
+					@Model.Value("orText")
+				</div>
+				<div class="or-wrapper__line"></div>
+			</div>
+			<div class="do-registration">
+				<h2 class="do-registration__title">
+					@Model.Value("regTitle")
+				</h2>
+				<p class="do-registration__text">
+					@Model.Value("regDesc")
+				</p>
+
+				<a href="/@currLang/register" class="sign-btn">@Model.Value("RegisterBtn")</a>
+			</div>
+		</div>
+	</div>
+</section>

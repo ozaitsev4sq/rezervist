@@ -1,0 +1,146 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ListUmbracoVM<ProductItemVM>>
+
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels;
+
+@using RezervistUmbraco.ViewModels.Cabinet;
+@using RezervistUmbraco.Models;
+
+@{
+    Layout = "master.cshtml";
+}
+@section Title{
+    <title>Rezervist | @Model.Value("title")</title>
+}
+
+@*<section class="cabinet">
+    <div class="container">
+        <h2 class="cabinet-title">@Model.Value("title")</h2>
+
+        <div class="cabinet-wrapper">
+            <div class="cabinet-left-side">
+                @Html.Partial("_CabnetNavPartial")
+            </div>
+            <div class="cabinet-right-side">
+                <div class="cart-of-products-list">
+                    @foreach (var item in Model.ViewModels)
+                    {
+                        <div class="cart-of-products-list__item">
+                            <div class="cart-prod-offer">
+                                <h3>@item.Name</h3>
+                            </div>
+                            <div class="cart-of-products-list__item-content">
+                                <div class="cart-of-products-list__item-visual">
+                                    <a href="/shop/shop-item?id=@item.Id" class="shop-item__img">
+                                        <img src="@(Url.Action("GetImmage", "Values", new { id = item.Id }))" alt="">
+                                    </a>
+                                </div>
+                                <div class="cart-of-products-list__item-info">
+                                    <div class="product-brand product-mod-block">
+                                        <p class="product-brand__title product-sub-title">
+                                            brand
+                                        </p>
+                                        <p class="product-brand__name">
+                                            @item.Brand
+                                        </p>
+                                    </div>
+
+                                    <div class="products-price">
+                                        @if (!item.IsRezervist && int.TryParse(Html.Action("GetDiscount", "ShopApi", item).ToString(), out var discountPrice) && discountPrice != 0)
+                                        {
+                                            <p class="shop-item__price old-price" itemprop="price">
+                                                @(item.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                            </p>
+                                            <p class="shop-item__price" itemprop="price">
+                                                @discountPrice
+                                                @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="shop-item__price" itemprop="price">
+                                                @(item.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                            </p>
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <p>
+                                    @ViewData[item.Id]
+                                </p>
+                            </div>
+                            <br />
+                            <div>
+                                <p>
+                                    №@ViewData[item.Id + "orderNumber"]
+                                </p>
+                            </div>
+                            <div>
+                                <p>
+
+                                </p>
+                            </div>
+                            <br />
+
+
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+<section class="cabinet order-history-wrap">
+    <div class="cabinet-left-side">
+        @Html.Partial("_CabnetNavPartial")
+    </div>
+    <div class="cabinet-right-side table-wrap">
+        <h2 class="cabinet-title">@Model.Value("title")</h2>
+        <input id="order-search" class="order-input-search" placeholder="Search" type="search" />
+        <table class="order-history-table">
+
+            <tbody id="order-table">
+
+                <tr class="head">
+                    <th>№ Замовлення</th>
+                    <th>Покупець</th>
+                    <th>Кількість товару</th>
+                    @*<th>Статус замовлення</th>*@
+                    <th>Разом</th>
+                    <th>Додано</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.ViewModels)
+                {
+                    <tr>
+                        <td>№@ViewData[item.Id + "orderNumber"]</td>
+                        <td>@ViewData["UserName"]</td>
+                        <td>@ViewData[item.Id + "productAmount"]</td>
+                        @*<td>Оброблений</td>*@
+                    <td>
+                        @(item.Cost * int.Parse(ViewData[item.Id + "productAmount"].ToString()))
+                        @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                    </td>
+                        <td>@ViewData[item.Id]</td>
+                        <td>
+                            <a href="/shop/shop-item?id=@item.Id">
+                                <svg class="order-history-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><defs><clipPath><path fill="#f2f2f2" d="m7 1023.36h1v1h-1z" /></clipPath><clipPath><path fill="#f2f2f2" d="m7 1023.36h1v1h-1z" /></clipPath></defs><g transform="matrix(.02146 0 0 .02146 1 .998)" fill="#da4453"><path d="m466.07 161.53c-205.6 0-382.8 121.2-464.2 296.1-2.5 5.3-2.5 11.5 0 16.9 81.4 174.9 258.6 296.1 464.2 296.1 205.6 0 382.8-121.2 464.2-296.1 2.5-5.3 2.5-11.5 0-16.9-81.4-174.9-258.6-296.1-464.2-296.1m0 514.7c-116.1 0-210.1-94.1-210.1-210.1 0-116.1 94.1-210.1 210.1-210.1 116.1 0 210.1 94.1 210.1 210.1 0 116-94.1 210.1-210.1 210.1" /><circle r="134.5" cy="466.02" cx="466.08" /></g></svg>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</section>

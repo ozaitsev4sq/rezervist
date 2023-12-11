@@ -1,0 +1,133 @@
+﻿@model PaymentProcessVM
+
+@using RezervistUmbraco.ViewModels.Cabinet;
+
+
+<h4 style=" font-family: sans-serif; margin: 0 0 5px;">Номер замовлення: @Model.OrderId</h4>
+<table style=" border-spacing: 0; margin-bottom: 10px; width: 100%;">
+    <thead>
+        <tr>
+            <th style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                Товар
+            </th>
+            <th style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                Кількість
+            </th>
+            <th style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                Ціна(1шт.)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cart)
+        {
+                <tr>
+                    <td style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                        @item.ProductName @*(@item.Articul)*@
+                    </td>
+                    <td style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                        @item.SelectedAmount
+                    </td>
+                    <td style=" text-align: left; padding: 15px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                        @(item.CostPerOne * item.SelectedAmount) (@item.CostPerOne)
+                    </td>
+                </tr>
+        }
+
+    </tbody>
+</table>
+<table style=" width: 100%; border-spacing: 0; columns: 3;">
+
+    <tr>
+
+        <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            Разом:
+        </th>
+
+        <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            @Model.TotalCost
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            Спосіб оплати:
+        </th>
+        @switch (Model.PaymentType)
+        {
+            case 1:
+                <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                    Картка
+                </td>
+                break;
+            default:
+                <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                    Готівка
+                </td>
+                break;
+        }
+    </tr>
+    @*<tr>
+            <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                Тип доставки:
+            </th>
+        @if (Model.)
+        {
+            <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                {delivery}
+            </td>
+        }
+        </tr>*@
+
+
+    <tr>
+        <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            Всього:
+        </th>
+        <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            @Model.TotalCost грн
+        </td>
+    </tr>
+    <tr>
+        <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            Статус оплати:
+        </th>
+        @switch (Model.PaymentType)
+        {
+            case 1:
+                <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                    Очікуєтся оплата
+                </td>
+                break;
+            default:
+                <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+                    При отриманні
+                </td>
+                break;
+        }
+    </tr>
+    <tr>
+        <th style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            Адреса:
+        </th>
+        <td style=" text-align: left; padding: 10px; font-family: sans-serif; color: #3A3A3A; border: 1px solid #bcbcbc">
+            <p style=" margin: 0 0 5px; display: inline-block">
+                <span style=" font-weight: 600;">Ім'я: </span> @Model.UserName;
+            </p>
+            <p style=" margin: 0 0 5px; display: inline-block">
+                <span style=" font-weight: 600;">Телефон: </span><a href=" tel:@Model.UserPhone">@Model.UserPhone</a>;
+            </p>
+            <p style=" margin: 0 0 5px; display: inline-block">
+                <span style=" font-weight: 600;">Email: </span><a href="mailto:@Model.UserEmail">@Model.UserEmail</a>;
+            </p>
+            <p style=" font-style: italic; margin: 0 0 5px; display: inline-block">
+                <span style=" font-weight: 600;">Місто: </span>@Model.City;
+            </p>
+            <p style=" font-style: italic; margin: 0 0 5px; display: inline-block">
+                <span style=" font-weight: 600;">Вулиця: </span><a href="https://maps.google.com/?q=@(Model.Street)">@(Model.Street)</a>;
+            </p>
+        </td>
+    </tr>
+</table>

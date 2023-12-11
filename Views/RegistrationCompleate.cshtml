@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.RegistrationCompleate>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var currentLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+<title>Rezervist | @Model.Value("title")</title>
+
+<section class="registration" style="padding: 200px 0 100px">
+    <div class="container">
+            <div class="">
+                <div class="do-registration__title" style="max-width: 1024px; margin: 0 auto;">
+                    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <span class="" style="margin-bottom: 20px; color: red; display: block;">@TempData["ErrorMessage"]</span>
+                    }
+                    else
+                    {
+                        <span class="">@Model.Value("compleateMessage")</span>
+                    }
+                    @*<button type="submit" class="sign-btn signUp-btn">@Model.Value("submit")</button>*@
+                </div>
+            </div>
+    </div>
+</section>

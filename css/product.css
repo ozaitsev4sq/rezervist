@@ -1,0 +1,599 @@
+.product{
+    padding: 195px 0 50px;
+}
+
+.breadcrumbs-product{
+    margin-bottom: 50px;
+}
+
+.product-offer-nav{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.product-menu{
+    display: flex;
+    /* align-items: center; */
+    margin-right: 100px;
+}
+
+.product-menu__item{
+    margin-right: 20px;
+    /* padding: 10px 0 ; */
+    background: #545456;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.product-menu__item:last-child{
+    margin-right: 0;
+}
+
+.product-menu__item a{
+    padding: 10px 15px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Neris-Light';
+    font-size: 1.286em;
+    text-align: center;
+}
+
+.product-menu__item .product-active-link{
+    background: #DCC28B;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedbacks-count{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #DCC28B;
+    color: #fff;
+    font-size: 1.286em;
+    font-family: 'Neris-Black';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.product-code{
+    color: #9D9D9D;
+    font-family: 'Neris-Light';
+    font-size: 1.286em;
+}
+
+.next-product{
+    color: #545456;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 20px;
+}
+
+.next-product span{
+    display: inline-block;
+    margin-top: -2px;
+    font-family: 'Neris-Light';
+    position: relative;
+}
+
+.next-product svg{
+    margin-left: 30px;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.next-product span:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    background: #545456;
+    bottom: -5px;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.next-product:hover span:after{
+    width: 100%;
+}
+
+.next-product:hover svg{
+    margin-left: 15px;
+}
+
+.product-offer-block{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.product-block-left{
+    width: 55%;
+}
+.product-main-gallery{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.product-main-gallery__thumbs{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.product-main-gallery__thumbs-item{
+   width: 100px;
+   height: 100px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.product-main-gallery__thumbs-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.product-main-gallery__hero {
+    max-width: 350px;
+    min-width: 250px;
+    max-height: 450px;
+}
+
+.product-main-gallery__hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+.product-img-is-active{
+    border: 3px solid #595528;
+    transition: all 0.2s ease;
+    
+}
+
+.product-img-is-active img{
+    transform: scale(0.9); 
+    transition: all 0.2s ease;   
+}
+
+.product-block-right{
+    width: 40%
+}
+
+.product-description{
+    width: 100%;
+    background: #F5F5F5;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 32px;
+}
+
+.product-title{
+    font-size: 1.857em;
+    font-family: 'Neris-Light';
+    color: #707070;
+    margin-bottom: 20px;
+}
+
+.product-title .product-name{
+    color: #000;
+    font-family: 'Neris-Black';
+    margin-bottom: 20px;
+}
+
+.product-mod-block {
+    font-size: 1.286em;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.product-sub-title{
+    color: #707070;
+    margin-bottom: 10px;
+    font-family: 'Neris-Light';
+}
+
+.product-brand__title{
+    
+}
+
+.product-brand__name{
+    color: #000;
+    font-family: 'Neris-Black';
+}
+
+.product-color__block{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-color__item {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.4s ease;
+    border: 1px solid black;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+
+.product-color__item-active {
+    border: 4px solid #AAA050;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .15);
+    transform: scale(1.2)
+}
+
+.product-color:last-child {
+    margin-right: 0;
+}
+
+.product-sizes__wrapper,
+.product-sizes__block{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-sizes__wrapper {
+    justify-content: space-between;
+}
+
+.prosuct-sizes__item{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.prosuct-sizes__item:last-child{
+    margin-right: 0;
+}
+
+.prosuct-sizes__item {
+    color: #000;
+    padding: 4px 9px;
+    border: 1px solid transparent;
+}
+
+.prosuct-sizes__item-active{
+    color: #DCC28B;
+    border-color:  #DCC28B;
+}
+
+.prosuct-sizes__item-disabled{
+    color: #CCCCCC;
+}
+
+.sizes-table{
+    color: #868D1F;
+    font-family: 'Neris-Light';
+}
+
+.products-price-info{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.products-price{
+    color: #fff;
+    font-family: 'Neris-Black';
+    font-size: 2em;
+    background: #B02D28;
+    padding: 15px 12px;
+    margin-right: 30px;
+}
+
+.product-availability{
+    border: 1px solid #4CAF50;
+    padding: 30px 12px;
+    color: #4CAF50;
+    font-size: 1.143em;
+    text-transform: uppercase;
+    font-family: 'Neris-Light';
+}
+
+.product-order-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-counter{
+    display: flex;
+    align-items: center;
+}
+
+.counter-btn{
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    font-family: 'Neris-Black';
+    color: #707070;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.counter-btn:active{
+    transform: scale(0.95);
+}
+
+.counter-btn-disabled{
+    background: #ccc;
+}
+
+.count-input{
+    width: 95px;
+    margin: 0 9px;
+    border: none;
+    background: #EEEEEE;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px 0;
+    font-family: 'Neris-SemiBold';
+    font-size: 1.286em;
+}
+
+.product-cart-btn{
+    max-width: 150px;
+    width: 150px;
+    background: #AAA050;
+    color: #fff;
+    font-family: 'Neris-Black';
+    font-size: 1.143em;
+    padding: 17px 0;
+    text-transform: uppercase;
+}
+
+.product-cart-btn svg{
+    margin-right: 9px;
+    font-size: 1.5em;
+}
+
+.product-extra-btn{
+    max-width: 120px;
+    width: 120px;
+    font-size: 1.5em;
+    padding: 17px 0;
+    color: #fff;
+    display: block;
+    background: #545456;
+    text-align: center;
+}
+
+.share-product-block{
+    margin-bottom: 0;
+}
+
+.customer-reviews-block{
+    margin-bottom: 55px;
+}
+
+.reviews-offer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.reviews-offer h2{
+    color: #545456;
+    font-size: 1.714em;
+    font-family: 'Neris-Light';
+}
+
+.product-main-information{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 55px;
+}
+
+.product-characteristics,
+.product-exposition {
+    width: 100%;
+    margin: 10px 10px;
+}
+
+.product-characteristics-info,
+.product-exposition-info{
+    font-family: 'Neris-Light';
+    background: #F5F5F5;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 1.286em;
+}
+
+.product-main-information-title{
+    color: #000;
+    font-size: 1.714em;
+    font-family: 'Neris-Light';
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.product-main-information-title span{
+    color: #9D9D9D;
+}
+
+.product-characteristics-info__block{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    line-height: 26px;  
+}
+
+.product-characteristics__key{
+    width: 49%;
+    color: #545456;
+}
+
+.product-characteristics__value{
+    width: 49%;
+}
+
+.product-exposition-text{
+    line-height: 26px;
+}
+
+
+.product-feedbacks-offer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.product-feedbacks-offer__info p{
+    font-size: 1.714em;
+    font-family: 'Neris-Light';
+    color: #000
+}
+
+.product-feedbacks-offer__info p span{
+    color: #9D9D9D;
+    margin-left: 30px;
+}
+
+.add-feedback-btn{
+    max-width: 200px;
+    width: 200px;
+    display: block;
+    color: #fff;
+    background: #AAA050;
+    padding: 18px 5px;
+    text-transform: uppercase;
+    font-family: 'Neris-Black';
+    text-align: center;
+}
+
+.comment-list{
+    width: 100%;
+}
+
+.comment-list__item{
+    width: 100%;
+    padding: 15px 20px;
+    background: #F5F5F5;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.comment-list__item-reply{
+    width: 93%;
+    margin-left: auto;
+}
+
+.comment-list__personal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.comment-list__commentator{
+    letter-spacing: 0.05em;
+    color: #000;
+    font-family: 'Neris-Black';
+    font-size: 1.286em;
+}
+
+.comment-list__date{
+    letter-spacing: 0.05em;
+    color: #9D9D9D;
+    font-family: 'Neris-Light';
+    font-size: 1.143em;
+}
+
+.comment-list__feedback{
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-list__feedback-text{
+    width: 78%;
+    font-size: 1.286em;
+    color: #000;
+    letter-spacing: 0.05em;
+    line-height: 24px;
+    font-family: 'Neris-Light';
+}
+
+.reply-block{
+    width: 20%;
+    text-align: right;
+}
+
+.reply-btn{
+    color: #DCC28B;
+    font-family: 'Neris-Light';
+    font-size: 1.143em;
+}
+
+.product-characteristics-info-forJs{
+    background: #fff;
+}
+
+.product-main-photos-forjs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-main-photos__item{
+    width: 49%;
+    margin-bottom: 10px;
+    height: 400px;
+}
+
+.product-main-photos__item img{
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+}
+
+.feedbacks-offer-count-min{
+    max-width: 440px;
+    margin-right: 10px;
+}
+
+.feedback-sort-btn{
+    color: #595528;
+    font-size: 1.143em;
+    letter-spacing: 0.05em;
+    font-family: 'Neris-Black';
+}
+
+.feedback-sort-btn span{
+    color: #DCC28B;
+    margin-right: 10px;
+    font-family: 'Neris-Light';
+}
+
+.product-feedbacks-offer-js{
+    margin-bottom: 45px;
+}
+
+.prosuct-sizes__item__disabled{
+    color: #b0a7a7 !important;
+}

@@ -1,0 +1,31 @@
+.video-item{
+    padding: 50px 0;
+}
+
+.player{
+    max-width: 1170px;
+    height: 550px;
+    margin: 0 auto 50px;
+}
+
+.player iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-description{
+    color: #545456;
+    font-size: 1.286em;
+    letter-spacing: 0.05em;
+    line-height: 24px;
+    margin: 15px 0;
+}
+
+.video-description__demo{
+    margin-bottom: 30px;
+}
+
+.video-description__text{
+    font-family: 'Neris-Light';
+}

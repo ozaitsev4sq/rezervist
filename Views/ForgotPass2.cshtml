@@ -1,0 +1,50 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ForgotPass2>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+    var currentLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+<section class="forgotPass-section" style="padding: 200px 0 100px">
+	<div class="container">
+
+		<h2 class="signIn-block__title signUp-block__title">@(TempData["Successful"] != null ? TempData["Successful"] : Model.Value("title"))</h2>
+		@if (TempData["Successful"] == null)
+		{
+			<form method="post" action="@Url.Action("HandleResetPassword", "UmbracoIdentityAccount")">
+				@Html.AntiForgeryToken()
+
+				<input type="hidden" name="CurrentLang" value="@currentLang" />
+				<input type="hidden" name="MemberKey" value="@Request.QueryString["id"]" />
+				<input type="hidden" name="ResetGUID" value="@Request.QueryString["resetGUID"]" />
+
+				<div class="">
+					<div class="" style="max-width: 500px; margin: 0 auto;">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+						<input name="code" class="form-control" hidden />
+
+						<div class="sign-input-group">
+							<input name="Password" type="password" class="sign-input" required>
+							<span class="sign-bar"></span>
+							<label class="sign-label">@Model.Value("inputPass")</label>
+						</div>
+						<div class="sign-input-group">
+							<input name="ConfirmPassword" type="password" class="sign-input" required>
+							<span class="sign-bar"></span>
+							<label class="sign-label">@Model.Value("inputConfirmPass")</label>
+						</div>
+						@if (TempData["ErrorMessage"] != null)
+						{
+							<span class="" style="margin-bottom: 20px; color: red; display: block;">@TempData["ErrorMessage"]</span>
+						}
+						<button type="submit" class="sign-btn signUp-btn">@Model.Value("submit")</button>
+					</div>
+				</div>
+			</form>
+		}
+	</div>
+</section>

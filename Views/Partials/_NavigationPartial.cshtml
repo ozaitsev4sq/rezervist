@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	var _master = Umbraco.Content(Guid.Parse("9383cdc6-d4cb-454c-a579-df4faa984f49"));
+	var navlinks = _master.Value<IEnumerable<IPublishedElement>>("mainNav");
+}
+
+
+	@foreach (var link in navlinks)
+	{
+		<li>
+			<a href="@(link.Value<IPublishedContent>("link")?.Url)">@link.Value("title")</a>
+		</li>
+	}
+<!--some-->

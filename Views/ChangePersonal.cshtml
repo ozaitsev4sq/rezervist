@@ -1,0 +1,226 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ChangePersonal>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+	var un = Membership.GetUser().UserName;
+	var memberService = Services.MemberService;
+	var _CurrentMember = memberService.GetByUsername(un);
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+
+<section class="cabinet">
+	<div class="container">
+		<h2 class="cabinet-title">@Model.Value("title")</h2>
+		<div class="cabinet-wrapper">
+			<div class="cabinet-left-side">
+				@Html.Partial("_CabnetNavPartial")				
+			</div>
+			<div class="cabinet-right-side">
+				<form class="edit-personal-data" method="post" enctype="multipart/form-data" action="@Url.Action("ChangePersonalData", "Cabinet")">
+					@Html.AntiForgeryToken()
+					<div class="edit-personal-data__offer">
+						<div class="edit-personal-data__user">
+							<h5>@Model.Value("subTitle")</h5>
+
+							<div class="edit-personal-data__user-wrapper">
+								<div class="edit-personal-data__user-photo">
+
+									@{
+										var profImg = _CurrentMember.GetValue("memberPhoto");
+									}
+									@if (profImg != null)
+									{
+										<img src="@(Umbraco.Media(_CurrentMember.GetValue("memberPhoto").ToString())?.Url)" class="profile-pic" alt="">
+									}
+									else
+									{
+										<img src="https://jdrf.org.uk/wp-content/uploads/2017/06/placeholder-image.jpg" class="profile-pic" alt="">
+									}
+									@*<img src="@(Url.Action("GetAcountImage", "Cabinet", new { id = Model.AvatarId }))" class="profile-pic" alt="">*@
+									<input name="Avatar" type="file" class="file-upload ">
+								</div>
+								<div class="edit-personal-data__user-info">
+									<h6>@_CurrentMember.GetValue("memberName") @_CurrentMember.GetValue("memberSurname")</h6>
+									<a href="#" class="change-photo upload-button">@Model.Value("changeImg")</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="edit-personal-data__offer-buttons">
+							<button type="submit" class="edit-personal-data__submit edit-personal-data-btn">@Model.Value("save")</button>
+							@*<button type="reset" class="edit-personal-data__reset edit-personal-data-btn">@Model.Value("reset")</button>*@
+						</div>
+					</div>
+
+					<div class="edit-personal-data-inputs">
+
+						<div class="eidt-personal-data-input__wrapper">
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="Name" type="text" class="sign-input" placeholder="@Model.Value("inputName")" value="@(_CurrentMember.GetValue<string>("memberName"))">
+								<span class="sign-bar"></span>
+							</div>
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="Surname" type="text" class="sign-input" placeholder="@Model.Value("inputSurname")" value="@(_CurrentMember.GetValue<string>("memberSurname"))">
+								<span class="sign-bar"></span>
+							</div>
+						</div>
+
+
+						<div class="eidt-personal-data-input__wrapper">
+
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="midname" type="text" class="sign-input" placeholder="@Model.Value("inputMidname")" value="@(_CurrentMember.GetValue<string>("memberMidname"))">
+								<span class="sign-bar"></span>
+							</div>
+
+							<div class="sign-input-group sign-input-group__edit">
+								<div class="sett-field__value sett-field__value_radio">
+									<div class="gender-wrpper ">
+										@if (_CurrentMember.GetValue<string>("memberSex") == "Чоловік")
+										{
+											<div class="gender__item">
+												<input type="radio" id="male" name="sex" value="@Model.Value("inputMale")" checked />
+												<label for="male">@Model.Value("inputMale")</label>
+											</div>
+											<div class="gender__item">
+												<input type="radio" id="female" name="sex" value="@Model.Value("inputFemale")" />
+												<label for="female">@Model.Value("inputFemale")</label>
+											</div>
+										}
+										else if (_CurrentMember.GetValue<string>("memberSex") == "Жінка")
+										{
+											<div class="gender__item">
+												<input type="radio" id="male" name="sex" value="@Model.Value("inputMale")" />
+												<label for="male">@Model.Value("inputMale")</label>
+											</div>
+											<div class="gender__item">
+												<input type="radio" id="female" name="sex" value="@Model.Value("inputFemale")" checked />
+												<label for="female">@Model.Value("inputFemale")</label>
+											</div>
+										}
+										else
+										{
+											<div class="gender__item">
+												<input type="radio" id="male" name="sex" value="@Model.Value("inputMale")" />
+												<label for="male">@Model.Value("inputMale")</label>
+											</div>
+											<div class="gender__item">
+												<input type="radio" id="female" name="sex" value="@Model.Value("inputFemale")" />
+												<label for="female">@Model.Value("inputFemale")</label>
+											</div>
+										}
+
+									</div>
+								</div>
+								<span class="sign-bar"></span>
+							</div>
+						</div>
+
+
+
+						<div class="eidt-personal-data-input__wrapper">
+
+							<div class="sign-input-group sign-input-group__edit">
+								<label class="">Birthday</label>
+								@if (_CurrentMember.GetValue("memberBirthdate") == null)
+								{
+									<input name="Bday" type="date" value="@(string.Format("{0:yyyy-MM-dd}", DateTime.Now))" class="sign-input" placeholder="Birthday" />
+								}
+								else
+								{
+									<input name="Bday" type="date" class="sign-input" max="@(string.Format("{0:yyyy-MM-dd}", DateTime.Now))" value="@(string.Format("{0:yyyy-MM-dd}", _CurrentMember.GetValue<DateTime>("memberBirthdate")))" />
+								}
+								<span class="sign-bar"></span>
+							</div>
+
+							<div class="sign-input-group sign-input-group__edit">
+								@if (string.IsNullOrEmpty(_CurrentMember.Email))
+								{
+									<input name="email" type="email" class="sign-input" placeholder="@Model.Value("inputEmail")">
+								}
+								else
+								{
+									<input name="email" type="email" hidden>
+									<input name="email" type="email" class="sign-input" placeholder="@Model.Value("inputEmail")" value="@_CurrentMember.Email" disabled>
+								}
+								<span class="sign-bar"></span>
+							</div>
+
+						</div>
+
+
+						<div class="eidt-personal-data-input__wrapper">
+							<div class="sign-input-group sign-input-group__edit">
+								@if (_CurrentMember.GetValue("memberPhone") == null)
+								{
+									<input name="phone" type="tel" class="sign-input" placeholder="@Model.Value("inputPhone")">
+								}
+								else
+								{
+									<input name="phone" type="tel" hidden>
+									<input type="tel" class="sign-input" placeholder="@Model.Value("inputPhone")" value="@_CurrentMember.GetValue("memberPhone")" disabled>
+								}
+								<span class="sign-bar"></span>
+							</div>
+
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="city" type="text" class="sign-input" placeholder="@Model.Value("inputCity")" value="@(_CurrentMember.GetValue<string>("memberCity"))">
+								<span class="sign-bar"></span>
+							</div>
+						</div>
+
+
+
+						<div class="eidt-personal-data-input__wrapper">
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="address" type="text" class="sign-input" placeholder="@Model.Value("inputAddress")" value="@(_CurrentMember.GetValue<string>("memberAddress"))">
+								<span class="sign-bar"></span>
+							</div>
+
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="index" type="text" class="sign-input" placeholder="@Model.Value("inputIndex")" value="@(_CurrentMember.GetValue<string>("memberIndex"))">
+								<span class="sign-bar"></span>
+							</div>
+						</div>
+
+						<div class="eidt-personal-data-input__wrapper">
+							<div class="sign-input-group sign-input-group__edit">
+								<label for="myfile" class="chous">@Model.Value("uploadDoc")</label>
+								<input name="docImage" type="file" class="my" id="myfile" multiple="multiple" />
+							</div>
+						</div>
+
+					</div>
+
+					<div class="edit-personal-data-message">
+						<h3>@Model.Value("notTitle")</h3>
+						<label class="label--checkbox">
+							<input type="checkbox" id="check" class="checkbox">
+							@Model.Value("checkbox")
+						</label>
+					</div>
+
+					@*<div class="edit-personal-data-choose d-none">
+							<label class="label--radio">
+								<input type="radio" class="radio" name="foo" checked>
+								@localizer["Notif1"]
+							</label>
+							<label class="label--radio">
+								<input type="radio" class="radio" name="foo">
+								@localizer["Notif2"]
+							</label>
+						</div>*@
+
+					<div class="eidt-personal-data-input__wrapper">
+						<a href="@(Model.Parent.Url)" class="sign-input">< @Model.Value("goBack")</a>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+</section>

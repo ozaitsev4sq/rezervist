@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.About>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+
+<section class="about" id="about" style="background-image:url(@(Model.Value<IPublishedContent>("bgImage")?.Url))">
+	<div class="container">
+		<h1 class="about__we-title">
+			@Model.Value("title")
+		</h1>
+
+		<p class="about__text">
+			@Model.Value("desc")
+		</p>
+
+		<h2 class="about-title">
+			@Model.Value("subTitle")
+		</h2>
+
+		<ul class="about-list">
+			@{
+				var items = Model.Value<IEnumerable<IPublishedElement>>("whyWe");
+			}
+			@foreach (var item in items)
+			{
+				<li class="about-list__item">
+					<div class="about-list__img" style="background-image: url(@(item.Value<IPublishedContent>("image")?.Url))"></div>
+					<p>
+						@item.Value("text1")<br>
+						@item.Value("text2")
+					</p>
+				</li>
+			}
+		</ul>
+	</div>
+</section>

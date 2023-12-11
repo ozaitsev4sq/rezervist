@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	var keys = "";
+	if (Model.Value<IEnumerable<string>>("SEOkeys") != null)
+	{
+		foreach (var key in Model.Value<IEnumerable<string>>("SEOkeys"))
+		{
+			keys += (key + ", ");
+		}
+	}
+	else { }
+}
+<meta property="og:title" content="Rezervist | @Model.Value("title")">
+<meta property="og:description" content="@Model.Value("SEodesc")">
+<meta property="og:type" content="website">
+<meta property="og:image" content="@(Model.Value<IPublishedContent>("SEOimg")?.Url)">
+<meta property="og:site_name" content="Rezervist | @Model.Value("title")">
+<meta name="keywords" content="@keys">

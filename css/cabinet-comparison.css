@@ -1,0 +1,12 @@
+.to-comparison-btn{
+    max-width: 330px;
+    width: 100%;
+    background: #B02D28;
+    color: #fff;
+    font-size: 1.143em;
+    text-transform: uppercase;
+    display: block;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: 'Neris-Black';
+}

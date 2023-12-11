@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ForgotPass>
+@using RezervistUmbraco.Controllers
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+    var currentLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+<section class="forgotPass-section" style="padding: 200px 0 100px">
+    <div class="container">
+        <h2 class="signIn-block__title signUp-block__title">@(TempData["Successful"] != null ? TempData["Successful"] : Model.Value("title"))</h2>
+        @if (TempData["Successful"] == null)
+        {
+
+            <form class="" method="post" action="@Url.Action("HandleForgottenPassword", "UmbracoIdentityAccount")">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="CurrentLang" value="@currentLang" />
+
+                <div class="">
+                    <div class="" style="max-width: 500px; margin: 0 auto;">
+                        <div class="sign-input-group">
+                            <input name="EmailAddress" type="text" class="sign-input" value="@(TempData["RegEmail"] != null ? TempData["RegEmail"] : string.Empty)" required>
+                            <span class="sign-bar"></span>
+                            <label class="sign-label">@Model.Value("inputEmail")</label>
+                        </div>
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <span class="" style="margin-bottom: 20px; color: red; display: block;">@TempData["ErrorMessage"]</span>
+                        }
+                        <button type="submit" class="sign-btn signUp-btn">@Model.Value("submit")</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        }
+    </div>
+</section>

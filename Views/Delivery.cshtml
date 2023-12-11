@@ -1,0 +1,47 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Delivery>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+
+<section class="payment" id="payment" style="background-image:url(@(Model.Value<IPublishedContent>("bgImage")?.Url)">
+	<div class="container">
+		<h1 class="payment-title">@Model.Value("title")</h1>
+
+		<div class="payments-block">
+			<h3 class="payments-block__title">@Model.Value("subTitle")</h3>
+			<ul class="payments-list">
+				@{
+					var items = Model.Value<IEnumerable<IPublishedElement>>("delMet");
+				}
+				@if (items != null)
+				{
+					foreach (var item in items)
+					{
+						<li class="payments-list__item">
+							<div class="payments-list__item-img">
+								<img src="@(item.Value<IPublishedContent>("image")?.Url)" alt="">
+							</div>
+							<h4 class="payments-list__item-title">
+								@item.Value("title")
+							</h4>
+							<p class="payments-list__item-text">
+								@item.Value("text")
+							</p>
+						</li>
+					}
+				}
+				else
+				{
+
+				}
+			</ul>
+		</div>
+	</div>
+</section>

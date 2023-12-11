@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ThankForBuy>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+<section class="forgotPass-section" style="padding: 200px 0 100px">
+	<div class="container">
+		<h2 class="signIn-block__title signUp-block__title">@Model.Value("title")</h2>
+		<a href="/@currLang" class="sign-btn signUp-btn">@Model.Value("home")</a>
+	</div>
+</section>

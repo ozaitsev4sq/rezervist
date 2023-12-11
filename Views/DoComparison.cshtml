@@ -1,0 +1,80 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleUmbracoVM<ComparisonsGroupVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels.Cabinet;
+
+@{
+    Layout = "master.cshtml";
+}
+@section Title{
+    <title>Rezervist | @Model.Parent.Value("title")</title>
+}
+
+<section class="cabinet">
+    <div class="container">
+        <h2 class="cabinet-title">@Model.Parent.Value("title")</h2>
+
+        <div class="cabinet-wrapper">
+            <div class="cabinet-left-side">
+                @Html.Partial("_CartNavPartial")
+            </div>
+
+            <div class="cabinet-right-side">
+                <h2 style="margin-bottom:20px;">@Model.ViewModel.CategoryName</h2>
+
+                <div class="do-comparison">
+                    <div class="do-comparison-offer">
+                        <div class="do-comparison-offer__add-wrap">
+                            <div class="do-comparison-offer__img">
+                                <img src="@(Url.Action("GetImmage", "Values", new { id = @Model.ViewModel.CategoryId }))" alt=""> <!--Need imgs from 1Cs-->
+                            </div>
+                            <a href="#" class="create-comparison">
+                                @Model.ViewModel.CategoryName
+                            </a>
+                        </div>
+                        <div style="opacity:0" class="do-comparison__links">
+                            <a href="#" class="do-comparison__links-all">
+                                @Model.Value("allParam")
+                            </a>
+                            <a href="#" class="do-comparison__links-differences do-comparison__links-active">
+                                @Model.Value("diffParam")
+                            </a>
+                        </div>
+                        <div class="do-comparison-values">
+                            <p>@Model.Value("brand")</p>
+                            @*@if (Model.ViewModel.Tovars.Any(x => x.Sizes.Count > 0))
+                            {
+                                <p>@Model.Value("size")</p>
+                            }
+                            @if (Model.ViewModel.Tovars.Any(x => x.Colors.Count > 0))
+                            {
+                                <p style="margin-bottom: 40px; display: block;">@Model.Value("color")</p>
+                            }*@
+                            @if (Model.ViewModel.Tovars.Any(x => !string.IsNullOrEmpty(x.Description)))
+                            {
+                                <p>Опис</p>
+                            }
+                            @*<p>@Model.Value("season")</p>
+                            <p>@Model.Value("model")</p>
+                            <p>@Model.Value("material")</p>
+                            <p class="do-comparison-values_mb">@Model.Value("compoud")</p>
+                            <p>@Model.Value("country1")</p>*@
+                            @*<p>@Model.Value("country2")</p>*@
+
+                        </div>
+                    </div>
+
+
+                    <div class="do-comparison-items-list">
+                        @foreach (var t in Model.ViewModel.Tovars)
+                        {
+                            @Html.Partial("_DoComparisonItemPartial", t);
+                        }
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</section>

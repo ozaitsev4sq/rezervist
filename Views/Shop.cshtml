@@ -1,0 +1,633 @@
+﻿﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleUmbracoVM<ShopIndexVM>>
+
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.Models;
+@using RezervistUmbraco.ViewModels;
+@using RezervistUmbraco.ViewModels.Shop;
+@using RezervistUmbraco.ViewModels.Home;
+@using RezervistUmbraco.Services.UserLiteDBStorage.Models._1C;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+
+@using Newtonsoft.Json;
+
+@{
+    var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+    Layout = "master.cshtml";
+}
+@section Title{
+    <title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+    @Html.Partial("_MetaTagsPartial")
+}
+
+
+<section class="goods-catalog" id="goods-catalog">
+    <div class="container">
+        <div class="breadcrumbs">
+            @if (string.IsNullOrEmpty(ViewBag.Recomended))
+            {
+                ShopIndexVM ShopModel = new ShopIndexVM();
+
+                if (((List<CategoryVM>)ViewBag.BreadcrumbsCategories).Count > 1)
+                {
+                    for (int i = 0; i < ((List<CategoryVM>)ViewBag.BreadcrumbsCategories).Count - 1; i++)
+                    {
+                        ShopModel.Filtration.CategoryId = ViewBag.BreadcrumbsCategories[i].Id;
+
+                        if (i != ((List<CategoryVM>)ViewBag.BreadcrumbsCategories).Count - 2)
+                        {
+                            <a href="/Shop?req=@(ShopModel.GetMyselfSerialization())">@ViewBag.BreadcrumbsCategories[i].Name</a>
+                            <span>></span>
+                        }
+                        else
+                        {
+                            <a href="/Shop?req=@(ShopModel.GetMyselfSerialization())">@ViewBag.BreadcrumbsCategories[i].Name</a>
+                        }
+                    }
+                }
+            }
+            else
+            {
+                <a>@ViewBag.Recomended</a>
+            }
+
+        </div>
+        @if (string.IsNullOrEmpty(ViewBag.Recomended))
+        {
+            <h2 class="goods-catalog__title">@(((List<CategoryVM>)ViewBag.BreadcrumbsCategories).Count == 0 ? string.Empty : ((List<CategoryVM>)ViewBag.BreadcrumbsCategories).Last().Name)</h2>
+
+            <ul class="all-this-cat-list">
+                @if (ViewBag.SelectedCategory != null && ((List<CategoriesItem>)ViewBag.SelectedCategory).Count > 0)
+                {
+                    ShopIndexVM ShopModel = new ShopIndexVM();
+                    foreach (var c in ((List<CategoriesItem>)ViewBag.SelectedCategory))
+                    {
+                        ShopModel.Filtration.CategoryId = c.Id;
+
+                        <li class="all-this-cat-list__item">
+                            <a href="/Shop?req=@(ShopModel.GetMyselfSerialization())" class="this-cat-item">
+                                <div class="this-img">
+                                    <img src="@(Url.Action("GetImmage", "Values", new { id = c.Id }))" alt="jacket" />
+                                </div>
+                                <h4 class="this-title">
+                                    @c[currLang]
+                                </h4>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+
+        }
+
+        <div class="catalog-mod">
+            <a href="#" class="filter-btn">
+                <i class="fas fa-filter"></i>
+                @*@localizer["Filtr"]*@
+            </a>
+            <a href="#" class="line-mode catalog-mod-item">
+                <div class="hor-line"></div>
+                <div class="hor-line"></div>
+                <div class="hor-line"></div>
+            </a>
+            <a href="#" class="two-col-mod catalog-mod-item">
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+            </a>
+            <a href="#" class="three-col-mod catalog-mod-item">
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+            </a>
+            <a href="#" class="four-col-mod catalog-mod-item mod-active">
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+            </a>
+
+
+            @if (string.IsNullOrEmpty(ViewBag.Recomended))
+            {
+
+                <div class="select-sort-wrapper dropdown">
+                    @{
+                        ShopIndexVM ShopModelToSort = Model.ViewModel.GetCopy();
+                        ShopModelToSort.Pagination = null;
+                    }
+
+                    <button class="dropbtn" onclick="myFunction()">@Model.Value("sortBy")</button>
+                    <div id="myDropdown" class="dropdown-content">
+
+
+
+                        @{ShopModelToSort.CurrentSortState = Model.ViewModel.Sorting.NameSort;}
+                        <a href="/Shop?req=@(ShopModelToSort.GetMyselfSerialization())" style="color:black">
+                            @Model.Value("sortName")
+                            @*@Model.ViewModel.Sorting.NameSort.GetSortStateForView().FieldName @*LOCALIZE THIS THERE IS THE KEY*@
+                            @if (Model.ViewModel.Sorting.NameSort.GetSortStateForView().IsDesc)
+                            {
+                                <i class="fas fa-chevron-down"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-chevron-up"></i>
+                            }
+                        </a>
+
+
+                        @{ShopModelToSort.CurrentSortState = Model.ViewModel.Sorting.RateSort;}
+                        <a href="/Shop?req=@(ShopModelToSort.GetMyselfSerialization())" style="color:black">
+                            @Model.Value("sortRating")
+                            @*@Model.ViewModel.Sorting.RateSort.GetSortStateForView().FieldName*@ @*LOCALIZE THIS THERE IS THE KEY*@
+                            @if (Model.ViewModel.Sorting.RateSort.GetSortStateForView().IsDesc)
+                            {
+                                <i class="fas fa-chevron-down"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-chevron-up"></i>
+                            }
+                        </a>
+
+
+
+                        @{ShopModelToSort.CurrentSortState = Model.ViewModel.Sorting.CostSort;}
+                        <a href="/Shop?req=@(ShopModelToSort.GetMyselfSerialization())" style="color:black">
+                            @Model.Value("sortPrice")
+                            @*@Model.ViewModel.Sorting.CostSort.GetSortStateForView().FieldName*@ @*LOCALIZE THIS THERE IS THE KEY*@
+                            @if (Model.ViewModel.Sorting.CostSort.GetSortStateForView().IsDesc)
+                            {
+                                <i class="fas fa-chevron-down"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-chevron-up"></i>
+                            }
+                        </a>
+
+                        @if (Model.ViewModel.IsSearching == true)
+                        {
+                            ShopModelToSort.CurrentSortState = SortFieldsEnum.SearchResult_DESC;
+                            <a href="/Shop?req=@(ShopModelToSort.GetMyselfSerialization())" style="color:black">
+                                @SortFieldsEnum.SearchResult_DESC.GetSortStateForView().FieldName @*LOCALIZE THIS THERE IS THE KEY*@
+                                @*@if (Model.ViewModel.Sorting.CostSort.GetSortStateForView().IsDesc)
+                                    {
+                                        <i class="fas fa-chevron-down"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-chevron-up"></i>
+                                    }*@
+                            </a>
+                        }
+                    </div>
+
+
+                    @*<select>
+                            <option value="рейтингом"></option>
+                            <option value="ціною">ціною</option>
+                        </select>*@
+                </div>
+            }
+        </div>
+
+        <script>
+            /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <div class="shop-catalog-block">
+
+
+            <form action="@Url.Action("Index", "Shop")" class="filter-block" method="post">
+
+                <input Name="CurrentSortState" value="@(Model.ViewModel.CurrentSortState)" hidden />
+                <input Name="Sorting.Current" value="@(Model.ViewModel.Sorting.Current)" hidden />
+
+                <input Name="Filtration.CategoryId" value="@Model.ViewModel.Filtration.CategoryId" hidden />
+
+                <input Name="IsSearching" value="@Model.ViewModel.IsSearching" hidden />
+
+                <input Name="Filtration.SearchReq" value="@Model.ViewModel.Filtration.SearchReq" hidden />
+
+                <a href="#" class="close-filter"><i class="fas fa-times"></i></a>
+                <!--<div class="sort-tags">
+                    <div class="sort-tags__offer">
+                        <h4 class="filter-title">@Model.Value("sortBy")</h4>-->
+                        @*<button type="reset" class="filter-reset">@CancelButt</button>*@
+                    <!--</div>
+
+                    <div class="sort-tags__wrapper">
+                        <div class="tag">
+                            <span>@Model.Value(Model.ViewModel.Sorting.Current.GetSortStateForView().FieldName)</span>
+                            @if (Model.ViewModel.Sorting.IsASC)
+                            {
+                                <text>@Model.Value("asceding")</text>
+                            }
+                            else
+                            {
+                                <text>@Model.Value("desceding")</text>
+                            }-->
+                            @*<a href="#"><i class="fas fa-times"></i></a>*@
+
+                        <!--</div>
+                    </div>
+                </div>-->
+                <div class="filter-price s-filter">
+                    <a href="#" class="section-header toggle-section" data-toggle-content="section1">
+                        <div class="section-text">
+                            <h4 class="filter-title ">@Model.Value("Price")</h4>
+                        </div>
+                        <span><i class="fas fa-sort-down"></i></span>
+                    </a>
+                    <div class="section-content" id="section1">
+                        <div class="box-range">
+                            <div class="slider" data-value-0="#first" data-value-1="#second" data-range="#third"></div>
+                            <div class="values">
+                                <div>
+                                    <span id="first">@Model.ViewModel.Filtration.MinCost</span>
+                                    <input Name="Filtration.MinCost" type="number" class="firstR" value="@Model.ViewModel.Filtration.MinCost" hidden />
+
+                                    @if (Context.Request.Cookies[co.CookieCurrencyFieldName].Value == co.Currency_USD)
+                                    {
+                                        <i class="fas fa-dollar-sign"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-hryvnia"></i>
+                                    }
+                                </div>
+                                <span>-</span>
+                                <div>
+                                    <span id="second">@Model.ViewModel.Filtration.MaxCost</span>
+                                    <input Name="Filtration.MaxCost" type="number" class="secR" value="@Model.ViewModel.Filtration.MaxCost" hidden />
+
+                                    @if (Context.Request.Cookies[co.CookieCurrencyFieldName].Value == co.Currency_USD)
+                                    {
+                                        <i class="fas fa-dollar-sign"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-hryvnia"></i>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.ViewModel.Filtration.Colors.Count > 0)
+                {
+                <div class="color-filter s-filter">
+                    <div class="section-header toggle-section" data-toggle-content="section2">
+                        <div class="section-text">
+                            <h4 class="filter-title ">@Model.Value("color")</h4>
+                        </div>
+                        <span><i class="fas fa-sort-down"></i></span>
+                    </div>
+                    <div class="section-content" id="section2">
+
+                        <div class="color-wrapper">
+                            @for (int i = 0; i < Model.ViewModel.Filtration.Colors.Count; i++)
+                            {
+                                <input hidden Name="Filtration.Colors[@i].Id" value="@Model.ViewModel.Filtration.Colors[i].Id" type="text" />
+                                <label class="lab-container">
+                                    <input Name="Filtration.Colors[@i].IsChecked" @(Model.ViewModel.Filtration.Colors[i].IsChecked ? "checked" : string.Empty) value="true" type="checkbox">
+
+                                    @*//if (Model.ViewModel.Filtration.Colors[i].Name.Contains("#"))
+        //{
+        //    <span class="checkmark" title="@Model.ViewModel.Filtration.Colors[i].ColorName" style="background-color: @(Model.ViewModel.Filtration.Colors[i].Name); "></span>
+        //}
+        //else
+        //{*@
+                                    @{
+                                        var colorCode = Model.ViewModel.Filtration.Colors[i].Name;
+                                        if (!colorCode.Contains('#'))
+                                        {
+                                            colorCode = $"#{ colorCode }";
+                                        }
+                                    }
+                                    <span class="checkmark" title="@(Model.ViewModel.Filtration.Colors[i]?.ColorName)" style="background-color: @colorCode; background-image: url('@(Url.Action("GetCamouflage", "Values", new { name = Model.ViewModel.Filtration.Colors[i].ColorName.ToLower() }))'); background-size: cover;"></span>
+                                    @*//}*@
+
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="brand-filter">
+                    <div class="section-header toggle-section" data-toggle-content="section3">
+                        <div class="section-text">
+                            <h4 class="filter-title ">@Model.Value("brand")</h4>
+                        </div>
+                        <span><i class="fas fa-sort-down"></i></span>
+                    </div>
+                    <div class="section-content" id="section3" style="display:none">
+                        <div class="brand-wrapper filter-check-wrapper">
+
+                            @for (int i = 0; i < Model.ViewModel.Filtration.Brands.Count; i++)
+                            {
+                                <input hidden Name="Filtration.Brands[@i].Id" value="@Model.ViewModel.Filtration.Brands[i].Id" type="text" />
+                                <input Name="Filtration.Brands[@i].IsChecked" @(Model.ViewModel.Filtration.Brands[i].IsChecked ? "checked" : string.Empty) value="true" type="checkbox" id="@($"br{i}")" />
+                                <label for="@($"br{i}")">@(Model.ViewModel.Filtration.Brands[i].Name)</label>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="size-filter ">
+                    <div class="section-header toggle-section" data-toggle-content="section4">
+                        <div class="section-text">
+                            <h4 class="filter-title ">@Model.Value("Size")</h4>
+                        </div>
+                        <span><i class="fas fa-sort-down"></i></span>
+                    </div>
+                    <div class="section-content" id="section4" style="display:none">
+                        <div class="size-wrapper filter-check-wrapper">
+                            @for (int i = 0; i < Model.ViewModel.Filtration.Sizes.Count; i++)
+                            {
+                                <input hidden Name="Filtration.Sizes[@i].Id" value="@Model.ViewModel.Filtration.Sizes[i].Id" type="text" />
+                                <input Name="Filtration.Sizes[@i].IsChecked" @(Model.ViewModel.Filtration.Sizes[i].IsChecked ? "checked" : string.Empty) value="true" type="checkbox" id="@($"sz{i}")" />
+                                <label for="@($"sz{i}")">@(Model.ViewModel.Filtration.Sizes[i].Name)</label>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="filter-submit-btn">@Model.Value("submit")</button>
+            </form>
+            <div class="shop-wrapper">
+                <div class="shop-list-wrapper">
+                    @foreach (var item in Model.ViewModel.Items)
+                    {
+                        int disc = 0;
+                        double discountPer = 0;
+                        if (int.TryParse(Html.Action("GetDiscount", "ShopApi", item).ToString(), out var discountPrice2) && discountPrice2 != 0)
+                        {
+                            disc = discountPrice2;
+                            discountPer = Math.Round((item.Cost - disc) / item.Cost * 100, 0);
+
+                        }
+                        <div class="prod-rel grid-mode-4" itemscope itemtype="http://schema.org/Product">
+                            <div class="product_element goods-item @(item.NotAvailable ? "out-of-stock" : string.Empty)" data-id="@item.Id">
+                                @if (item.IsRezervist)
+                            {
+                                    <svg version="1.1" class="rez-mini-logo" height="26.91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 26 26.9" style="enable-background:new 0 0 26 26.9;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: #005BBC;
+                                        }
+
+                                        .st1 {
+                                            fill: #FFD600;
+                                        }</style>
+                                    <g><path class="st0" d="M4.9,6c0-0.5,0.4-1,1-1h6.2c0.5,0,1-0.5,1-1V1c-0.1-0.5-0.5-1-1-1H1C0.4,0,0,0.5,0,1v12.5h4.9V6z" />
+                                    <path class="st0" d="M25,0h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.4,1,1,1h2.9c0.5,0,1,0.5,1,1v3.9c0,0.5-0.4,1-1,1h-11c-0.5,0-1,0.5-1,1
+
+                                                v1.6H26V1C26,0.5,25.6,0,25,0z" /></g><g>
+                                    <path class="st1" d="M25,21.9h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.5,1,1,1H25c0.5,0,1-0.5,1-1v-3C26,22.4,25.6,21.9,25,21.9z" />
+                                    <path class="st1" d="M0,13.5v12.4c0,0.5,0.4,1,1,1h2.9c0.5,0,1-0.5,1-1V13.5H0z" />
+                                    <path class="st1" d="M8.1,14.9c0,0.5,0.4,1,1,1H25c0.5,0,1-0.5,1-1v-1.4H8.1V14.9z" /></g>
+
+                                    </svg>
+                                }
+                                @*<div class="colors-block">
+                                        @foreach (var c in item.Colors)
+                                        {
+                                            <div style="background-color:@c; border: 1px solid black;" class="colors-block__item"></div>
+                                        }
+                                    </div>
+
+                                    <div class="sizes-block">
+                                        @foreach (var s in item.Sizes.Skip(0).Take(5).ToList())
+                                        {
+                                            <div class="sizes-block__item">@s</div>
+                                        }
+                                    </div>*@
+                                
+                            <div class="img-side">
+                                <a href="/shop/shop-item?id=@item.Id" class="shop-item__img" itemprop="url">
+                                    @*Enable discount label*@
+                                    @if (discountPer > 0)
+                                    {
+                                        <div class="tag">-@discountPer %</div>
+                                    }
+                                    <img src="@(Url.Action("GetImmage", "Values", new { id = item.Id }))" loading="lazy" itemprop="image" alt="@item.Name">
+                                </a>
+
+                                <div class="shop-item__rate">
+                                    @{
+                                        int numb = Convert.ToInt32(Math.Floor(item.Rating));
+                                        int drob = Convert.ToInt32((item.Rating * 10) - (numb * 10));
+
+                                    }
+                                    <div class="Stars" itemprop="ratingValue" style="--rating: @numb.@drob;" aria-label="@item.Rating/5."></div>
+                                </div>
+                            </div>
+                                <div class="info-side">
+                                    <div class="offer-info-preview">
+                                        <div class="text-elip" style="cursor: pointer;" onclick="window.location='/shop/shop-item?id=@item.Id';">
+                                            <h4 class="shop-item__title" itemprop="name">@item.Name</h4>
+                                        </div>
+                                        @*Apply discount for rezervist products*@
+                                        <div class="item-price-wrap">
+                                            
+                                                
+                                                @*@if (int.TryParse(Html.Action("GetDiscount", "ShopApi", item).ToString(), out var discountPrice) && discountPrice != 0)*@
+                                                @if (disc != 0)
+                                                {
+                                                    <p class="shop-item__price old-price" itemprop="price">
+                                                        @(item.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                                    </p>
+                                                    <p class="shop-item__price" itemprop="price">
+                                                        @disc
+                                                        @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                                    </p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="shop-item__price" itemprop="price">
+                                                        @(item.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                                    </p>
+                                                }
+                                            
+                                            @*@if (item.DiscountCost != 0)
+                                            {
+
+                                                <p class="shop-item__price old-price" itemprop="price">@item.Cost @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)</p>
+                                            }*@
+
+                                        </div>
+                                        @*<p class="shop-item__price" itemprop="price">
+            @(item.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+            @if (item.DiscountCost != 0)
+            {
+                <br /><span class="shop-item__price" itemprop="price">@item.DiscountCost</span>
+            }
+            @if (int.TryParse(Html.Action("GetDiscount", "ShopApi", item).ToString(), out var discountPrice) && discountPrice != 0)
+            {
+                <br /><span class="shop-item__price" itemprop="price">@discountPrice</span>
+            }
+        </p>*@
+                                    </div>
+
+                                    <div class="bAd-wrap">
+                                        <div class="shop-item__btn-wrapper">
+
+                                            @if (!item.NotAvailable)
+                                            {
+                                                <button type="button" class="shop-item__to-cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                    @Model.Value("inBusket")
+                                                </button>}
+                                            <div class="shop-item__btn-extra">
+
+                                                @if (item.IsInFavourites)
+                                                {
+                                                    <button type="submit" class="add-to-favour" style="background-color: red"><i class="fas fa-heart"></i></button> }
+                                                else
+                                                {
+                                                    <button type="submit" class="add-to-favour"><i class="fas fa-heart"></i></button>}
+
+                                                @if (item.IsInComparisons)
+                                                {
+                                                    <button type="submit" class="add-to-comparison" style="background-color: green"><i class="fas fa-balance-scale"></i></button> }
+                                                else
+                                                {
+
+                                                    <button type="submit" class="add-to-comparison"><i class="fas fa-balance-scale"></i></button>}
+                                            </div>
+
+
+                                        </div>
+                                        <div class="item-ex-hov">
+
+                                            @if (item.Sizes.Count > 0)
+                                            {
+
+                                            <div class="hid-shop-item-size">
+
+
+                                                <p class="product-color__title product-sub-title">
+                                                    @*@localizer["Size"]*@ Size
+                                                </p>
+
+                                                <div class="product-sizes__wrapper">
+                                                    <div class="product-sizes__block">
+                                                        @foreach (var s in item.Sizes.Where(cl => cl.Value.Count() > 0).ToList())
+                                                        {
+                                                            if (s == item.Sizes.Where(cl => cl.Value.Count() > 0).ToList().FirstOrDefault())
+                                                            {
+                                                                <button class="prosuct-sizes__item prosuct-sizes__item-active" data-product_size="@s.Value" id="size_@s.Value">
+                                                                    @s.Value
+                                                                </button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button class="prosuct-sizes__item" data-product_size="@s.Value" id="size_@s.Value">
+                                                                    @s.Value
+                                                                </button>
+                                                            }
+
+                                                        }
+                                                    </div>
+                                                    @*<a href="#" class="sizes-table" target="_black">Таблиця розмірів</a>*@
+                                                </div>
+                                            </div>}
+
+                                            <div class="shop-item-descr">
+                                                <div class="shop-item-descr__title">
+                                                    Опис:
+                                                </div>
+                                                <p class="ex-hov-descr" itemprop="description">
+                                                    @item.Description
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (item.NotAvailable)
+                                    {
+                                        <button class="out-of-stock-btn">Повідомити про наявність</button>
+
+
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @if (Model.ViewModel.Pagination.TotalPages > 1)
+                {
+                    ShopIndexVM ShopModelToPag = Model.ViewModel.GetCopy();
+                    <div class="pagination-wrapper">
+
+                        @if (Model.ViewModel.Pagination.HasPreviousPage)
+                        {
+                            ShopModelToPag.Pagination.PageNumber = 1;
+
+                            <a href="/Shop?req=@(ShopModelToPag.GetMyselfSerialization())" class="pagination-arr pag-prev"><i class="fas fa-angle-double-left"></i></a>
+
+                        }
+                        else
+                        {
+                            <button disabled class="pagination-arr pag-prev"><i class="fas fa-angle-double-left"></i></button>
+                        }
+
+                        <div class="pagination-num-wrapper">
+
+                            @foreach (var p in Model.ViewModel.Pagination.AllPrev)
+                            {
+                                ShopModelToPag.Pagination.PageNumber = p;
+                                <a href="/Shop?req=@(ShopModelToPag.GetMyselfSerialization())" class="pug-num">@p</a>
+                            }
+
+                            <a class="pug-num pug-num-active">@Model.ViewModel.Pagination.PageNumber</a>
+
+                            @foreach (var n in Model.ViewModel.Pagination.AllNext)
+                            {
+                                ShopModelToPag.Pagination.PageNumber = n;
+                                <a href="/Shop?req=@(ShopModelToPag.GetMyselfSerialization())" class="pug-num">@n</a>
+                            }
+                        </div>
+
+
+                        @if (Model.ViewModel.Pagination.HasNextPage)
+                        {
+                            ShopModelToPag.Pagination.PageNumber = Model.ViewModel.Pagination.TotalPages;
+
+                            <a href="/Shop?req=@(ShopModelToPag.GetMyselfSerialization())" class="pagination-arr pag-next"><i class="fas fa-angle-double-right"></i></a>
+                        }
+                        else
+                        {
+                            <button disabled class="pagination-arr pag-next"><i class="fas fa-angle-double-right"></i></button>
+                        }
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

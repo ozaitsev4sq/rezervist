@@ -1,0 +1,77 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.VideoItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@{
+	var sharable = Umbraco.Content(Guid.Parse("f68b2f6c-2be2-4a3d-a03d-fc0ee123fff6"));
+	var allPosts = Umbraco.Content(Guid.Parse("f68b2f6c-2be2-4a3d-a03d-fc0ee123fff6")).ChildrenOfType("videoItem").Where(x => x.IsVisible()).ToList();
+
+	IPublishedContent next = null;
+	IPublishedContent prev = null;
+	int curIndex = 0;
+	for (int i = 0; i < allPosts.Count; i++)
+	{
+		//Error possible
+		if (Model.Id == allPosts[i].Id)
+		{
+			curIndex = i;
+		}
+
+	}
+	if (allPosts.Count >= 2)
+	{
+
+		if (curIndex > 0 && curIndex < allPosts.Count - 1)
+		{
+			next = allPosts[curIndex + 1];
+			prev = allPosts[curIndex - 1];
+		}
+		else if (curIndex == 0 && curIndex < allPosts.Count - 1)
+		{
+			next = allPosts[curIndex + 1];
+		}
+		else if (curIndex > 0 && curIndex == allPosts.Count - 1)
+		{
+			prev = allPosts[curIndex - 1];
+		}
+	}
+
+}
+@section Title{
+	<title>Rezervist | @Model.Parent.Value("title") | @Model.Value("title") </title>
+}
+<section class="news-item" id="video-item">
+	<div class="container">
+		<div class="news-item__offer">
+
+			@if (prev != null)
+			{
+				<a href="@prev.Url" class="news-item__next-link"><i class="fas fa-caret-left" style="margin-left:0px; margin-right:30px;"></i> <span> @sharable.Value("previous")</span></a>
+			}
+			else
+			{
+
+			}
+			<h2 class="contacts__title">@Model.Value("title")</h2>
+			@if (next != null)
+			{
+				<a href="@next.Url" class="news-item__next-link"><span>@sharable.Value("next")</span> <i class="fas fa-caret-right"></i></a>
+			}
+			else
+			{
+
+			}
+		</div>
+		<div class="player">
+			<iframe src="@(Model.Value<string>("youtubeLink"))"></iframe>
+		</div>
+
+		<div class="video-description">
+			<p class="video-description__text">
+				@Html.Raw(Model.Value("desc"))
+			</p>
+		</div>
+		<a href="@(Model.Parent.Url)" class="see-all-btn see-all-news"><i class="fas fa-caret-left"></i><span>@sharable.Value("goBack")</span></a>
+	</div>
+</section>

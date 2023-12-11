@@ -1,0 +1,208 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ListUmbracoVM<ComparisonsGroupVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels.Cabinet;
+@using RezervistUmbraco.Models;
+@{
+    Layout = "master.cshtml";
+    var btn = Umbraco.Content(Guid.Parse("97773cf2-cb91-463e-84ea-97ccdab7f684"));
+}
+@section Title{
+    <title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+    @Html.Partial("_MetaTagsPartial")
+}
+
+<section class="cabinet">
+    <div class="container">
+        <h2 class="cabinet-title">@Model.Value("title")</h2>
+
+        <div class="cabinet-wrapper">
+            <div class="cabinet-left-side">
+                @Html.Partial("_CartNavPartial")
+            </div>
+
+
+            <div class="cabinet-right-side">
+
+
+                @foreach (var group in Model.ViewModels)
+                {
+                    <section class="hits" id="hits">
+                        <div class="container">
+
+                            <div class="hits-offer">
+                                <h2>@group.CategoryName</h2>
+                            </div>
+
+                            <ul class="hits-list">
+                                @foreach (var t in group.Tovars)
+                                {
+                                    int disc = 0;
+                                    double discountPer = 0;
+                                    if (int.TryParse(Html.Action("GetDiscount", "ShopApi", t).ToString(), out var discountPrice2) && discountPrice2 != 0)
+                                    {
+                                        disc = discountPrice2;
+                                        discountPer = Math.Round((t.Cost - disc) / t.Cost * 100, 0);
+
+                                    }
+                                    <li class="product_element shop-item" data-id="@t.Id">
+
+                                        <button type="button" class="delete-comparison"><i class="fas fa-times"></i></button>
+
+                                        <div class="colors-block" style="margin-top: 15px;">
+                                            @foreach (var c in t.Colors.Select(cl => cl.Value))
+                                            {
+                                                if (c.Contains("#"))
+                                                {
+                                                    <div style="background-color:@c;  border: 1px solid black;" class="colors-block__item"></div>
+                                                }
+                                                else
+                                                {
+                                                    <div style="background-color:@c; background-image: url('@(Url.Action("GetCamouflage", "Values", new { name = c.ToLower() }))'); border: 1px solid black;" class="colors-block__item"></div>
+                                                }
+                                            }
+                                        </div>
+
+                                        <div class="sizes-block">
+
+                                            @foreach (var s in t.Sizes.Skip(0).Take(5).Select(cl => cl.Value))
+                                            {
+                                                <div class="sizes-block__item">@s</div>
+                                            }
+                                        </div>
+
+                                        <a href="/shop/shop-item?id=@t.Id" class="shop-item__img">
+                                            @if (t.IsRezervist)
+                                            {
+                                                <svg version="1.1" class="rez-mini-logo" height="26.91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                     viewBox="0 0 26 26.9" style="enable-background:new 0 0 26 26.9;" xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st0 {
+                                                        fill: #005BBC;
+                                                    }
+
+                                                    .st1 {
+                                                        fill: #FFD600;
+                                                    }
+</style>
+                                                <g>
+                                                <path class="st0" d="M4.9,6c0-0.5,0.4-1,1-1h6.2c0.5,0,1-0.5,1-1V1c-0.1-0.5-0.5-1-1-1H1C0.4,0,0,0.5,0,1v12.5h4.9V6z" />
+
+
+
+
+
+
+
+                                                <path class="st0" d="M25,0h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.4,1,1,1h2.9c0.5,0,1,0.5,1,1v3.9c0,0.5-0.4,1-1,1h-11c-0.5,0-1,0.5-1,1
+										v1.6H26V1C26,0.5,25.6,0,25,0z" />
+
+
+
+
+
+
+
+								</g>
+                                                <g>
+                                                <path class="st1" d="M25,21.9h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.5,1,1,1H25c0.5,0,1-0.5,1-1v-3C26,22.4,25.6,21.9,25,21.9z" />
+
+
+
+
+
+
+
+                                                <path class="st1" d="M0,13.5v12.4c0,0.5,0.4,1,1,1h2.9c0.5,0,1-0.5,1-1V13.5H0z" />
+
+
+
+
+
+
+
+                                                <path class="st1" d="M8.1,14.9c0,0.5,0.4,1,1,1H25c0.5,0,1-0.5,1-1v-1.4H8.1V14.9z" />
+
+
+
+
+
+
+
+								</g>
+							</svg>
+                                            }
+                                            <img src="@(Url.Action("GetImmage", "Values", new { id = t.Id }))" alt="jacket">
+
+                                        </a>
+                                        <div class="shop-item__rate">
+                                            @{
+                                                int numb = Convert.ToInt32(Math.Floor(t.Rating));
+                                                int drob = Convert.ToInt32((t.Rating * 10) - (numb * 10));
+
+                                            }
+                                            <div class="Stars" style="--rating: @numb.@drob;" aria-label="@t.Rating/5."></div>
+                                        </div>
+                                        <h4 class="shop-item__title">
+                                            @t.Name
+                                        </h4>
+                                        <p class="shop-item__price">
+                                            @if (disc != 0)
+                                            {
+                                                <p class="shop-item__price old-price" itemprop="price">
+                                                    @(t.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                                </p>
+                                                <p class="shop-item__price" itemprop="price">
+                                                    @disc
+                                                    @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="shop-item__price" itemprop="price">
+                                                    @(t.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                                </p>
+                                            }
+                                            @*@(t.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))*@
+                                        </p>
+                                        <div class="shop-item__btn-wrapper">
+                                            @if (!t.NotAvailable)
+                                            {
+                                                <button type="button" class="shop-item__to-cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                    @btn.Value("inBusket")
+                                                </button>
+                                            }
+                                            <div class="shop-item__btn-extra">
+
+
+                                                @if (t.IsInFavourites)
+                                                {
+                                                    <button type="button" class="add-to-favour" style="background-color: red"><i class="fas fa-heart"></i></button>
+                                                }
+                                                else
+                                                {
+                                                    <button type="button" class="add-to-favour"><i class="fas fa-heart"></i></button>
+                                                }
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="order-info-wrapper">
+
+                                @if (group.Tovars.Count() > 1)
+                                {
+                                    <a href="/compare/docomparison?categoryid=@group.CategoryId" style="margin-top:20px;" type="submit" class="to-comparison-btn">@Model.Value("doCompBtn")</a>
+                                }
+
+                            </div>
+                        </div>
+                    </section>
+                }
+            </div>
+        </div>
+    </div>
+</section>

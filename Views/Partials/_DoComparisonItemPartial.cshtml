@@ -1,0 +1,79 @@
+﻿@model ProductItemVM
+
+@using RezervistUmbraco.Models;
+@using RezervistUmbraco.ViewModels;
+
+
+    <div class="product_element do-comparison-item" data-id="@Model.Id">
+
+        <button type="button" class="delete-comparison"><i class="fas fa-times"></i></button>
+
+        <div class="do-comparison-item__add-wrap">
+            <a href="/shop/shop-item?id=@Model.Id" class="do-comparison-item__img">
+                <img src="@(Url.Action("GetImmage", "Values", new { id = Model.Id }))" alt="@Model.Name">
+            </a>
+            <div class="do-comparison-item__info">
+                <p class="do-comparison-item__info-text">
+                    @Model.Name
+                </p>
+                <div class=" comparison-btn-wrap">
+                    <div class="products-price">
+                        <span class="price" data-price="">
+                            @(Model.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH));
+                        </span>
+                    </div>
+
+                    <div class="shop-item__btn-extra comparison-btn-wrap-extra">
+                        @if (!Model.NotAvailable)
+                        {
+
+                            <button type="submit" class="shop-item__to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        }
+                        @if (Model.IsInFavourites)
+                        {
+                            <button type="submit" class="add-to-favour" style="background-color: red"><i class="fas fa-heart"></i></button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="add-to-favour"><i class="fas fa-heart"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="do-comparison-keys">
+            <p>@Model.Brand</p>
+            @*<div class="product-sizes__block">
+                @foreach (var s in Model.Sizes.Select(cl => cl.Value).ToList())
+                {
+                    <a class="prosuct-sizes__item prosuct-sizes__item-active">
+                        @s
+                    </a>
+                }
+            </div>
+            <p class="product-color__block">
+                @foreach (var c in Model.Colors.Select(cl => cl.Value).ToList())
+                {
+                    if (c.Contains("#"))
+                    {
+                        <span style="background-color:@c; border: 1px solid black;" class="product-color__item"></span>
+                    }
+                    else
+                    {
+                        <span style="background-color:@c; background-image: url('@(Url.Action("GetCamouflage", "Values", new { name = c.ToLower() }))'); border: 1px solid black;" class="product-color__item"></span>
+                    }
+
+                }
+            </p>*@
+            <p class="ex-hov-descr">@Model.Description</p>
+
+            @*<p>Літо</p>
+            <p>Зимовий</p>
+            <p>Бавовна</p>
+            <p>Водостійка , З капюшоном</p>
+            <p>Поліестер</p>
+
+            <p>Китай</p>*@
+        </div>
+    </div>

@@ -1,0 +1,116 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Register>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.Controllers;
+
+@{
+	Layout = "master.cshtml";
+
+	var registerModel = Members.CreateRegistrationModel();
+	registerModel.RedirectUrl = "/cabinet";
+
+	@*
+		Configurable here:
+
+		registerModel.RedirectUrl       - Optional. What path to redirect to if registration is successful.
+										  By default the member will be redirected to the current umbraco page
+										  unless this is specified.
+
+		registerModel.UsernameIsEmail   - the default is true
+										  if you want the username to be different from the email
+										  address, set this to true and add a new Username field in
+										  the form below
+
+										  @Html.LabelFor(m => registerModel.Username)
+										  @Html.TextBoxFor(m => registerModel.Username)
+										  @Html.ValidationMessageFor(m => registerModel.Username)
+	*@
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+
+
+<section class="registration" id="registration">
+	<div class="container">
+		<div class="registration-wrapper">
+			<h2 class="signIn-block__title signUp-block__title">
+				@Model.Value("title")
+			</h2>
+			@using (Html.BeginUmbracoForm<UmbracoIdentityAccountController>("HandleRegisterMember", null, new { @class = "signUp-form" }))
+			{
+				@*<form class="signUp-form" method="post" action="@Url.Action("Register", "Authentication")">*@
+				@Html.AntiForgeryToken()
+
+				<div class="sign-input-group validation" for="@Html.IdFor(m => registerModel.Name)">
+					@Html.TextBoxFor(m => registerModel.Username, new { @class = "sign-input", @id = "js-name-id" })
+					@*<input name="name" type="text" class="sign-input" id="js-name-id" placeholder="" required>*@
+					<span class="sign-bar"></span>
+					<label class="sign-label">@Model.Value("inputName")</label>
+
+				</div>
+				<div class="sign-input-group validation">
+					@Html.TextBoxFor(m => registerModel.Email, new { @class = "sign-input", @id = "js-email-id" })
+					@*<input name="email" type="text" class="sign-input" id="js-email-id" placeholder="" required>*@
+					<span class="sign-bar"></span>
+					<label class="sign-label">@Model.Value("inputEmail")</label>
+
+					<div class="val-tip email-validation-tip" id="email-message-block">
+						<span id="email-pass-message" class="invalid"><i class="fas fa-check"></i>E-mail</span>
+					</div>
+				</div>
+                <div class="sign-input-group validation">
+                    @Html.PasswordFor(m => registerModel.Password, new { @class = "sign-input signUp-pass", @id = "password" })
+                    @*<input name="pass" type="password" id="password" class="sign-input signUp-pass" placeholder="" required>*@
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputPass")</label>
+
+                    <div class="val-tip password-validation-tip" id="pass-message">
+                        <span id="length" class="invalid"><i class="fas fa-check"></i> @Model.Value("symbols")</span>
+                        <span id="letter" class="invalid"><i class="fas fa-check"></i> @Model.Value("lowercase")</span>
+                        <span id="capital" class="invalid"><i class="fas fa-check"></i> @Model.Value("uppercase")</span>
+                        <span id="number" class="invalid"><i class="fas fa-check"></i> @Model.Value("numbers")</span>
+
+                    </div>
+
+                </div>
+				<div class="sign-input-group validation" style="margin-bottom:5px;">
+					@Html.Password("repass", null, new { @class = "sign-input", @id = "confirm-password" })
+					@*<input name="repass" type="password" id="confirm-password" class="sign-input" placeholder="" required>*@
+					<span class="sign-bar"></span>
+					<label class="sign-label">@Model.Value("inputConfirmPass")</label>
+
+					<div class="val-tip conf-password-validation-tip" id="conf-pass-message-block">
+						<span id="conf-pass-message" class="invalid"><i class="fas fa-check"></i>@Model.Value("confirmPass")</span>
+					</div>
+				</div>
+				<div class="sign-input-group" style="padding:10px 0; margin: 0;">
+					<label class="label--checkbox" style="margin: 0 0 30px 0">
+						<input name="NotifyMe" type="checkbox" id="check" class="checkbox" value="true">
+						@Model.Value("notifyMe")
+					</label>
+				</div>
+
+
+				if (TempData["ErrorString"] != null)
+				{
+					<div id="error" style="padding: 15px 10px;">@TempData["ErrorString"]</div>
+				}
+				else
+				{
+					<div id="error"></div>
+				}
+
+				@Html.HiddenFor(m => registerModel.MemberTypeAlias)
+				@Html.HiddenFor(m => registerModel.RedirectUrl)
+				@Html.HiddenFor(m => registerModel.UsernameIsEmail)
+
+				<button type="submit" class="sign-btn signUp-btn submit-disabled" id="reg-submit">@Model.Value("submitBtn")</button>
+				@*</form>*@
+			}
+		</div>
+	</div>
+</section>

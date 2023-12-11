@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Neris-SemiBold';
+    src: url('fonts/Neris-SemiBold.otf');
+  }
+
+  @font-face {
+    font-family: 'Neris-Light';
+    src: url('fonts/Neris-Light.otf');
+  }
+
+  @font-face {
+    font-family: 'Neris-Black';
+    src: url('fonts/Neris-Black.otf');
+  }
+
+  @font-face {
+    font-family: 'Aero';
+    src: url('fonts/Aero.ttf');
+  }

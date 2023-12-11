@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Error404>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+<div class="error-page" style="background-image:url(@(Model.Value<IPublishedContent>("img")?.Url)">
+	<div class="container">
+		<div class="error-num">404</div>
+		<p class="err-mess">@Model.Value("title")</p>
+
+		<div class="err-btn-wrapper">
+			<a href="/@currLang" class="err-to-home">@Model.Value("main")</a>
+			<a href="/@currLang/shop" class="err-to-shop">@Model.Value("shop")</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model List<RezervistUmbraco.ViewModels.Home.CategoryVM>
+
+@using RezervistUmbraco.ViewModels.Shop
+
+@{ 
+    var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+}
+
+@foreach (var cat in Model.OrderBy(x => x.OrderId))
+{
+    <li>
+        @{
+            ((ShopIndexVM)ViewBag.ShopIndexVM).Filtration.CategoryId = cat.Id;
+        }
+        @if (cat.SubCategories.Count > 0)
+        {
+            <a href="/@currLang/Shop?req=@(((ShopIndexVM)ViewBag.ShopIndexVM).GetMyselfSerialization())"><span>@cat.Name</span><span><i class="fas fa-caret-right"></i></span></a>
+            <ul class="sub-menu">
+                @Html.Partial("_CategoryItemPartial", cat.SubCategories)
+            </ul>
+        }
+        else
+        {
+            <a href="/@currLang/Shop?req=@(((ShopIndexVM)ViewBag.ShopIndexVM).GetMyselfSerialization())"><span>@cat.Name</span></a>
+        }
+    </li>
+}

@@ -1,0 +1,8 @@
+.viewd-prod-block .viewed-prod .add-to-favour{
+    color: #fff !important;
+}
+
+.viewd-prod-block{
+    display: flex;
+    flex-wrap: wrap;
+}

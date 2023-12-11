@@ -1,0 +1,56 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleUmbracoVM<List<CommentVM>>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels.Cabinet;
+
+@{
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+
+<section class="cabinet">
+	<div class="container">
+		<h2 class="cabinet-title">@Model.Value("title")</h2>
+		<div class="cabinet-wrapper">
+			<div class="cabinet-left-side">
+				@Html.Partial("_CabnetNavPartial")
+			</div>
+			<div class="cabinet-right-side">
+
+
+
+				<div class="my-reviews-slider">
+					@foreach (var c in Model.ViewModel)
+                    {
+						<div class="self-data-block">
+							<div class="self-main-data">
+								<div class="self-main-data__info-block">
+									<p class="self-main-data__value">
+										<a href="/shop/shop-item?id=@c.Comment.ProductId" style="color:black">
+											@c.ProductName
+										</a>
+									</p>
+
+								</div>
+
+								<div class="self-main-data__info-block">
+									<p class="self-main-data__value">@c.Comment.Text</p>
+								</div>
+
+								<div class="self-main-data__info-block">
+									<p class="self-main-data__value">@c.Comment.Time.ToShortDateString() @c.Comment.Time.ToShortTimeString()</p>
+								</div>
+							</div>
+
+						</div>
+                    }
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</section>

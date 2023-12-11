@@ -1,0 +1,36 @@
+﻿.cookies-navbar {
+    background-color: rgba(0,0,0,0.8);
+    padding: 10px;
+    position: fixed;
+    height: auto;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.cookies-navbar.hidden {
+   visibility: hidden
+}
+
+.cookies-navbar p {
+    color: #fff;
+    font-size: 1.37em;
+    margin-bottom: 15px;
+}
+
+.cookies-navbar .navbar-right {
+    display: flex;
+}
+
+.cookies-navbar a, .cookies-navbar button {
+    font-weight: 400;
+    padding: 8px 0;
+    text-align: center;
+    width: 7em;
+    margin-right: 5px;
+    color: #fff;
+    display: block;
+    border: 1px solid #fff;
+    font-size: 1.25em;
+}
+

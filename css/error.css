@@ -1,0 +1,56 @@
+﻿.error-page{
+    min-height: 100vh;
+    background-image: url(../images/error.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 300px 0 279px;
+}
+
+.error-num {
+    font-size: 200px;
+    letter-spacing: 0.05em;
+    color: #DCC28B;
+    font-family: 'Aero';
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.err-mess {
+    font-size: 26px;
+    line-height: 23px;
+    text-align: center;
+    font-family: 'Neris-Light';
+    color: #fff;
+    margin-bottom: 100px;
+}
+
+.err-btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.err-to-home,
+.err-to-shop {
+    width: 400px;
+    max-width: 40%;
+    padding: 22px 10px;
+    border: 2px solid #AAA050;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-family: 'Neris-SemiBold';
+}
+
+
+
+.err-to-home {
+    background: #AAA050;
+    margin-right: 30px;
+}
+
+.err-to-shop {
+    font-family: 'Neris-Black';
+}

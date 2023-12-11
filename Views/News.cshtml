@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.News>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+
+<section class="news" id="news">
+	<div class="container">
+		<h2 class="contacts__title">@Model.Value("title")</h2>
+
+		<div class="news-block">
+			@{
+				var newsItems = Umbraco.Content(Guid.Parse("c12091ef-a97c-4ca2-865c-c9b03c9ce62d")).ChildrenOfType("newsItem").Where(x => x.IsVisible()).OrderBy(x => x.CreateDate).Reverse();
+			}
+			@foreach (var news in newsItems)
+			{
+				<div class="news-block__item">
+					<div class="news-block__img" style="background-image: url(@(news.Value<IPublishedContent>("image")?.Url));"></div>
+
+					<div class="news-block__info">
+						<h4 class="news-block__title">@news.Value("title")</h4>
+						<p class="news-block__text">
+							@news.Value("anons")
+						</p>
+						<a href="@(news?.Url)" class="news-block__read-more">@Model.Value("readMore")</a>
+						<div class="news-block__tips">
+							<p class="news-block__date">@news.CreateDate.ToString("dd | MM | yyyy")</p>
+							<div class="news-block__social">
+								<a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
+								<a href="#" class="social-link"><i class="fab fa-twitter-square"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>

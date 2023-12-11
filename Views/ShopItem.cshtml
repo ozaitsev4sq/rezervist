@@ -1,0 +1,762 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleUmbracoVM<ProductItemVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels;
+@using RezervistUmbraco.ViewModels.Shop;
+@using RezervistUmbraco.ViewModels.Home;
+@using RezervistUmbraco.Controllers;
+@using RezervistUmbraco.Models;
+
+@using RezervistUmbraco.ViewModels.Cabinet;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+
+@{
+    Layout = "master.cshtml";
+}
+
+@section Title{
+    <title>Rezervist | @Model.ViewModel.Name</title>
+}
+
+<section class="product" id="product">
+<div class="container">
+<div class="breadcrumbs breadcrumbs-product">
+    @{ ShopIndexVM ShopModel = new ShopIndexVM(); }
+
+    @for (int i = 0; i < ((List<CategoryVM>) ViewBag.BreadcrumbsCategories).Count - 1; i++)
+    {
+        if (i != ((List<CategoryVM>) ViewBag.BreadcrumbsCategories).Count - 1)
+        {
+            ShopModel.Filtration.CategoryId = ViewBag.BreadcrumbsCategories[i].Id;
+
+            <a href="/shop?req=@ShopModel.GetMyselfSerialization()">@ViewBag.BreadcrumbsCategories[i].Name</a>
+            <span>></span>
+        }
+        else
+        {
+            <a href="/shop?req=@ShopModel.GetMyselfSerialization()">@ViewBag.BreadcrumbsCategories[i].Name</a>
+        }
+    }
+    <span> @Model.ViewModel.Name</span>
+
+</div>
+<div class="product-offer-nav">
+    <ul class="product-menu">
+        <li class="product-menu__item">
+            <a href="#" class="product-active-link js-prodNav-all">
+                @Model.Value("all")
+            </a>
+        </li>
+        <li class="product-menu__item">
+            <a href="#" class="js-prodNav-descr">
+                @Model.Value("descAndChar")
+            </a>
+        </li>
+        <li class="product-menu__item">
+            <a href="#" class="js-prodNav-photo">
+                @Model.Value("photo")
+            </a>
+        </li>
+        @*li class="product-menu__item">
+                        <a href="#" class="js-prodNav-video">
+                            @@localizer["VideoTitle"] VideoTitle
+                        </a>
+                    </@*li>*@
+        <li class="product-menu__item">
+
+            <a href="#" class="js-prodNav-feedbacks">
+                @Model.Value("custReviews")
+                <span id="comments_count" class="feedbacks-count">@Model.ViewModel.Comments.Count</span>
+            </a>
+        </li>
+    </ul>
+    <p class="product-code">
+        @Model.Value("artykul"): @Model.ViewModel.Articul
+    </p>
+    <a href="/shop/shop-item?id=@ShopApiController.GetNextProductId(Model.ViewModel.Id)" class="next-product">
+        <span>@Model.Value("nextProd")</span> <i class="fas fa-caret-right"></i>
+    </a>
+</div>
+
+<div class="product-offer-block" itemscope itemtype="http://schema.org/Product">
+<div class="product-block-left">
+    <div class="product-characteristics-info product-characteristics-info-forJs d-none">
+
+        @if (!string.IsNullOrEmpty(Model.ViewModel.Description))
+        {
+            <div class="product-exposition">
+                <h5 class="product-main-information-title">@Model.Value("desc")</h5>
+                <div class="product-exposition-info">
+                    <p class="product-exposition-text">
+                        @Model.ViewModel.Description
+                    </p>
+                </div>
+            </div>
+        }
+
+        <div class="product-exposition">
+            <h5 class="product-main-information-title">@Model.Value("charact")</h5>
+
+
+            @foreach (var p in Model.ViewModel.Properties)
+            {
+                <div class="product-characteristics-info__block">
+                    <p class="product-characteristics__key">@(p.Name.Contains("Колі") ? "Колір" : p.Name)</p>
+                    @{
+                        string props = string.Empty;
+                    }
+                    @for (int i = 0; i < p.Values.Count; i++)
+                    {
+                        if (i != p.Values.Count - 1)
+                        {
+                            props += $"{p.Values[i]}, ";
+                        }
+                        else
+                        {
+                            props += $"{p.Values[i]}";
+                        }
+                    }
+                    <p class="product-characteristics__value">@props</p>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div class="product-main-gallery js-toggle-section" id="js-gallery">
+        <div class="product-main-gallery__hero">
+            @{
+                var imgSrc = String.Format("data:image/gif;base64,{0}", Model.ViewModel.Images.FirstOrDefault());
+            }
+
+            <img src="@imgSrc" alt="@Model.ViewModel.Name">
+            @*<img src="@(Url.Action("GetImmageById", "Values", new { id = Model.ViewModel.Images.FirstOrDefault() }))" alt="@Model.ViewModel.Name">*@
+        </div>
+        <div class="product-main-gallery__thumbs">
+            @for (int i = 0; i < Model.ViewModel.Images.Take(5).ToList().Count; i++)
+            {
+                if (i == 0)
+                {
+                    imgSrc = String.Format("data:image/gif;base64,{0}", Model.ViewModel.Images[i]);
+
+                    <a data-gallery="thumb" class="product-img-is-active product-main-gallery__thumbs-item">
+                        <img src="@imgSrc" itemprop="image" alt="@Model.ViewModel.Name">
+                        @*<img src="@(Url.Action("GetImmageById", "Values", new { id = Model.ViewModel.Images[i] }))" alt="@Model.ViewModel.Name">*@
+                    </a>
+                }
+                else
+                {
+                    imgSrc = String.Format("data:image/gif;base64,{0}", Model.ViewModel.Images[i]);
+
+                    <a class="product-main-gallery__thumbs-item" data-gallery="thumb">
+                        <img src="@imgSrc" itemprop="image" alt="@Model.ViewModel.Name">
+                        @*<img src="@(Url.Action("GetImmageById", "Values", new { id = Model.ViewModel.Images[i] }))" alt="@Model.ViewModel.Name">*@
+                    </a>
+                }
+            }
+        </div>
+    </div>
+
+
+    <div class="product-main-photos-forjs d-none">
+        @for (int i = 0; i < Model.ViewModel.Images.Take(8).ToList().Count; i++)
+        {
+            imgSrc = String.Format("data:image/gif;base64,{0}", Model.ViewModel.Images[i]);
+
+            <a data-lightbox="product" class="product-main-photos__item">
+                <img src="@imgSrc" alt="@Model.ViewModel.Name">
+                @*<img src="@(Url.Action("GetImmageById", "Values", new { id = Model.ViewModel.Images[i] }))" alt="@Model.ViewModel.Name">*@
+            </a>
+        }
+    </div>
+
+
+    @*<div class="player player-js d-none">
+        <video src="./video/videoplayback.mp4" itemprop="video" controls></video>
+    </div>*@
+
+    <div class="product-feedbacks-block product-feedbacks-block-js d-none">
+        <div class="product-feedbacks-offer product-feedbacks-offer-js">
+            @*<div class="product-feedbacks-offer__info">
+                                <p class="feedbacks-offer-count feedbacks-offer-count-min">CustomerReviews</p>
+                            </div>*@
+            @if (User.Identity.IsAuthenticated)
+            {
+                var commentVM = new RezervistUmbraco.ViewModels.Shop.AddCommentVM() {ProductId = Model.ViewModel.Id, CommentId = null};
+
+                <a href="#" class="add-feedback-btn" id="addFeedback">@Model.Value("writeReview")</a>
+
+                <form class="add-coomment-form d-none" id="@((commentVM.CommentId == null ? "add_comment_id" : commentVM.CommentId.ToString()) + commentVM.main)" method="post">
+                    <input type="hidden" class="productCode" data-productCode="@commentVM.ProductId"/>
+                    <input type="hidden" class="commentId" data-commentId="@commentVM.CommentId"/>
+
+                    <textarea class="comment-input" placeholder="@Model.Value("leftComment")"></textarea>
+
+
+                    <div class="commet-form-btn-wrap ">
+                        <button type="submit" class="add-feedback-btn">@Model.Value("comment")</button>
+                        <button type="button" class="add-feedback-btn reset-comment">@Model.Value("resetComm")</button>
+                    </div>
+
+                </form>
+            }
+            else
+            {
+                <p>@Model.Value("needTo")</p>
+            }
+            @*<a href="#" class="feedback-sort-btn">
+                                SortBy <span>SortData</span> <i class="fas fa-sort-down"></i>
+                            </a>*@
+        </div>
+
+        <div class="comment-list" id="comment_list">
+
+            @foreach (var c in Model.ViewModel.Comments)
+            {
+                <div class="comment-list__item" data-id="@c.Id">
+                    <div class="comment-list__personal">
+                        <p class="comment-list__commentator">@c.UserName</p>
+                        <p class="comment-list__date">@c.Time.ToShortDateString() @c.Time.ToShortTimeString()</p>
+                    </div>
+                    <div class="comment-list__feedback">
+                        <p class="comment-list__feedback-text">@c.Text</p>
+                    </div>
+                </div>
+
+                foreach (var r in c.Replies)
+                {
+                    <div class="comment-list__item comment-list__item-reply">
+                        <div class="comment-list__personal">
+                            <p class="comment-list__commentator">@r.UserName</p>
+                            <p class="comment-list__date">@r.Time.ToShortDateString() @r.Time.ToShortTimeString()</p>
+                        </div>
+                        <div class="comment-list__feedback">
+                            <p class="comment-list__feedback-text">@r.Text</p>
+                            @*<div class="reply-block">
+                                                <a href="#" class="reply-btn">Відповісти</a>
+                                            </div>*@
+                        </div>
+                    </div>
+                }
+                            @*if (User.Identity.IsAuthenticated)
+                                {
+                                    <div class="reply-block">
+                                        <a href="#" class="reply-btn">Reply</a>
+
+                                        @Html.Partial("_AddCommentPartial", new RezervistUmbraco.ViewModels.Shop.AddCommentVM() { ProductId = Model.ViewModel.Code, CommentId = c.Id });
+
+                                    </div>
+                                }*@
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="product_element product-block-right" data-id="@Model.ViewModel.Id" data-CartItemId="@Model.ViewModel.Id">
+<div class="product-description">
+<h3 class="product-title" itemprop="name">
+    @Model.ViewModel.Name
+</h3>
+
+<div class="product-brand product-mod-block">
+    <p class="product-brand__title product-sub-title">
+        @Model.Value("brand")
+    </p>
+    <p class="product-brand__name" itemprop="brand">
+        @Model.ViewModel.Brand
+    </p>
+</div>
+
+<div class="star-block product-mod-block">
+    <div class="star-block__title">
+        @Model.Value("rating")
+    </div>
+    <div class="star-block__title">
+        @Model.Value("countStars"): @Model.ViewModel.RatesAmount
+    </div>
+    @{
+        int numb = Convert.ToInt32(Math.Floor(Model.ViewModel.Rating));
+        int drob = Convert.ToInt32((Model.ViewModel.Rating * 10) - (numb * 10));
+    }
+    <div class="Stars" style="--rating: @numb.@drob;" aria-label="@Model.ViewModel.Rating/5." title="@Model.Value("needTo")"></div>
+
+    @*<div class="star-rating-wrapper" itemprop="ratingValue">
+                                <div id="rateYo_main" data-rateyo-rating="@Model.ViewModel.Rating" data-rateyo-read-only="true"></div>
+                                <div id="rateYo_main_preview" class="rating-val" data-rating-value="@Model.ViewModel.Rating"></div>
+                            </div>*@
+</div>
+
+@*@if (Model.ViewModel.Colors.Count > 0)
+{
+    var distinctColor = Model.ViewModel.Colors.Select(x => x.Value).ToList().Where(x => x != null).Distinct();
+    if (distinctColor.Count() <= 0)
+    {
+        distinctColor = Model.ViewModel.Colors.Select(x => x.Name).ToList().Distinct();
+    }
+    <div class="product-color product-mod-block">
+        <p class="product-color__title product-sub-title">
+            @Model.Value("colours")
+        </p>
+
+        <div class="product-color__block">
+
+
+
+            @foreach (var c in distinctColor)
+            {
+                if (!c.Contains("#"))
+                {
+                    if (Model.ViewModel.DefaultVariant != null && Model.ViewModel.DefaultVariant?.Key?.ToLower() == c?.ToLower())
+                    {
+                        <button style="background-color: @c; background-image: url('@(Url.Action("GetCamouflage", "Values", new {name = c.ToLower()}))')" class="product-color__item product-color__item-active" id="selected_color_id" data-product_color="@c"></button>
+                    }
+                    else
+                    {
+                        <button style="background-color: @c; background-image: url('@(Url.Action("GetCamouflage", "Values", new {name = c.ToLower()}))')" class="product-color__item" data-product_color="@c" onclick="location.href = '@Url.Action("Create", "User")'"></button>
+                    }
+                }
+                else
+                {
+                    if (Model.ViewModel.DefaultVariant != null && Model.ViewModel.DefaultVariant?.Key?.ToLower() == c?.ToLower())
+                    {
+                        <button style="background-color: @c;" class="product-color__item product-color__item-active" id="selected_color_id" data-product_color="@c"></button>
+                    }
+                    else
+                    {
+                        <button style="background-color: @c;" class="product-color__item" data-product_color="@c"></button>
+                    }
+                }
+            }
+        </div>
+    </div>
+}*@
+
+@if (Model.ViewModel.Sizes.Count > 0)
+{
+    <div class="product-sizes product-mod-block">
+        <p class="product-color__title product-sub-title">
+            @Model.Value("sazes")
+        </p>
+
+        <div class="product-sizes__wrapper">
+            <div class="product-sizes__block" id="product_item_sizes_block_id">
+                @foreach (var s in Model.ViewModel.Sizes)
+                {
+                    if (Model.ViewModel.DefaultVariant != null && Model.ViewModel.DefaultVariant?.Value.Key?.ToLower() == s.Value.ToLower())
+                    {
+                        <button class="prosuct-sizes__item prosuct-sizes__item-active" id="size_@s.Value" disabled>
+                            @s.Value
+                        </button>
+                    }
+                    else if (s.IsDisabled)
+                    {
+                        <button class="prosuct-sizes__item prosuct-sizes__item__disabled" id="size_@s.Value" disabled>
+                            @s.Value
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="prosuct-sizes__item" data-product_size="@s.Value" id="size_@s.Value">
+                            @s.Value
+                        </button>
+                    }
+                }
+            </div>
+            @*<a href="#" class="sizes-table" target="_black">Таблиця розмірів</a>*@
+        </div>
+    </div>
+}
+
+<div class="products-price-info">
+    <div class="products-price">
+        <div class="item-price-wrap">
+
+        </div>
+        <div class="item-price-wrap" id="product_item_price" data-price="@Model.ViewModel.Id" itemprop="price">
+
+
+
+
+            @if (!Model.ViewModel.IsRezervist && int.TryParse(Html.Action("GetDiscount", "ShopApi", Model.ViewModel).ToString(), out var discountPrice) && discountPrice != 0)
+            {
+                <p class="shop-item__price old-price">
+                    @(Model.ViewModel.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                </p>
+                <p class="shop-item__price" itemprop="price">
+                    @discountPrice
+                    @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                </p>
+            }
+            else
+            {
+                <p class="shop-item__price" itemprop="price">
+                    @(Model.ViewModel.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                </p>
+            }
+        </div>
+    </div>
+    <div class="product-availability">
+        @if (!Model.ViewModel.NotAvailable)
+        {
+            <p>@Model.Value("inStock")</p>
+        }
+        else
+        {
+            <p>@Model.Value("notInStock")</p>
+        }
+    </div>
+</div>
+
+
+<div class="product-order-block">
+    <!--<div class="product-counter">-->
+    @*@{
+                                var quantityItem = Model.ViewModel.Id;
+                            }*@
+
+
+    <!--<button type="button" class="counter-btn minus_counter"><i class="fas fa-minus"></i></button>
+    <input type="number" name="counter" min="1" value="1"  class="counter prod-count count-input" disabled>
+    <button type="button" class="counter-btn plus_counter"><i class="fas fa-plus"></i></button>
+                            
+    </div>-->
+
+    @if (!Model.ViewModel.NotAvailable)
+    {
+        <button class="product-cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            @Model.Value("addToBasket")
+        </button>
+    }
+
+
+    @if (Model.ViewModel.IsInFavourites)
+    {
+        <button type="button" class="toFavour product-extra-btn" style="background-color: red">
+            <i class="fas fa-heart"></i>
+        </button>
+    }
+    else
+    {
+        <button type="button" class="toFavour product-extra-btn">
+            <i class="fas fa-heart"></i>
+        </button>
+    }
+
+    @if (Model.ViewModel.IsInComparisons)
+    {
+        <button type="button" class="toCompar product-extra-btn" style="background-color: green">
+            <i class="fas fa-balance-scale"></i>
+        </button>
+    }
+    else
+    {
+        <button type="button" class="toCompar product-extra-btn">
+            <i class="fas fa-balance-scale"></i>
+        </button>
+    }
+</div>
+</div>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="star-block">
+        <div class="star-block__title" title="need reg">
+            @Model.Value("rateIt")
+        </div>
+        <div class="star-rating-wrapper">
+            <div id="rateYo" data-rateyo-full-star="true" data-rateyo-rating="@Model.ViewModel.Rating" data-rateyo-read-only="false"></div>
+            <div class="rating-val" data-rating-value=""></div>
+            <div id="rating_productCode" data-productCode="@Model.ViewModel.Id" hidden></div>
+        </div>
+    </div>
+}
+
+
+<div class="share-block share-product-block">
+    <p class="share-block__title">
+        @Model.Value("shareWith")
+    </p>
+    <div class="share-block__icons">
+        <a href="#" class="share-block__icons-item twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="share-block__icons-item facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="share-block__icons-item instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</div>
+</div>
+
+</div>
+
+@if (((List<ProductItemVM>) ViewBag.RecomendedItems).Count > 0)
+{
+    <div class="customer-reviews-block">
+
+        <div class="reviews-offer">
+
+
+            <h2>@Model.Value("recomended")</h2>
+            @*@if (((List<ProductItemVM>)ViewBag.RecomendedItems).Count > 10)
+                        {
+                            <a asp-controller="Shop" asp-action="GetRecomendedProducts" asp-route-id="@Model.ViewModel.Id" class="see-all-btn">ViewAll <i class="fas fa-caret-right"></i></a>
+                        }*@
+        </div>
+
+        <ul class="customer-reviews">
+
+            @foreach (var rec in ViewBag.RecomendedItems)
+            {
+                var productItem = (ProductItemVM) rec;
+
+
+                <li class="Model_element shop-item @(productItem.NotAvailable ? "out-of-stock" : string.Empty)" data-id="@productItem.Id">
+
+                    <div class="colors-block">
+                        @*@foreach (var c in productItem.Colors)
+                                    {
+                                        <div style="background-color:@c; border: 1px solid black;" class="colors-block__item"></div>
+                                    }*@
+                    </div>
+
+                    <div class="sizes-block">
+
+                        @*@foreach (var s in productItem.Sizes.Skip(0).Take(5).ToList())
+                                    {
+                                        <div class="sizes-block__item">@s</div>
+                                    }*@
+                    </div>
+
+                    <a href="/shop/shop-item?id=@productItem.Id" class="shop-item__img">
+                        @if (productItem.IsRezervist)
+                        {
+                            <svg version="1.1" class="rez-mini-logo" height="26.91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 26 26.9" style="enable-background: new 0 0 26 26.9;" xml:space="preserve">
+                                <style type="text/css">
+                                    .st0 { fill: #005BBC; }
+
+                                    .st1 { fill: #FFD600; }
+                                </style>
+                                <g>
+                                    <path class="st0" d="M4.9,6c0-0.5,0.4-1,1-1h6.2c0.5,0,1-0.5,1-1V1c-0.1-0.5-0.5-1-1-1H1C0.4,0,0,0.5,0,1v12.5h4.9V6z"/>
+
+
+                                    <path class="st0" d="M25,0h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.4,1,1,1h2.9c0.5,0,1,0.5,1,1v3.9c0,0.5-0.4,1-1,1h-11c-0.5,0-1,0.5-1,1
+												v1.6H26V1C26,0.5,25.6,0,25,0z"/>
+
+
+                                </g>
+                                <g>
+                                    <path class="st1" d="M25,21.9h-7.8c-0.5,0-1,0.5-1,1v3c0,0.5,0.5,1,1,1H25c0.5,0,1-0.5,1-1v-3C26,22.4,25.6,21.9,25,21.9z"/>
+
+
+                                    <path class="st1" d="M0,13.5v12.4c0,0.5,0.4,1,1,1h2.9c0.5,0,1-0.5,1-1V13.5H0z"/>
+
+
+                                    <path class="st1" d="M8.1,14.9c0,0.5,0.4,1,1,1H25c0.5,0,1-0.5,1-1v-1.4H8.1V14.9z"/>
+
+
+                                </g>
+                            </svg>
+                        }
+
+                        <img src="@(Url.Action("GetImmage", "Values", new {id = productItem.Id}))" alt="@productItem.Name">
+                    </a>
+                    <div class="shop-item__rate" title="need registration">
+                        @{
+                            int _numb = Convert.ToInt32(Math.Floor(productItem.Rating));
+                            int _drob = Convert.ToInt32((productItem.Rating * 10) - (numb * 10));
+
+                        }
+                        <div class="Stars" style="--rating: @_numb.@_drob;" aria-label="@productItem.Rating/5."></div>
+                    </div>
+                    <h4 class="shop-item__title">
+                        @productItem.Name
+                    </h4>
+                    <p class="shop-item__price">
+
+                        @productItem.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+
+                    </p>
+                    <div class="shop-item__btn-wrapper">
+
+                        @if (!productItem.NotAvailable)
+                        {
+                            <button type="button" class="shop-item__to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                @Model.Value("addToBasket")
+                            </button>
+                        }
+                        <div class="shop-item__btn-extra">
+
+
+                            @if (productItem.IsInFavourites)
+                            {
+                                <button type="button" class="add-to-favour" style="background-color: red">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="add-to-favour">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            }
+
+                            @if (productItem.IsInComparisons)
+                            {
+                                <button type="button" class="add-to-comparison" style="background-color: green">
+                                    <i class="fas fa-balance-scale"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="add-to-comparison">
+                                    <i class="fas fa-balance-scale"></i>
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="product-main-information js-toggle-section">
+    <div class="product-characteristics">
+        <h5 class="product-main-information-title">@Model.Value("charact")</h5>
+        <div class="product-characteristics-info">
+
+            @foreach (var p in Model.ViewModel.Properties)
+            {
+                <div class="product-characteristics-info__block">
+                    <p class="product-characteristics__key">@p.Name</p>
+                    @{
+                        string props = string.Empty;
+                        string[] p2 = new string[2];
+                        var colorCode = string.Empty;
+                        var colorName = string.Empty;
+                    }
+                    @for (int i = 0; i < p.Values.Count; i++)
+                    {
+                        if (i != p.Values.Count - 1)
+                        {
+                            props += $"{p.Values[i]},";
+                        }
+                        else
+                        {
+                            props += $"{p.Values[i]}";
+                            p2 = props.Split('#');
+
+                            if (p2 != null && p2.Count() > 1)
+                            {
+                                colorCode = "#" + p2.Last();
+                                colorName = p2.FirstOrDefault();
+                            }
+                            else if (p2 != null)
+                            {
+                                colorName = p2.FirstOrDefault();
+                            }
+                        }
+                    }
+                    <p class="product-characteristics__value">@colorName</p>
+                    <div style="background-color: @colorCode; background-image: url('@(Url.Action("GetCamouflage", "Values", new {name = colorName?.ToLower()}))'); background-size: cover;" class="product-characteristics__value"></div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="product-exposition">
+        <h5 class="product-main-information-title">@Model.Value("desc")</h5>
+        <div class="product-exposition-info">
+            <p class="product-exposition-text">
+                @Model.ViewModel.Description
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="product-feedbacks-block js-toggle-section">
+
+    <div class="product-feedbacks-offer">
+        <div class="product-feedbacks-offer__info">
+            <p class="feedbacks-offer-count">
+                @Model.Value("custReviews") <span id="main_comments_count">@Model.ViewModel.Comments.Count</span>
+            </p>
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            var commentVM = new RezervistUmbraco.ViewModels.Shop.AddCommentVM() {ProductId = Model.ViewModel.Id, CommentId = null, main = "main"};
+
+            <a href="#" class="add-feedback-btn" id="addFeedback_main">@Model.Value("writeReview")</a>
+
+            <form class="add-coomment-form d-none" id="@((commentVM.CommentId == null ? "add_comment_id" : commentVM.CommentId.ToString()) + commentVM.main)" method="post">
+                <input type="hidden" class="productCode" data-productCode="@commentVM.ProductId"/>
+                <input type="hidden" class="commentId" data-commentId="@commentVM.CommentId"/>
+
+                <textarea class="comment-input" placeholder="@Model.Value("leftComment")"></textarea>
+
+
+                <div class="commet-form-btn-wrap ">
+                    <button type="submit" class="add-feedback-btn">@Model.Value("comment")</button>
+                    <button type="button" class="add-feedback-btn reset-comment">@Model.Value("resetComm")</button>
+                </div>
+
+            </form>
+        }
+    </div>
+
+
+    <div class="comment-list js-main-comments-list" id="main_comment_list">
+        @foreach (var c in Model.ViewModel.Comments)
+        {
+            <div class="comment-list__item">
+                <div class="comment-list__personal">
+                    <p class="comment-list__commentator">@c.UserName</p>
+                    <p class="comment-list__date">@c.Time.ToShortDateString() @c.Time.ToShortTimeString()</p>
+                </div>
+                <div class="comment-list__feedback">
+                    <p class="comment-list__feedback-text">@c.Text</p>
+
+
+                </div>
+            </div>
+            <div data-id="@c.Id">
+                @foreach (var r in c.Replies)
+                {
+                    <div>Відповіді</div>
+
+                    <div class="comment-list__item comment-list__item-reply">
+                        <div class="comment-list__personal">
+                            <p class="comment-list__commentator">@r.UserName</p>
+                            <p class="comment-list__date">@r.Time.ToShortDateString() @r.Time.ToShortTimeString()</p>
+                        </div>
+                        <div class="comment-list__feedback">
+                            <p class="comment-list__feedback-text">@r.Text</p>
+                            @*<div class="reply-block">
+                                            <a href="#" class="reply-btn">Відповісти</a>
+                                        </div>*@
+                        </div>
+                    </div>
+                }
+                @*@if (signInManager.IsSignedIn(User))
+                            {
+                                <div class="reply-block">
+                                    <a href="#" class="reply-btn" id="@($"{c.Id.ToString()}_button_main")">@localizer["Reply"]</a>
+
+                                    <partial name="~/Views/Shop/_AddCommentPartial.cshtml" model="@(new RezervistUmbraco.ViewModels.Shop.AddCommentVM() { ProductId = Model.ViewModel.Code, CommentId = c.Id, main = "main" })" />
+                                </div>
+                            }*@
+            </div>
+        }
+    </div>
+</div>
+</div>
+</section>

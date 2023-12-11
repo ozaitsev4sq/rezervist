@@ -1,0 +1,268 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleUmbracoVM<PaymentProcessVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels.Cabinet;
+@using RezervistUmbraco.Models;
+
+@{
+    Layout = "master.cshtml";
+}
+
+@section Title{
+    <title>Rezervist | @Model.Value("title")</title>
+}
+
+<section class="payment-process" id="data-form">
+<div class="container">
+<h2 class="pay-title">
+    @Model.Value("title")
+</h2>
+<form action="@Url.Action("CreateOrder", "ShopApi")" method="post" class="order-form payment-process-wrapper">
+<div class="payment-person-info">
+
+    <div class="payment-contacts">
+        <div class="payment-contacts__title">
+            <div class="payment-number">1</div>
+            <h3>@Model.Value("mainTitle") </h3>
+        </div>
+        <div class="pay-form">
+
+            <div class="sign-input-group">
+                <input name="UserName" value="@Model.ViewModel.UserName" type="text" class="sign-input" placeholder="" required>
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputName")</label>
+            </div>
+            <div class="sign-input-group">
+                <input name="UserSurname" value="@Model.ViewModel.UserSurname" type="text" class="sign-input" placeholder="" required>
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputSurname")</label>
+            </div>
+
+            <div class="sign-input-group">
+                <input name="UserMiddleName" value="@Model.ViewModel.UserMiddleName" type="text" class="sign-input" placeholder="" required>
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputMidname")</label>
+            </div>
+
+
+            <div class="sign-input-group">
+                <input name="UserPhone" value="@Model.ViewModel.UserPhone" type="tel" data-inputmask="'mask': '+99 (999) 9999 999'" class="sign-input" placeholder="" required>
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputPhone")</label>
+            </div>
+            <div class="sign-input-group">
+                <input name="UserEmail" value="@Model.ViewModel.UserEmail" type="email" class="sign-input" placeholder="" required>
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputEmail")</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="pay-delivery">
+        <div class="payment-delivery__title">
+            <div class="payment-number">2</div>
+            <h3>@Model.Value("delTitle") </h3>
+        </div>
+        <div class="pay-delivery-form">
+            <div class="pay-del">
+
+                <label class="label--radio">
+                    <input onchange="Get_NP_Towns(this.value)" value="2" type="radio" class="radio deliveryType" name="DeliveryType">
+                    @Model.Value("ukrPost")
+                </label>
+                <label class="label--radio">
+                    <input onchange="Get_NP_Towns(this.value)" value="1" type="radio" class="radio deliveryType" name="DeliveryType">
+                    @Model.Value("newPost")
+                </label>
+                <label class="label--radio">
+                    <input onchange="Get_NP_Towns(this.value)" value="3" type="radio" class="radio deliveryType" name="DeliveryType">
+                    @Model.Value("bymyself")
+                </label>
+                <label class="label--radio">
+                    <input onchange="Get_NP_Towns(this.value)" value="4" type="radio" class="radio deliveryType" name="DeliveryType">
+                    @Model.Value("courier")
+                </label>
+            </div>
+
+            <div class="city-input-group">
+                <div class="sign-input-group">
+                    <input name="City" value="@Model.ViewModel.City" class="sign-input" list="Cities" id="city" placeholder="" autocomplete="off" required onchange="Get_NP_Departments(this.value)">
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputCity")</label>
+                    <datalist id="Cities">
+                    </datalist>
+                </div>
+            </div>
+
+
+            <div class="np-group d-none">
+                <div class="sign-input-group">
+                    <input name="Department" type="text" list="dep" id="Dep" autocomplete="off" class="sign-input" placeholder="">
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputNPDept")</label>
+                    <datalist id="dep">
+                    </datalist>
+                </div>
+            </div>
+            <div class="other-group d-none">
+                <div class="region">
+                    <div class="sign-input-group">
+                        <input name="Region" value="@Model.ViewModel.Region" type="text" class="sign-input" placeholder="">
+                        <span class="sign-bar"></span>
+                        <label class="sign-label">@Model.Value("inputRegion")</label>
+                    </div>
+
+                    <div class="sign-input-group">
+                        <input name="Area" value="@Model.ViewModel.Area" type="text" class="sign-input" placeholder="">
+                        <span class="sign-bar"></span>
+                        <label class="sign-label">@Model.Value("inputSubregion")</label>
+                    </div>
+
+                    <div class="sign-input-group">
+                        <input name="Index" value="@Model.ViewModel.Index" type="text" class="sign-input" placeholder="">
+                        <span class="sign-bar"></span>
+                        <label class="sign-label">@Model.Value("inputIndex")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="other-group d-none">
+                <div class="sign-input-group">
+                    <input name="Street" value="@Model.ViewModel.Street" type="text" class="sign-input" placeholder="">
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputStreet")</label>
+                </div>
+
+                <div class="sign-input-group">
+                    <input name="House" value="@Model.ViewModel.House" type="text" class="sign-input" placeholder="">
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputBuilding")</label>
+                </div>
+
+                <div class="sign-input-group">
+                    <input name="Appartment" value="@Model.ViewModel.Appartment" type="text" class="sign-input" placeholder="">
+                    <span class="sign-bar"></span>
+                    <label class="sign-label">@Model.Value("inputFlat")</label>
+                </div>
+            </div>
+            <div class="other-group d-none">
+                @*<div class="sign-input-group">
+                <input name="Street" value="@Model.ViewModel.Street" type="text" class="sign-input" placeholder="">
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputStreet")</label>
+            </div>
+
+            <div class="sign-input-group">
+                <input name="House" value="@Model.ViewModel.House" type="text" class="sign-input" placeholder="">
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputBuilding")</label>
+            </div>
+
+            <div class="sign-input-group">
+                <input name="Appartment" value="@Model.ViewModel.Appartment" type="text" class="sign-input" placeholder="">
+                <span class="sign-bar"></span>
+                <label class="sign-label">@Model.Value("inputFlat")</label>
+            </div>*@
+
+
+
+            </div>
+
+            <div class="pay-pay">
+                <h3 class="pay-tit">@Model.Value("payTitle")</h3>
+                <label class="label--radio">
+                    <input value="2" type="radio" class="radio" name="PaymentType" checked>
+                    @Model.Value("cash")
+                </label>
+                <label class="label--radio" style="display: none">
+                    <input value="1" type="radio" class="radio" name="PaymentType" disabled>
+                    @Model.Value("card")
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="payment-det">
+    <div class="pay-det-wrap">
+        <div class="advice">
+            <p>@Model.Value("consultation"):</p>
+            <a href="tel:@(Model.Value<string>("phoneNumber"))">
+                @(Model.Value<string>("phoneNumber"))
+            </a>
+        </div>
+        <div class="order-list">
+
+
+            @foreach (var c in Model.ViewModel.Cart)
+            {
+                <div class="order-list__item">
+                    <div class="order-list__item-img">
+
+                        <img src="@(Url.Action("GetImmage", "Values", new {id = c.ProductId}))" alt="@c.ProductName">
+
+                    </div>
+                    <div class="order-list__item-info">
+                        <div class="order-list__item-info-title">
+                            @c.ProductName (@c.SelectedAmount)
+                        </div>
+                        <div class="order-list__item-info-price-wrap">
+
+                            <div class="additional-item-info">
+                                @if (!string.IsNullOrEmpty(c.SelectedSize))
+                                {
+                                    <a class="prosuct-sizes__item prosuct-sizes__item-active">
+                                        @c.SelectedSize.ToUpper()
+                                    </a>
+                                }
+
+                                @if (!string.IsNullOrEmpty(c.SelectedColor))
+                                {
+                                    if (c.SelectedColor.Contains("#"))
+                                    {
+                                        <div style="background-color: @c.SelectedColor; border: 1px solid black;" class="product-color__item"></div>
+                                    }
+                                    else
+                                    {
+                                        <div style="background-color: @c.SelectedColor; background-image: url('@(Url.Action("GetCamouflage", "Values", new {name = c.SelectedColor.ToLower()}))'); border: 1px solid black;" class="product-color__item"></div>
+                                    }
+                                }
+                            </div>
+
+                            <div class="order-list__item-info-price-value">
+
+                                @(Html.Action("GetDiscountCost", "ShopApi", new { productId = c.ProductId })) @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                @*@((float)Math.Round(c.SelectedAmount * c.CostPerOne)) @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="order-list__sum">
+            <div class="order-list__item-info-price-wrap">
+                <div class="order-list__item-info-price-count">
+                    @(Model.Value("total"))
+                </div>
+
+                <div class="order-list__item-info-price-value">
+                    @Model.ViewModel.TotalCost @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                </div>
+            </div>
+        </div>
+        <div class="order-list__sum">
+            <a href="/cart" class="edit-order-link">@(Model.Value("changeOrder"))</a>
+        </div>
+
+        <div class="order-submit-wrapper">
+            <button type="submit" class="order-submit-btn">@Model.Value("confirm")</button>
+            <div class="loader-cart"></div>
+            <a href="@(Model.Value<IPublishedContent>("publicDoc")?.Url)" target="_blank" class="order-submit-rul">
+                @Model.Value("confirmInfo")
+            </a>
+        </div>
+    </div>
+</div>
+</form>
+</div>
+</section>

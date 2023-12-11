@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+<form method="post" action="@Url.Action("CreateFeedback", "FeedBack")">
+	<h3 class="contact-title">@Model.Value("callBack")</h3>
+	<input name="fName" type="text" class="contact-input" placeholder="@Model.Value("inputName")*" required>
+	<input name="fPhone" type="tel" class="contact-input" placeholder="@Model.Value("inputPhone")*" required>
+	<input name="fEmail" type="email" class="contact-input" placeholder="@Model.Value("inputEmail")*" required>
+	<textarea name="fMsg" class="contact-input contact-textarea" placeholder="@Model.Value("InputMsg")*"></textarea>
+	<button class="contact-btn" type="submit">@Model.Value("submit")</button>
+</form>

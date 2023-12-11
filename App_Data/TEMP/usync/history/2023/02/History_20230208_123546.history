@@ -1,0 +1,4712 @@
+{
+  "Action": "Import",
+  "Username": "ast@e-boks.dk",
+  "Server": "WIN-18TH89Q8COH",
+  "When": "2023-02-08T12:35:46.9665756+02:00",
+  "Changes": [
+    {
+      "HandlerAlias": "dataTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IDataType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\DataTypes\\DiscountsNestedContent.config",
+      "Name": "DiscountsNestedContent",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Config",
+          "Path": "Configuration",
+          "OldValue": "{\r\n  \"ContentTypes\": [\r\n    {\r\n      \"ncAlias\": \"discounts\",\r\n      \"ncTabAlias\": \"Content\",\r\n      \"nameTemplate\": \"{{$index}}. {{categoryName}} - {{discountValue}}%\"\r\n    }\r\n  ],\r\n  \"MinItems\": null,\r\n  \"MaxItems\": null,\r\n  \"ConfirmDeletes\": true,\r\n  \"ShowIcons\": true,\r\n  \"HideLabel\": true\r\n}",
+          "NewValue": "{\r\n  \"ContentTypes\": [\r\n    {\r\n      \"ncAlias\": \"discounts\",\r\n      \"ncTabAlias\": \"Content\",\r\n      \"nameTemplate\": \"{{categoryName}} - {{discountValue}}%\"\r\n    }\r\n  ],\r\n  \"MinItems\": null,\r\n  \"MaxItems\": null,\r\n  \"ConfirmDeletes\": true,\r\n  \"ShowIcons\": true,\r\n  \"HideLabel\": true\r\n}",
+          "Change": "Update"
+        }
+      ],
+      "key": "2b930c67-22c0-468a-99d9-5daf33326ba5"
+    },
+    {
+      "HandlerAlias": "dataTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IDataType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\DataTypes\\testListView.config",
+      "Name": "test - List view",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "Key",
+          "OldValue": "fac638d9-7f52-47fa-93cc-117dc0e45f75",
+          "NewValue": "3ae78307-7385-42e5-ad24-2d1da5d09c4c",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "DatabaseType",
+          "Path": "DatabaseType",
+          "OldValue": "Ntext",
+          "NewValue": "Nvarchar",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Config",
+          "Path": "Configuration",
+          "OldValue": "{\r\n  \"PageSize\": 10,\r\n  \"OrderBy\": \"SortOrder\",\r\n  \"OrderDirection\": \"asc\",\r\n  \"IncludeProperties\": [\r\n    {\r\n      \"alias\": \"sortOrder\",\r\n      \"header\": \"Sort order\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    },\r\n    {\r\n      \"alias\": \"updateDate\",\r\n      \"header\": \"Last edited\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    },\r\n    {\r\n      \"alias\": \"owner\",\r\n      \"header\": \"Created by\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    }\r\n  ],\r\n  \"Layouts\": [\r\n    {\r\n      \"name\": \"List\",\r\n      \"path\": \"views/propertyeditors/listview/layouts/list/list.html\",\r\n      \"icon\": \"icon-list\",\r\n      \"isSystem\": 1,\r\n      \"selected\": true\r\n    },\r\n    {\r\n      \"name\": \"Grid\",\r\n      \"path\": \"views/propertyeditors/listview/layouts/grid/grid.html\",\r\n      \"icon\": \"icon-thumbnails-small\",\r\n      \"isSystem\": 1,\r\n      \"selected\": true\r\n    }\r\n  ],\r\n  \"BulkActionPermissions\": {\r\n    \"allowBulkPublish\": true,\r\n    \"allowBulkUnpublish\": true,\r\n    \"allowBulkCopy\": true,\r\n    \"allowBulkMove\": true,\r\n    \"allowBulkDelete\": true\r\n  },\r\n  \"Icon\": null,\r\n  \"TabName\": null,\r\n  \"ShowContentFirst\": false,\r\n  \"UseInfiniteEditor\": false\r\n}",
+          "NewValue": "{\r\n  \"PageSize\": 10,\r\n  \"OrderBy\": \"SortOrder\",\r\n  \"OrderDirection\": \"asc\",\r\n  \"IncludeProperties\": [\r\n    {\r\n      \"alias\": \"sortOrder\",\r\n      \"header\": \"Sort order\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    },\r\n    {\r\n      \"alias\": \"updateDate\",\r\n      \"header\": \"Last edited\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    },\r\n    {\r\n      \"alias\": \"owner\",\r\n      \"header\": \"Created by\",\r\n      \"nameTemplate\": null,\r\n      \"isSystem\": 1\r\n    }\r\n  ],\r\n  \"Layouts\": [\r\n    {\r\n      \"name\": \"List\",\r\n      \"path\": \"views/propertyeditors/listview/layouts/list/list.html\",\r\n      \"icon\": \"icon-list\",\r\n      \"isSystem\": 1,\r\n      \"selected\": true\r\n    },\r\n    {\r\n      \"name\": \"Grid\",\r\n      \"path\": \"views/propertyeditors/listview/layouts/grid/grid.html\",\r\n      \"icon\": \"icon-thumbnails-small\",\r\n      \"isSystem\": 1,\r\n      \"selected\": true\r\n    }\r\n  ],\r\n  \"BulkActionPermissions\": {\r\n    \"allowBulkPublish\": true,\r\n    \"allowBulkUnpublish\": true,\r\n    \"allowBulkCopy\": true,\r\n    \"allowBulkMove\": true,\r\n    \"allowBulkDelete\": true\r\n  },\r\n  \"Icon\": \"icon-list\",\r\n  \"TabName\": null,\r\n  \"ShowContentFirst\": false,\r\n  \"UseInfiniteEditor\": false\r\n}",
+          "Change": "Update"
+        }
+      ],
+      "key": "3ae78307-7385-42e5-ad24-2d1da5d09c4c"
+    },
+    {
+      "HandlerAlias": "dataTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IDataType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\DataTypes\\Truefalse.config",
+      "Name": "Truefalse",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "Name",
+          "OldValue": "True/false",
+          "NewValue": "Truefalse",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Config",
+          "Path": "Configuration",
+          "OldValue": "{\r\n  \"Default\": false,\r\n  \"ShowLabels\": false,\r\n  \"LabelOn\": null,\r\n  \"LabelOff\": null\r\n}",
+          "NewValue": "{\r\n  \"Default\": false,\r\n  \"ShowLabels\": true,\r\n  \"LabelOn\": \"Active\",\r\n  \"LabelOff\": \"Disabled\"\r\n}",
+          "Change": "Update"
+        }
+      ],
+      "key": "92897bc6-a5f3-4ffe-ae27-f2e7e33dda49"
+    },
+    {
+      "HandlerAlias": "templateHandler",
+      "Success": false,
+      "ItemType": "Umbraco.Core.Models.ITemplate, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "The template '.cshtml' file is missing.",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Templates\\listcomp.config",
+      "Name": "listComp",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": null,
+      "key": "aecab01a-1dcb-41d1-aef9-90e5bc8c0b7d"
+    },
+    {
+      "HandlerAlias": "templateHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.ITemplate, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Templates\\registrationcompleate.config",
+      "Name": "RegistrationCompleate",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "RegistrationCompleate",
+          "Path": "Template",
+          "OldValue": "",
+          "NewValue": "RegistrationCompleate",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "e521f41b-cb0b-48ad-b6f3-5836066641d4",
+          "NewValue": "b283e4f7-19c7-4dfa-a2b2-9dff90a0573e",
+          "Change": "Update"
+        }
+      ],
+      "key": "b283e4f7-19c7-4dfa-a2b2-9dff90a0573e"
+    },
+    {
+      "HandlerAlias": "templateHandler",
+      "Success": false,
+      "ItemType": "Umbraco.Core.Models.ITemplate, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "The template '.cshtml' file is missing.",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Templates\\regiscrationcompleate.config",
+      "Name": "RegistrationCompleate",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": null,
+      "key": "08e08ac6-a862-4405-88ba-651a31668e4a"
+    },
+    {
+      "HandlerAlias": "templateHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.ITemplate, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Templates\\confirmmail.config",
+      "Name": "ConfirmMail",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "ConfirmMail",
+          "Path": "Template",
+          "OldValue": "",
+          "NewValue": "ConfirmMail",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "b002bbbf-f1b6-423e-b491-3598f9fb8587",
+          "NewValue": "fd5f32d1-45dd-41a5-8fe0-b2322590bfcc",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Parent",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "master",
+          "Change": "Update"
+        }
+      ],
+      "key": "fd5f32d1-45dd-41a5-8fe0-b2322590bfcc"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\confirmmail.config",
+      "Name": "ConfirmMail",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "0ace2120-c228-496b-a2db-6fdde191e3fa",
+          "NewValue": "d7630cde-8b7e-4ebf-a9f4-2eaa41e5ed08",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "ConfirmMail",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Icon",
+          "Path": "",
+          "OldValue": "icon-folder",
+          "NewValue": "icon-inbox-full color-black",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "AllowAtRoot",
+          "Path": "",
+          "OldValue": "False",
+          "NewValue": "True",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Content",
+          "Path": "Tabs/Content",
+          "OldValue": "",
+          "NewValue": "Content",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "title/Key",
+          "OldValue": "f27f824d-798a-4457-97fd-1f40338d6ea1",
+          "NewValue": "5096e1dd-5223-4cb9-9aca-1cf05205865f",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "title/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "Title",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "title/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "title/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "Property/Variations",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "title",
+          "Path": "title",
+          "OldValue": "",
+          "NewValue": "Title",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "DefaultTemplate",
+          "Path": "DefaultTemplate",
+          "OldValue": "(Blank)",
+          "NewValue": "ConfirmMail",
+          "Change": "Update"
+        }
+      ],
+      "key": "d7630cde-8b7e-4ebf-a9f4-2eaa41e5ed08"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\register.config",
+      "Name": "Register",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "confirmPass/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "confirmPass/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputConfirmPass/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputConfirmPass/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputEmail/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputEmail/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputName/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputName/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputPass/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputPass/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "lowercase/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "lowercase/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "notifyMe/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "notifyMe/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "notMatch/Key",
+          "OldValue": "8edab4e2-549a-4d99-a60a-5e77e97cb03d",
+          "NewValue": "45214405-b089-4a7d-acf2-51785ed245cb",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "notMatch/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "notMatch",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "notMatch/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "notMatch/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "SortOrder",
+          "Path": "notMatch/SortOrder",
+          "OldValue": "0",
+          "NewValue": "5",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "Property/Variations",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "notMatch",
+          "Path": "notMatch",
+          "OldValue": "",
+          "NewValue": "notMatch",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "numbers/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "numbers/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "submitBtn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "submitBtn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "symbols/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "symbols/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "title/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "title/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "uppercase/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "uppercase/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        }
+      ],
+      "key": "11a51be2-c677-41d6-b372-6d9fff8bfdc9"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\registrationcompleate.config",
+      "Name": "Registration Compleate",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "700c7a9b-1123-42b4-a21f-a213a844baba",
+          "NewValue": "cb0ec308-1623-4157-940d-be61de71e256",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "Registration Compleate",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Icon",
+          "Path": "",
+          "OldValue": "icon-folder",
+          "NewValue": "icon-flag-alt color-black",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "AllowAtRoot",
+          "Path": "",
+          "OldValue": "False",
+          "NewValue": "True",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Content",
+          "Path": "Tabs/Content",
+          "OldValue": "",
+          "NewValue": "Content",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "compleateMessage/Key",
+          "OldValue": "f67957cc-0529-4d9e-adcb-90346543f537",
+          "NewValue": "98efdd43-49c1-46bb-9ced-8607963f80e8",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "compleateMessage/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "CompleateMessage",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "compleateMessage/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "compleateMessage/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "SortOrder",
+          "Path": "compleateMessage/SortOrder",
+          "OldValue": "0",
+          "NewValue": "1",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "Property/Variations",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "compleateMessage",
+          "Path": "compleateMessage",
+          "OldValue": "",
+          "NewValue": "CompleateMessage",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "title/Key",
+          "OldValue": "189391bb-ac2b-40bb-9ec9-4619af0248e1",
+          "NewValue": "1bd296ee-417b-4056-a439-3f6a4136dc51",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "title/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "Title",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "title/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "title/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "Property/Variations",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "title",
+          "Path": "title",
+          "OldValue": "",
+          "NewValue": "Title",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "DefaultTemplate",
+          "Path": "DefaultTemplate",
+          "OldValue": "(Blank)",
+          "NewValue": "RegistrationCompleate",
+          "Change": "Update"
+        }
+      ],
+      "key": "cb0ec308-1623-4157-940d-be61de71e256"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\home.config",
+      "Name": "Home",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "allItems/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "allItems/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "bgImg/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "bgImg/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "btn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "btn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "btnLink/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "btnLink/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "cartText/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "cartText/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "devBy/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "devBy/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "emails/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "emails/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "facebook/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "facebook/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fContacts/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fContacts/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fCustomers/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fCustomers/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fDesc/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fDesc/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fInfo/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fInfo/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fLogo/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fLogo/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fourthLink/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fourthLink/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fPhone1/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fPhone1/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fPhone2/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fPhone2/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "fProd/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "fProd/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "hitTitle/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "hitTitle/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputEmail/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputEmail/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "instagram/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "instagram/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "lastTitle/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "lastTitle/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "location/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "location/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "loginRegistration/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "loginRegistration/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "logo/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "logo/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "mainNav/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "mainNav/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "newTitle/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "newTitle/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "phone1/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "phone1/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "phone2/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "phone2/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "quickNav/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "shopText/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "shopText/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "submitBtn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "submitBtn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "title/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "title/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "vmText/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "vmText/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "youtube/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "youtube/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Allowed",
+          "Path": "/Structure",
+          "OldValue": "about,contacts,login,shop,news,actions,videoviews,delivery,forCustomers",
+          "NewValue": ",,,,,,,",
+          "Change": "Update"
+        }
+      ],
+      "key": "cd1489fe-f7b3-47d3-a79f-fe034aa9716d"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\login.config",
+      "Name": "Login",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "FBLogin/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "FBLogin/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "forgotBtn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "forgotBtn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "googleLogin/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "googleLogin/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputEmail/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputEmail/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "inputPass/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "inputPass/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "orText/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "orText/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "regDesc/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "regDesc/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "registerBtn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "registerBtn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "regTitle/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "regTitle/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "rememberCheck/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "rememberCheck/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "submitBtn/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "submitBtn/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "title/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "title/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Allowed",
+          "Path": "/Structure",
+          "OldValue": "register,forgotPass,forgotPass2",
+          "NewValue": ",,,",
+          "Change": "Update"
+        }
+      ],
+      "key": "6858e9f0-b6e4-4490-8042-d162aa17558b"
+    },
+    {
+      "HandlerAlias": "contentTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContentType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\ContentTypes\\cabinet.config",
+      "Name": "Cabinet",
+      "RequiresPostProcessing": true,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "address/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "address/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "birthdate/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "birthdate/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "changePass/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "changePass/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "changePersData/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "changePersData/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "docsDesc/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "docsDesc/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "email/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "email/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "logOut/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "logOut/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "mainInfo/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "mainInfo/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "mainTitle/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "mainTitle/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "nav/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "nav/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "phone/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "phone/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "sendDocs/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "sendDocs/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "sex/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "sex/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "status/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "status/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "wholesale/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "wholesale/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "wholesaleType/Key",
+          "OldValue": "f58f0bc5-6b6f-47ca-a6fb-5ac152d6d88c",
+          "NewValue": "35f71a00-b0ec-49ec-8c58-1c8fdfee3a17",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "wholesaleType/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "wholesaleType",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "wholesaleType/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "wholesaleType/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "SortOrder",
+          "Path": "wholesaleType/SortOrder",
+          "OldValue": "0",
+          "NewValue": "9",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Variations",
+          "Path": "Property/Variations",
+          "OldValue": "Nothing",
+          "NewValue": "Culture",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "wholesaleType",
+          "Path": "wholesaleType",
+          "OldValue": "",
+          "NewValue": "wholesaleType",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "yourInitials/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "yourInitials/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Allowed",
+          "Path": "/Structure",
+          "OldValue": "changePass,changePersonal,myOrders,myReviews",
+          "NewValue": ",,,",
+          "Change": "Update"
+        }
+      ],
+      "key": "1178dd02-334b-4ace-a764-5e5708e05d7e"
+    },
+    {
+      "HandlerAlias": "memberTypeHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IMemberType, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\MemberTypes\\member.config",
+      "Name": "Member",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "activationGuid/Key",
+          "OldValue": "797a49ff-8ca7-4fe4-a213-a5f0be7c4929",
+          "NewValue": "b7144036-c238-439c-bd60-7b1a6ea6d660",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name",
+          "Path": "activationGuid/Name",
+          "OldValue": "(Blank)",
+          "NewValue": "ActivationGuid",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "activationGuid/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "activationGuid/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "SortOrder",
+          "Path": "activationGuid/SortOrder",
+          "OldValue": "0",
+          "NewValue": "13",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "activationGuid",
+          "Path": "activationGuid",
+          "OldValue": "",
+          "NewValue": "ActivationGuid",
+          "Change": "Create"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "addedDocs/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "addedDocs/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberAddress/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberAddress/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberApproveNotif/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberApproveNotif/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberBirthdate/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberBirthdate/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberCity/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberCity/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberDiscount/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberDiscount/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberIndex/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberIndex/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberMidname/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberMidname/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberName/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberName/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberPhone/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberPhone/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberPhoto/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberPhoto/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberSex/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberSex/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "memberSurname/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "memberSurname/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "notificationEmail/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "notificationEmail/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "registrationDate/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "registrationDate/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "resetGUID/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "resetGUID/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberApproved/Key",
+          "OldValue": "0000001e-0000-0000-0000-000000000000",
+          "NewValue": "e79dccfb-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberApproved/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberApproved/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "CanEdit",
+          "Path": "umbracoMemberApproved/CanEdit",
+          "OldValue": "False",
+          "NewValue": "True",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberComments/Key",
+          "OldValue": "0000001c-0000-0000-0000-000000000000",
+          "NewValue": "2a280588-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberComments/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberComments/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberFailedPasswordAttempts/Key",
+          "OldValue": "0000001d-0000-0000-0000-000000000000",
+          "NewValue": "0f2ea539-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberFailedPasswordAttempts/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberFailedPasswordAttempts/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberLastLockoutDate/Key",
+          "OldValue": "00000020-0000-0000-0000-000000000000",
+          "NewValue": "3a7bc3c6-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberLastLockoutDate/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberLastLockoutDate/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberLastLogin/Key",
+          "OldValue": "00000021-0000-0000-0000-000000000000",
+          "NewValue": "b5e309ba-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberLastLogin/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberLastLogin/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberLastPasswordChangeDate/Key",
+          "OldValue": "00000022-0000-0000-0000-000000000000",
+          "NewValue": "ded56d3f-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberLastPasswordChangeDate/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberLastPasswordChangeDate/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberLockedOut/Key",
+          "OldValue": "0000001f-0000-0000-0000-000000000000",
+          "NewValue": "c36093d2-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberLockedOut/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberLockedOut/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberPasswordRetrievalAnswer/Key",
+          "OldValue": "00000024-0000-0000-0000-000000000000",
+          "NewValue": "9700bd39-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberPasswordRetrievalAnswer/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberPasswordRetrievalAnswer/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "umbracoMemberPasswordRetrievalQuestion/Key",
+          "OldValue": "00000023-0000-0000-0000-000000000000",
+          "NewValue": "e2d9286a-0000-0000-0000-000000000000",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Description",
+          "Path": "umbracoMemberPasswordRetrievalQuestion/Description",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Validation",
+          "Path": "umbracoMemberPasswordRetrievalQuestion/RegEx",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "MandatoryMessage",
+          "Path": "property/MandatoryMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "ValidationRegExpMessage",
+          "Path": "property/ValidationRegExpMessage",
+          "OldValue": "(Blank)",
+          "NewValue": "(Blank)",
+          "Change": "Update"
+        }
+      ],
+      "key": "d59be02f-1df9-4228-aa1e-01917d806cda"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\1.config",
+      "Name": "1",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "12/16/2020 3:40:04 PM",
+          "NewValue": "12/16/2020 3:40:04 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "f4bea985-cc55-429e-b654-28df2285bdcc"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\banner-1.config",
+      "Name": "Banner 1",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 3:59:56 PM",
+          "NewValue": "5/20/2020 3:59:56 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "a5669c2d-b634-49f5-8254-e316dc04f47e"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\dexshell.config",
+      "Name": "Dexshell",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "12/16/2020 12:49:52 PM",
+          "NewValue": "12/16/2020 12:49:52 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "fa3aeb34-699c-46d1-91a0-08be96cedaf1"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\fenix-e35.config",
+      "Name": "Fenix E35",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "12/16/2020 12:47:14 PM",
+          "NewValue": "12/16/2020 12:47:14 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "23c6515d-09df-4940-9609-410901cbc41b"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\steel.config",
+      "Name": "Steel",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "10/7/2020 1:23:19 PM",
+          "NewValue": "10/7/2020 1:23:19 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "16e9e159-2995-49c6-adbe-1eede5a20c63"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\videoviews.config",
+      "Name": "Videoviews",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 2:24:19 PM",
+          "NewValue": "5/20/2020 2:24:19 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "f68b2f6c-2be2-4a3d-a03d-fc0ee123fff6"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\мультитули-ganzo.config",
+      "Name": "Мультитули Ganzo",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "12/16/2020 12:44:45 PM",
+          "NewValue": "12/16/2020 12:44:45 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "7adbeaef-7261-4459-b40c-862ca03b927b"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\shop-item.config",
+      "Name": "Shop Item",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/22/2020 1:16:14 PM",
+          "NewValue": "5/22/2020 1:16:14 PM",
+          "Change": "Update"
+        }
+      ],
+      "key": "fd21998b-390c-47f6-9045-601a6e9a3daa"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\branddiscounts.config",
+      "Name": "BrandDiscounts",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "2/5/2023 10:07:53 PM",
+          "NewValue": "2/5/2023 10:02:56 AM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "brandDiscounts",
+          "Path": "Property/brandDiscounts",
+          "OldValue": "\"[{\\\"key\\\":\\\"a19bf305-4c88-4a0e-b7cb-8f85da68ecf1\\\",\\\"name\\\":\\\"-  -%. Active:\\\",\\\"ncContentTypeAlias\\\":\\\"BrandDiscounts\\\",\\\"brandName\\\":\\\"KRAMATAN\\\",\\\"brandDiscountValue\\\":10,\\\"brandDiscountEnabled\\\":1}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"45d61f0b-8ecf-4db3-8097-80caa42db517\\\",\\r\\n    \\\"name\\\": \\\"KRAMATAN - 10 -%. Active: 1\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"BrandDiscounts\\\",\\r\\n    \\\"brandName\\\": \\\"KRAMATAN\\\",\\r\\n    \\\"brandDiscountValue\\\": \\\"10\\\",\\r\\n    \\\"brandDiscountEnabled\\\": \\\"1\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"6e3212ce-afdb-46ab-97fc-2d80266280ec\\\",\\r\\n    \\\"name\\\": \\\"Клямра - 10 -%. Active: 1\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"BrandDiscounts\\\",\\r\\n    \\\"brandName\\\": \\\"Клямра\\\",\\r\\n    \\\"brandDiscountValue\\\": \\\"10\\\",\\r\\n    \\\"brandDiscountEnabled\\\": \\\"1\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"beab59ad-2391-45ee-81a1-f1416a806fff\\\",\\r\\n    \\\"name\\\": \\\"Blade Brothers Knives - 10 -%. Active: 1\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"BrandDiscounts\\\",\\r\\n    \\\"brandName\\\": \\\"Blade Brothers Knives\\\",\\r\\n    \\\"brandDiscountValue\\\": \\\"10\\\",\\r\\n    \\\"brandDiscountEnabled\\\": \\\"1\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"047dc546-95a2-4e6d-869e-5cfb04a531c5\\\",\\r\\n    \\\"name\\\": \\\"Гwear - 10 -%. Active: 1\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"BrandDiscounts\\\",\\r\\n    \\\"brandName\\\": \\\"Гwear\\\",\\r\\n    \\\"brandDiscountValue\\\": \\\"10\\\",\\r\\n    \\\"brandDiscountEnabled\\\": \\\"1\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"44b55fca-c071-4dfa-88be-7f7888f74ff4\\\",\\r\\n    \\\"name\\\": \\\"Peklo.Toys - 10 -%. Active: 1\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"BrandDiscounts\\\",\\r\\n    \\\"brandName\\\": \\\"Peklo.Toys\\\",\\r\\n    \\\"brandDiscountValue\\\": \\\"10\\\",\\r\\n    \\\"brandDiscountEnabled\\\": \\\"1\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "e7e58893-2bb4-4340-af6f-4a60bb589610"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\cabinet.config",
+      "Name": "Cabinet",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 1:45:52 PM",
+          "NewValue": "5/20/2020 1:45:52 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "nav",
+          "Path": "Property/nav",
+          "OldValue": "\"[{\\\"key\\\":\\\"7c10af4d-aebf-485a-92f9-cc8f5590202b\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Особисті дані\\\",\\\"link\\\":\\\"umb://document/7dc55c7c621d4c91a7d69b8b7fe84fdf\\\"},{\\\"key\\\":\\\"bf591148-cfa0-4c71-bb06-14cd0cea2de2\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Мої замовлення\\\",\\\"link\\\":\\\"umb://document/aa7fc3bd50c64868955419a42fdc6bf6\\\"},{\\\"key\\\":\\\"5ec5b8a0-6e42-4f56-b1af-f3c95ea697a8\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Мої відгуки\\\",\\\"link\\\":\\\"umb://document/7bf7d29dd6304c6a8323f00cb874df75\\\"},{\\\"key\\\":\\\"86e817d8-0195-48e5-a07d-0c85fe680f34\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Переглянуті товари\\\",\\\"link\\\":\\\"umb://document/6b7daf68b03c4b20bb3df6877f9aa48e\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"7c10af4d-aebf-485a-92f9-cc8f5590202b\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Особисті дані\\\",\\r\\n    \\\"link\\\": \\\"umb://document/7dc55c7c621d4c91a7d69b8b7fe84fdf\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"bf591148-cfa0-4c71-bb06-14cd0cea2de2\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Мої замовлення\\\",\\r\\n    \\\"link\\\": \\\"umb://document/aa7fc3bd50c64868955419a42fdc6bf6\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"5ec5b8a0-6e42-4f56-b1af-f3c95ea697a8\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Мої відгуки\\\",\\r\\n    \\\"link\\\": \\\"umb://document/7bf7d29dd6304c6a8323f00cb874df75\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"86e817d8-0195-48e5-a07d-0c85fe680f34\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Переглянуті товари\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6b7daf68b03c4b20bb3df6877f9aa48e\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "nav",
+          "Path": "Property/nav",
+          "OldValue": "\"[{\\\"key\\\":\\\"cc40ff90-8c84-49ef-ac33-16140fa0dc21\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Personal data\\\",\\\"link\\\":\\\"umb://document/7dc55c7c621d4c91a7d69b8b7fe84fdf\\\"},{\\\"key\\\":\\\"521d0187-bd0c-4878-84c7-f6c7e7aa28ce\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"My orders\\\",\\\"link\\\":\\\"umb://document/aa7fc3bd50c64868955419a42fdc6bf6\\\"},{\\\"key\\\":\\\"fddbe4c9-219b-4529-bfdf-7e8762274e31\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"My reviews\\\",\\\"link\\\":\\\"umb://document/7bf7d29dd6304c6a8323f00cb874df75\\\"},{\\\"key\\\":\\\"c9058322-91c1-41a4-b4cd-e675eb7270aa\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Viewed products\\\",\\\"link\\\":\\\"umb://document/6b7daf68b03c4b20bb3df6877f9aa48e\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"cc40ff90-8c84-49ef-ac33-16140fa0dc21\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Personal data\\\",\\r\\n    \\\"link\\\": \\\"umb://document/7dc55c7c621d4c91a7d69b8b7fe84fdf\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"521d0187-bd0c-4878-84c7-f6c7e7aa28ce\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"My orders\\\",\\r\\n    \\\"link\\\": \\\"umb://document/aa7fc3bd50c64868955419a42fdc6bf6\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"fddbe4c9-219b-4529-bfdf-7e8762274e31\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"My reviews\\\",\\r\\n    \\\"link\\\": \\\"umb://document/7bf7d29dd6304c6a8323f00cb874df75\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"c9058322-91c1-41a4-b4cd-e675eb7270aa\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Viewed products\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6b7daf68b03c4b20bb3df6877f9aa48e\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "wholesaleType",
+          "Path": "Property/wholesaleType",
+          "OldValue": "null",
+          "NewValue": "\"Тип знижки\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "7dc55c7c-621d-4c91-a7d6-9b8b7fe84fdf"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\master.config",
+      "Name": "Master",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 12:26:11 PM",
+          "NewValue": "5/20/2020 12:26:11 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "emails",
+          "Path": "Property/emails",
+          "OldValue": "\"[{\\\"key\\\":\\\"e0935029-0374-4093-9d38-6a8beeeec13a\\\",\\\"name\\\":\\\"Email\\\",\\\"ncContentTypeAlias\\\":\\\"emails\\\",\\\"email\\\":\\\"markiyanse@gmail.com\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"e0935029-0374-4093-9d38-6a8beeeec13a\\\",\\r\\n    \\\"name\\\": \\\"Email\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"emails\\\",\\r\\n    \\\"email\\\": \\\"markiyanse@gmail.com\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "fourthLink",
+          "Path": "Property/fourthLink",
+          "OldValue": "\"[{\\\"key\\\":\\\"9763ba97-beee-4dac-be73-47d89cca65d5\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Тактичне спорядження\\\",\\\"link\\\":\\\"{%22filter%22:{%22catid%22:%22a8cb97cd-9eba-11e7-a15c-00155d8ca60e%22,%22minc%22:0},%22sortby%22:0,%22pag%22:{%22pn%22:1,%22tps%22:0}}\\\",\\\"image\\\":\\\"umb://media/b4d6b47a465546ed9320a825440968d3\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"9763ba97-beee-4dac-be73-47d89cca65d5\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Тактичне спорядження\\\",\\r\\n    \\\"link\\\": \\\"{%22filter%22:{%22catid%22:%22a8cb97cd-9eba-11e7-a15c-00155d8ca60e%22,%22minc%22:0},%22sortby%22:0,%22pag%22:{%22pn%22:1,%22tps%22:0}}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/b4d6b47a465546ed9320a825440968d3\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "fourthLink",
+          "Path": "Property/fourthLink",
+          "OldValue": "\"[{\\\"key\\\":\\\"9d8ffdf0-2cb4-41eb-aabe-479d0a555745\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Tactical clothing\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a02973b6-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/b4d6b47a465546ed9320a825440968d3\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"9d8ffdf0-2cb4-41eb-aabe-479d0a555745\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Tactical clothing\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a02973b6-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/b4d6b47a465546ed9320a825440968d3\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "mainNav",
+          "Path": "Property/mainNav",
+          "OldValue": "\"[{\\\"key\\\":\\\"5381f6d8-5917-4a32-85ce-afca363c7c9c\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Про нас\\\",\\\"link\\\":\\\"umb://document/6bc24ce98d5c431791ef4a8e721f0868\\\"},{\\\"key\\\":\\\"a4d02ae1-0587-42a1-9824-497f535f9f36\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Оплата і доставка\\\",\\\"link\\\":\\\"umb://document/4b6d9109e6084f9ca8e1cbc5af8fcd52\\\"},{\\\"key\\\":\\\"2598b049-c24b-457c-b373-db30ef0aca7a\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Контакти\\\",\\\"link\\\":\\\"umb://document/6e1d8f26907b4814b5e3c88f729ee677\\\"},{\\\"key\\\":\\\"27f5209f-eb27-48db-9b66-59281ba8de31\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Новини\\\",\\\"link\\\":\\\"umb://document/c12091efa97c4ca2865cc9b03c9ce62d\\\"},{\\\"key\\\":\\\"3d023b7c-1f9a-4ec8-83ea-f70437366beb\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Програма лояльності\\\",\\\"link\\\":\\\"umb://document/00761e220ada4c28acdeca6a542e3b85\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"5381f6d8-5917-4a32-85ce-afca363c7c9c\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Про нас\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6bc24ce98d5c431791ef4a8e721f0868\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"a4d02ae1-0587-42a1-9824-497f535f9f36\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Оплата і доставка\\\",\\r\\n    \\\"link\\\": \\\"umb://document/4b6d9109e6084f9ca8e1cbc5af8fcd52\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"2598b049-c24b-457c-b373-db30ef0aca7a\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Контакти\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6e1d8f26907b4814b5e3c88f729ee677\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"27f5209f-eb27-48db-9b66-59281ba8de31\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Новини\\\",\\r\\n    \\\"link\\\": \\\"umb://document/c12091efa97c4ca2865cc9b03c9ce62d\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"3d023b7c-1f9a-4ec8-83ea-f70437366beb\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Програма лояльності\\\",\\r\\n    \\\"link\\\": \\\"umb://document/00761e220ada4c28acdeca6a542e3b85\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "mainNav",
+          "Path": "Property/mainNav",
+          "OldValue": "\"[{\\\"key\\\":\\\"6d2261dc-240e-440a-81ee-be8abc1ad8cb\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"About us\\\",\\\"link\\\":\\\"umb://document/6bc24ce98d5c431791ef4a8e721f0868\\\"},{\\\"key\\\":\\\"059e6367-5ad1-40bd-b293-b2fa760cc878\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Payment and delivery\\\",\\\"link\\\":\\\"umb://document/4b6d9109e6084f9ca8e1cbc5af8fcd52\\\"},{\\\"key\\\":\\\"6824c968-8b7b-46a1-8019-c267c7e6c357\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Contacts\\\",\\\"link\\\":\\\"umb://document/6e1d8f26907b4814b5e3c88f729ee677\\\"},{\\\"key\\\":\\\"0a9c6c71-47cd-4faf-8597-5d76bce6b30b\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"News\\\",\\\"link\\\":\\\"umb://document/c12091efa97c4ca2865cc9b03c9ce62d\\\"},{\\\"key\\\":\\\"59c79fb3-d907-49e5-a695-136238c35e23\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Promotions and discounts\\\",\\\"link\\\":\\\"umb://document/00761e220ada4c28acdeca6a542e3b85\\\"},{\\\"key\\\":\\\"9ae4ca1a-6575-47e8-ada6-46cf1f81c577\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"mainNav\\\",\\\"title\\\":\\\"Videoviews\\\",\\\"link\\\":\\\"umb://document/f68b2f6c2be24a3da03dfc0ee123fff6\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"6d2261dc-240e-440a-81ee-be8abc1ad8cb\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"About us\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6bc24ce98d5c431791ef4a8e721f0868\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"059e6367-5ad1-40bd-b293-b2fa760cc878\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Payment and delivery\\\",\\r\\n    \\\"link\\\": \\\"umb://document/4b6d9109e6084f9ca8e1cbc5af8fcd52\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"6824c968-8b7b-46a1-8019-c267c7e6c357\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Contacts\\\",\\r\\n    \\\"link\\\": \\\"umb://document/6e1d8f26907b4814b5e3c88f729ee677\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"0a9c6c71-47cd-4faf-8597-5d76bce6b30b\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"News\\\",\\r\\n    \\\"link\\\": \\\"umb://document/c12091efa97c4ca2865cc9b03c9ce62d\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"59c79fb3-d907-49e5-a695-136238c35e23\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Promotions and discounts\\\",\\r\\n    \\\"link\\\": \\\"umb://document/00761e220ada4c28acdeca6a542e3b85\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"9ae4ca1a-6575-47e8-ada6-46cf1f81c577\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"mainNav\\\",\\r\\n    \\\"title\\\": \\\"Videoviews\\\",\\r\\n    \\\"link\\\": \\\"umb://document/f68b2f6c2be24a3da03dfc0ee123fff6\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "phone1",
+          "Path": "Property/phone1",
+          "OldValue": "\"+38067 505 2421\"",
+          "NewValue": "\"+38067 505 2521\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "quickNav",
+          "Path": "Property/quickNav",
+          "OldValue": "\"[{\\\"key\\\":\\\"f023427e-5600-4f03-85ae-a9b9fa878a2f\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Взуття\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"fa0c6abe-946b-11e7-8c2c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/1c20998fa3894fd09903176d0bc25c90\\\"},{\\\"key\\\":\\\"783da396-6ea7-4450-8319-1d9741c8565c\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Рюкзаки\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97a4-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/b04382ad3bb049ee895787056309e4d9\\\"},{\\\"key\\\":\\\"be91ad03-ca27-4c93-9ae9-407f3e148d30\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Одяг\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a02973b6-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/b7423e2a02cb4f77ae34508e81be9ac1\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"f023427e-5600-4f03-85ae-a9b9fa878a2f\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Взуття\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"fa0c6abe-946b-11e7-8c2c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/1c20998fa3894fd09903176d0bc25c90\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"783da396-6ea7-4450-8319-1d9741c8565c\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Рюкзаки\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97a4-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/b04382ad3bb049ee895787056309e4d9\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"be91ad03-ca27-4c93-9ae9-407f3e148d30\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Одяг\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a02973b6-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/b7423e2a02cb4f77ae34508e81be9ac1\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "quickNav",
+          "Path": "Property/quickNav",
+          "OldValue": "\"[{\\\"key\\\":\\\"32e6c1f7-da42-46b3-9258-6f917e20ee64\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Footwear\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"fa0c6abe-946b-11e7-8c2c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/1c20998fa3894fd09903176d0bc25c90\\\"},{\\\"key\\\":\\\"f5e2b82f-97a2-4d20-bbe1-e8067b1d39f3\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Backpacks\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97a4-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/b04382ad3bb049ee895787056309e4d9\\\"},{\\\"key\\\":\\\"8b1b9389-0a3e-40c9-8d83-31c4ba50297a\\\",\\\"name\\\":\\\"Link\\\",\\\"ncContentTypeAlias\\\":\\\"quickNav\\\",\\\"title\\\":\\\"Camping equipment\\\",\\\"link\\\":\\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97aa-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\\"image\\\":\\\"umb://media/25f8c16f75574954aa6a31c9f156dba9\\\"}]\"",
+          "NewValue": "\"[\\r\\n  {\\r\\n    \\\"key\\\": \\\"32e6c1f7-da42-46b3-9258-6f917e20ee64\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Footwear\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"fa0c6abe-946b-11e7-8c2c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/1c20998fa3894fd09903176d0bc25c90\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"f5e2b82f-97a2-4d20-bbe1-e8067b1d39f3\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Backpacks\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97a4-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/b04382ad3bb049ee895787056309e4d9\\\"\\r\\n  },\\r\\n  {\\r\\n    \\\"key\\\": \\\"8b1b9389-0a3e-40c9-8d83-31c4ba50297a\\\",\\r\\n    \\\"name\\\": \\\"Link\\\",\\r\\n    \\\"ncContentTypeAlias\\\": \\\"quickNav\\\",\\r\\n    \\\"title\\\": \\\"Camping equipment\\\",\\r\\n    \\\"link\\\": \\\"{\\\\\\\"filter\\\\\\\":{\\\\\\\"catid\\\\\\\":\\\\\\\"a8cb97aa-9eba-11e7-a15c-00155d8ca60e\\\\\\\",\\\\\\\"minc\\\\\\\":0},\\\\\\\"sortby\\\\\\\":0}\\\",\\r\\n    \\\"image\\\": \\\"umb://media/25f8c16f75574954aa6a31c9f156dba9\\\"\\r\\n  }\\r\\n]\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "9383cdc6-d4cb-454c-a579-df4faa984f49"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\registration-compleate.config",
+      "Name": "Registration Compleate",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Path",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "-1,0",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Level",
+          "Path": "",
+          "OldValue": "0",
+          "NewValue": "1",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "45ee56f5-2310-43c8-a4b8-ff81a7e8b0a2",
+          "NewValue": "f9e7d574-f4a2-493b-8c52-0f937bcc08da",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "1/1/0001 12:00:00 AM",
+          "NewValue": "2/7/2023 4:21:39 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name (uk)",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "Registration Compleate",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Template",
+          "Path": "Template",
+          "OldValue": "(Blank)",
+          "NewValue": "3357",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "compleateMessage",
+          "Path": "Property/compleateMessage",
+          "OldValue": "null",
+          "NewValue": "\"Реєстрація пройшла успішно, будь ласка, активуйте обліковий запис.\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "title",
+          "Path": "Property/title",
+          "OldValue": "null",
+          "NewValue": "\"Реєстрація\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "f9e7d574-f4a2-493b-8c52-0f937bcc08da"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\contacts.config",
+      "Name": "Contacts",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 1:56:14 PM",
+          "NewValue": "5/20/2020 1:56:14 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "hours",
+          "Path": "Property/hours",
+          "OldValue": "\"11:00 - 19:00\"",
+          "NewValue": "\"10:00 - 19:00\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "text2",
+          "Path": "Property/text2",
+          "OldValue": "\"Субота: 11:00 - 15:00\"",
+          "NewValue": "\"Субота: 10:00 - 17:00\"",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "text3",
+          "Path": "Property/text3",
+          "OldValue": "\"Неділя: 11:00 - 15:00\"",
+          "NewValue": "\"Неділя: 10:00 - 15:00\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "6e1d8f26-907b-4814-b5e3-c88f729ee677"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\edc-спорядження-від-тм-резервіст.config",
+      "Name": "EDC спорядження від тм РЕЗЕРВІСТ",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "10/6/2020 2:34:00 PM",
+          "NewValue": "10/6/2020 2:34:00 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "btn1",
+          "Path": "Property/btn1",
+          "OldValue": "\"EDC спорядження від тм РЕЗЕРВІСТ\"",
+          "NewValue": "null",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "desc",
+          "Path": "Property/desc",
+          "OldValue": "\"EDC спорядження від тм РЕЗЕРВІСТ\"",
+          "NewValue": "null",
+          "Change": "Update"
+        }
+      ],
+      "key": "e409ad66-7532-4c56-a19f-027cf9ba383c"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\confirmmail.config",
+      "Name": "ConfirmMail",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "Parent",
+          "Path": "",
+          "OldValue": "-1",
+          "NewValue": "1067",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Path",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "-1,1066,1067,0",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Level",
+          "Path": "",
+          "OldValue": "0",
+          "NewValue": "3",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Key",
+          "Path": "",
+          "OldValue": "b384c314-df66-4c46-b995-2e0e78e3ab38",
+          "NewValue": "9aba2790-c2ce-4d02-90a8-ed444db37a38",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "1/1/0001 12:00:00 AM",
+          "NewValue": "2/7/2023 2:45:56 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Name (uk)",
+          "Path": "",
+          "OldValue": "(Blank)",
+          "NewValue": "ConfirmMail",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "Template",
+          "Path": "Template",
+          "OldValue": "(Blank)",
+          "NewValue": "3358",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "title",
+          "Path": "Property/title",
+          "OldValue": "null",
+          "NewValue": "\"Активація\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "9aba2790-c2ce-4d02-90a8-ed444db37a38"
+    },
+    {
+      "HandlerAlias": "contentHandler",
+      "Success": true,
+      "ItemType": "Umbraco.Core.Models.IContent, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Message": "",
+      "Exception": null,
+      "Change": "Import",
+      "FileName": "C:\\inetpub\\wwwroot\\uSync\\v8\\Content\\register.config",
+      "Name": "Register",
+      "RequiresPostProcessing": false,
+      "DetailMessage": null,
+      "Details": [
+        {
+          "Success": true,
+          "Name": "CreateDate",
+          "Path": "",
+          "OldValue": "5/20/2020 12:34:27 PM",
+          "NewValue": "5/20/2020 12:34:27 PM",
+          "Change": "Update"
+        },
+        {
+          "Success": true,
+          "Name": "notMatch",
+          "Path": "Property/notMatch",
+          "OldValue": "null",
+          "NewValue": "\"Паролі не співпадають\"",
+          "Change": "Update"
+        }
+      ],
+      "key": "468c256d-5165-4e64-af03-bb1d60e1d15c"
+    }
+  ]
+}

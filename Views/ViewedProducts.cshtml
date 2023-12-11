@@ -1,0 +1,144 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ListUmbracoVM<ProductItemVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using RezervistUmbraco.Controllers;
+@using RezervistUmbraco.Models;
+@using RezervistUmbraco.ViewModels;
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@{
+	Layout = "master.cshtml";
+	var btn = Umbraco.Content(Guid.Parse("97773cf2-cb91-463e-84ea-97ccdab7f684"));
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+<section class="cabinet">
+	<div class="container">
+		<h2 class="cabinet-title">@Model.Value("title")</h2>
+
+		<div class="cabinet-wrapper">
+			<div class="cabinet-left-side">
+				@Html.Partial("_CartNavPartial")
+			</div>
+			<div class="cabinet-right-side">
+
+				<div class="likes-block viewd-prod-block">
+
+					@foreach (var v in Model.ViewModels)
+						{
+						    int disc = 0;
+						    double discountPer = 0;
+						    if (int.TryParse(Html.Action("GetDiscount", "ShopApi", v).ToString(), out var discountPrice2) && discountPrice2 != 0)
+						    {
+						        disc = discountPrice2;
+						        discountPer = Math.Round((v.Cost - disc) / v.Cost * 100, 0);
+
+						    }
+						<div class="product_element goods-item" data-id="@v.Id">
+							<div class="colors-block">
+								<button type="submit" class="delete-viewedItem delete-like"><i class="fas fa-times"></i></button>
+
+								@foreach (var c in v.Colors)
+								{
+									<div style="background-color:@c; border: 1px solid black;" class="colors-block__item green-2"></div>
+								}
+							</div>
+
+							@*<div class="sizes-block">
+								@foreach (var s in v.Sizes.Skip(0).Take(5).ToList())
+								{
+									<div class="sizes-block__item">@s.Value</div>
+								}
+							</div>*@
+							<div class="img-side">
+                                <a href="/shop/shop-item?id=@v.Id" class="shop-item__img">
+                                    @*Enable discount label*@
+                                    @if (discountPer > 0)
+                                    {
+                                        <div class="tag">-@discountPer %</div>
+                                    }
+                                    @if (v.IsRezervist)
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" class="rez-mini-logo" height="26.91" viewBox="0 0 26 26.91">
+                                            <path id="Path_195" data-name="Path 195" d="M133.214,333.268v3.021a.992.992,0,0,0,.976,1.007h2.926a.993.993,0,0,1,.976,1.009v3.852a.993.993,0,0,1-.976,1.009H126.1a.992.992,0,0,0-.976,1.007v3.022a.993.993,0,0,0,.976,1.009h15.9a.993.993,0,0,0,.976-1.009V333.281a.993.993,0,0,0-.975-1.009l-7.8-.013A.993.993,0,0,0,133.214,333.268Zm.976,25.9h7.8a.992.992,0,0,0,.976-1.009v-3.022a.992.992,0,0,0-.976-1.007h-7.8a.992.992,0,0,0-.976,1.007v3.022A.992.992,0,0,0,134.19,359.168Zm-5.167-26.91H117.947a.993.993,0,0,0-.977,1.009v24.892a.992.992,0,0,0,.977,1.009h2.926a.992.992,0,0,0,.976-1.009V338.3a.993.993,0,0,1,.977-1.009h6.2a.992.992,0,0,0,.977-1.007v-3.022A.993.993,0,0,0,129.023,332.258Z" transform="translate(-116.97 -332.258)" fill="#545456" fill-rule="evenodd"/>
+                                        </svg>
+                                    }
+
+                                    <img src="@(Url.Action("GetImmage", "Values", new { id = v.Id }))" alt="@v.Name">
+                                </a>
+								<div class="shop-item__rate">
+									@{
+										int numb = Convert.ToInt32(Math.Floor(v.Rating));
+										int drob = Convert.ToInt32((v.Rating * 10) - (numb * 10));
+
+									}
+									<div class="Stars" style="--rating: @numb.@drob;" aria-label="@v.Rating/5."></div>
+								</div>
+							</div>
+							<div class="info-side">
+								<div class="offer-info-preview">
+									<h4 class="shop-item__title">
+										@v.Name
+									</h4>
+									<p class="shop-item__price">
+                                        @if (disc != 0)
+                                        {
+                                            <p class="shop-item__price old-price" itemprop="price">
+                                                @(v.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                            </p>
+                                            <p class="shop-item__price" itemprop="price">
+                                                @disc
+                                                @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="shop-item__price" itemprop="price">
+                                                @(v.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))
+                                            </p>
+                                        }
+                                        @*@(v.GetCostString(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH))*@
+
+									</p>
+								</div>
+
+								<div class="shop-item__btn-wrapper">
+									@if (!v.NotAvailable)
+									{
+									<button type="button" class="shop-item__to-cart">
+										<i class="fas fa-shopping-cart"></i>
+										@btn.Value("inBusket")
+									</button>
+									}
+									<div class="shop-item__btn-extra viewed-prod">
+										@if (v.IsInFavourites)
+										{
+											<button type="button" class="add-to-favour" style="background-color: red"><i class="fas fa-heart"></i></button>
+										}
+										else
+										{
+											<button type="button" class="add-to-favour"><i class="fas fa-heart"></i></button>
+										}
+
+										@if (v.IsInComparisons)
+										{
+											<button type="button" class="add-to-comparison" style="background-color: green"><i class="fas fa-balance-scale"></i></button>
+										}
+										else
+										{
+
+											<button type="button" class="add-to-comparison"><i class="fas fa-balance-scale"></i></button>
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

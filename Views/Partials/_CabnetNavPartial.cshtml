@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@using RezervistUmbraco.Controllers;
+@using Umbraco.Web.Models;
+
+@{
+	var cabinet = Umbraco.Content(Guid.Parse("7dc55c7c-621d-4c91-a7d6-9b8b7fe84fdf"));
+	var nav = cabinet.Value<IEnumerable<IPublishedElement>>("nav");
+	var currURL = Model.Url;
+
+    var logoutModel = new PostRedirectModel();
+	logoutModel.RedirectUrl = "/";
+}
+
+<ul class="cabinet-nav">
+	@if (nav != null)
+	{
+		foreach (var link in nav)
+		{
+			if (currURL == link.Value<IPublishedContent>("link")?.Url)
+			{
+				<li class="cabinet-nav__item">
+					<a href="@(link.Value<IPublishedContent>("link")?.Url)" class="cabinet-nav-active">@link.Value("title")</a>
+				</li>
+			}
+			else
+			{
+				<li class="cabinet-nav__item">
+					<a href="@(link.Value<IPublishedContent>("link")?.Url)">@link.Value("title")</a>
+				</li>
+			}
+		}
+	}
+	else
+	{
+
+	}
+</ul>
+@using (Html.BeginUmbracoForm<UmbracoIdentityAccountController>("HandleLogout"))
+{
+	<fieldset>
+		<button class="cabinet-exit">@cabinet.Value("logOut")</button>
+	</fieldset>
+
+	@Html.HiddenFor(m => logoutModel.RedirectUrl)
+}

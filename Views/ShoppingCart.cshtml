@@ -1,0 +1,285 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ListUmbracoVM<CartItemVM>>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using RezervistUmbraco.ViewModels.UmbracoViewModels;
+@using RezervistUmbraco.ViewModels.Cabinet;
+@using RezervistUmbraco.Models;
+
+@{
+    Layout = "master.cshtml";
+}
+@section Title{
+    <title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+    @Html.Partial("_MetaTagsPartial")
+}
+
+<section class="cabinet">
+    <div class="container">
+        <h2 class="cabinet-title">@Model.Value("title")</h2>
+
+        <div class="cabinet-wrapper">
+            <div class="cabinet-left-side">
+                @Html.Partial("_CartNavPartial")
+            </div>
+            <div class="cabinet-right-side">
+
+                @{
+                    var currLang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+
+                    var backUrl = $"/{currLang}/shop";
+                }
+
+                <a href="@backUrl" class="go-back"><i class="fas fa-chevron-left go-back-arrow"></i> @Model.Value("goBack")</a>
+
+                <div class="cart-of-products-list">
+                    @foreach (var cartItem in Model.ViewModels)
+                    {
+                        <div class="product_element cart-of-products-list__item" data-CartItemId="@cartItem.CartItemId">
+                            <div class="cart-prod-offer">
+                                <h3>@cartItem.Item.Name</h3>
+
+                                <button type="button" class="delete-from-cart"><i class="fas fa-times"></i></button>
+                            </div>
+                            <div class="cart-of-products-list__item-content">
+                                <div class="cart-of-products-list__item-visual">
+                                    <div class="cart-of-products-list__item-visual__img">
+                                        <a href="/shop/shop-item?id=@cartItem.Item.Id" class="shop-item__img">
+                                            <img src="@(Url.Action("GetImmage", "Values", new { id = cartItem.Item.Id }))" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-counter">
+                                        @{
+                                            int discountPriceValue = 0;
+
+                                            if(cartItem.Item.IsRezervist || !int.TryParse(Html.Action("GetDiscount", "ShopApi", cartItem.Item).ToString(), out discountPriceValue)) {
+
+                                                discountPriceValue = 0;
+                                            }
+                                            if (cartItem.Item.DiscountCost != 0)
+                                            {
+
+                                                discountPriceValue = (int)cartItem.Item.DiscountCost;
+
+                                            }
+
+                                        }
+                                        <button type="button" class="counter-btn minus-count" data-CostPerOne="@(discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue)" data-CartItemId="@cartItem.CartItemId"><i class="fas fa-minus"></i></button>
+                                        <input type="number" min="1" max="@ViewData[cartItem.CartItemId]" value="@cartItem.Amount" name="cost-per-one" data-CostPerOne="@(discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue)" class="count-input prod-count amount_value" id="@cartItem.CartItemId">
+                                        <span class="max-amount-msg">max</span>
+                                        <button type="button" class="counter-btn plus-count" data-CostPerOne="@(discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue)" data-CartItemId="@cartItem.CartItemId"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="cart-of-products-list__item-info">
+                                    <div class="product-brand product-mod-block">
+                                        <p class="product-brand__title product-sub-title">
+                                            @*@localizer["Brand"]*@Brand
+                                        </p>
+                                        <p class="product-brand__name">
+                                            @cartItem.Item.Brand
+                                        </p>
+                                    </div>
+
+                                    @*@if (cartItem.Item.Colors != null && cartItem.Item.Colors.Count > 0)
+                                        {
+                                            <div class="product-color product-mod-block">
+                                                <p class="product-color__title product-sub-title">
+                                                    Colour
+                                                </p>
+
+                                                <div class="product-color__block">
+                                                    @if (cartItem.Item.Colors.Count == 1)
+                                                    {
+                                                        <div class="product-color__item" data-color="@cartItem.Item.Colors.FirstOrDefault()" style="background-color: @cartItem.Item.Colors.FirstOrDefault()">
+
+                                                        </div>
+                                                    }
+                                                    @foreach (var c in cartItem.Item.Colors)
+                                                    {
+                                                        <div class="product-color__item" data-color="@c" style="background-color: @c"></div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }*@
+
+                                    @if (!string.IsNullOrEmpty(cartItem.SelectedColor))
+                                    {
+                                        <div class="product-color product-mod-block">
+
+                                            <p class="product-color__title product-sub-title">
+                                                @*@localizer["Colour"]*@Colour
+                                            </p>
+
+                                            <div class="product-color__block">
+                                                @{
+                                                    string[] colorProps = new string[2];
+                                                    var colorCode = string.Empty;
+                                                    var colorName = string.Empty;
+
+                                                    colorProps = cartItem.SelectedColor.Split('#');
+
+                                                    if (colorProps != null && colorProps.Count() > 1)
+                                                    {
+                                                        colorName = colorProps.FirstOrDefault();
+                                                        colorCode = $"#{colorProps.LastOrDefault()}";
+                                                    }
+                                                    else if (colorProps != null)
+                                                    {
+                                                        colorName = colorProps.FirstOrDefault();
+                                                    }
+                                                }
+                                                @if (cartItem.SelectedColor.Contains("#"))
+                                                {
+                                                    <button class="product-color__item" data-color="@colorCode" style="background-color: @colorCode" disabled></button>
+
+                                                }
+                                                else
+                                                {
+                                                    <button class="product-color__item" data-color="@colorCode" style="background-color: @colorCode; background-image: url('@(Url.Action("GetCamouflage", "Values", new { name = cartItem.SelectedColor }))')" disabled></button>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @*@if(cartItem.Item.Sizes != null && cartItem.Item.Sizes.Count > 0)
+                                        {
+                                            <div class="product-sizes product-mod-block">
+                                                <p class="product-color__title product-sub-title">
+                                                    Size
+                                                </p>
+
+                                                <div class="product-sizes__wrapper">
+                                                    <div class="product-sizes__block">
+                                                    @if (cartItem.Item.Sizes.Count == 1)
+                                                    {
+                                                        <a class="prosuct-sizes__item prosuct-sizes__item-active">
+                                                            @cartItem.Item.Sizes.FirstOrDefault()
+                                                    </a>
+                                                    }
+
+                                                    @foreach (var s in cartItem.Item.Sizes)
+                                                    {
+                                                        if (s.ToLower() == cartItem.SelectedSize.ToLower())
+                                                        {
+                                                            <button class="prosuct-sizes__item prosuct-sizes__item-active" data-size="@s">
+                                                                @s
+                                                            </button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button class="prosuct-sizes__item" data-size="@s">
+                                                                @s
+                                                            </button>
+                                                        }
+                                                    }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }*@
+
+                                    @if (!string.IsNullOrEmpty(cartItem.SelectedSize))
+                                    {
+                                        <div class="product-sizes product-mod-block">
+                                            <p class="product-color__title product-sub-title">
+                                                @*@localizer["Size"]*@Size
+                                            </p>
+
+                                            <div class="product-sizes__wrapper">
+                                                <div class="product-sizes__block">
+                                                    <button class="prosuct-sizes__item" data-size="@cartItem.SelectedSize" disabled>
+                                                        @cartItem.SelectedSize.ToUpper()
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                <div class="products-price">
+
+                                    @if (!cartItem.Item.IsRezervist && int.TryParse(Html.Action("GetDiscount", "ShopApi", cartItem.Item).ToString(), out var discountPrice) && discountPrice != 0)
+                                    { // if user is authorized
+                                        <p class="price old-price">
+                                            @(cartItem.Item.Cost)
+                                            @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                        </p>
+                                        <div class="cart-price-wrap">
+                                            <p id="@(cartItem.CartItemId)_span" class="price new-price" itemprop="price" data-price="@(cartItem.Amount * (discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue))">
+                                                @(cartItem.Amount * (discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue))
+                                            </p>
+                                            <p>
+                                                @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                            </p>
+                                        </div>
+
+                                            
+                                     }
+                                     else // if user is unauthorized
+                                     {
+                                <div class="cart-price-wrap">
+                                    @if (cartItem.Item.DiscountCost != 0)
+                                    {
+                                        <p id="@(cartItem.CartItemId)_span" class="price" data-price="@(cartItem.Amount * cartItem.Item.DiscountCost)">
+                                            @(cartItem.Amount * cartItem.Item.DiscountCost)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p id="@(cartItem.CartItemId)_span" class="price" data-price="@(cartItem.Amount * cartItem.Item.Cost)">
+                                            @(cartItem.Amount * cartItem.Item.Cost)
+                                        </p>
+                                    }
+
+
+                                    <p>
+                                        @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)
+                                    </p>
+                                </div>
+                                     }
+                                     @*<span id="@(cartItem.CartItemId)_span" class="price" data-price="@(cartItem.Amount * cartItem.Item.Cost)">Основна ціна: @(cartItem.Amount * cartItem.Item.Cost)</span>  @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH) <br />
+                                     <span id="@(cartItem.CartItemId)_span" class="price" data-price="@(cartItem.Amount * (discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue))">По знижці: @(cartItem.Amount * (discountPriceValue == 0 ? cartItem.Item.Cost : discountPriceValue))</span>  @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)*@
+
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="order-info-wrapper">
+                    <div class="order-sum">
+                        <p class="order-sum__text">@Model.Value("total")</p>
+                        @{
+                            float totalPrice = 0;
+                            foreach (var cartProduct in Model.ViewModels)
+                            {
+                                if (!cartProduct.Item.IsRezervist && float.TryParse(Html.Action("GetDiscount", "ShopApi", cartProduct.Item).ToString(), out var discountPrice) && discountPrice != 0)
+                                {
+                                    totalPrice += (discountPrice * cartProduct.Amount);
+                                }
+                                else
+                                {
+                                    if (cartProduct.Item.DiscountCost != 0)
+                                    {
+
+                                        totalPrice += ((float)cartProduct.Item.DiscountCost * cartProduct.Amount);
+
+                                    }
+                                    else
+                                    {
+
+                                        totalPrice += (cartProduct.Item.Cost * cartProduct.Amount);
+                                    }
+                                    //totalPrice += (cartProduct.Item.Cost * cartProduct.Amount);
+                                }
+                            }
+                        }
+                        <p class="order-sum__price" data-price="@totalPrice"><span>@totalPrice</span> @(Context.Request.Cookies[co.CookieCurrencyFieldName].Value ?? co.DefaultCurrency_UAH)</p>
+                    </div>
+                    <a href="@(Model.ViewModels.Count() > 0 ? "/payment" : "#")" class="to-order-btn">@Model.Value("submit")</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

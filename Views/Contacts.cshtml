@@ -1,0 +1,106 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Contacts>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+@section Meta {
+	@Html.Partial("_MetaTagsPartial")
+}
+
+
+<section class="contacts" id="contacts">
+	<div class="container">
+		<h2 class="contacts__title">@Model.Value("title")</h2>
+
+		<div class="contacts-wrapper">
+			<div class="contact-wrapper__item">
+				@Html.Partial("_ContactFormPartial")
+			</div>
+			<div class="contact-wrapper__item">
+
+				<div class="contact-info">
+					<div class="contact-info__item">
+						<h3 class="contact-title">@Model.Value("workHour")</h3>
+						<div class="contact-info-block">
+							<p class="contact-info-link">@Model.Value("text1")</p>
+							<p class="contact-info-link">@Model.Value("hours")</p>
+							<p class="contact-info-link">@Model.Value("text2")</p>
+							<p class="contact-info-link">@Model.Value("text3")</p>
+						</div>
+					</div>
+					<div class="contact-info__item">
+						<h3 class="contact-title">@Model.Value("phones")</h3>
+						<div class="contact-info-block">
+							@if (Model.Value<string>("phone1") != "")
+							{
+								<a href="tel:@(Model.Value<string>("phone1"))" class="contact-info-link">@Model.Value("phone1")</a>
+							}
+							else
+							{
+
+							}
+							@if (Model.Value<string>("phone2") != "")
+							{
+								<a href="tel:@(Model.Value<string>("phone2"))" class="contact-info-link">@Model.Value("phone2")</a>
+							}
+							else
+							{
+
+							}
+							@if (Model.Value<string>("phone3") != "")
+							{
+								<a href="tel:@(Model.Value<string>("phone3"))" class="contact-info-link">@Model.Value("phone2")</a>
+							}
+							else
+							{
+
+							}
+						</div>
+					</div>
+					<div class="contact-info__item">
+						<h3 class="contact-title">@Model.Value("emails")</h3>
+						@if (Model.Value<string>("email1") != "")
+						{
+							<div class="contact-info-block">
+								<a href="mailto:@(Model.Value<string>("email1"))" class="contact-info-link">@Model.Value("email1")</a>
+							</div>
+						}
+						else
+						{
+
+						}
+						@if (Model.Value<string>("email2") != "")
+						{
+							<div class="contact-info-block">
+								<a href="mailto:@(Model.Value<string>("email2"))" class="contact-info-link">@Model.Value("email2")</a>
+							</div>
+						}
+						else
+						{
+
+						}
+						@if (Model.Value<string>("email3") != "")
+						{
+							<div class="contact-info-block">
+								<a href="mailto:@(Model.Value<string>("email3"))" class="contact-info-link">@Model.Value("email3")</a>
+							</div>
+						}
+						else
+						{
+
+						}
+					</div>
+				</div>
+			</div>
+			<div class="contact-wrapper__item">
+				<h3 class="contact-title">@Model.Value("onMap")</h3>
+				<div class="on-map">
+					<iframe src="https://maps.google.com/maps?q=%20%D0%B2%D1%83%D0%BB.%20%D0%A1%D1%82%D1%80%D0%B8%D0%B9%D1%81%D1%8C%D0%BA%D0%B0%2C%20106%20&t=&z=13&ie=UTF8&iwloc=&output=embed" class="map-frame" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

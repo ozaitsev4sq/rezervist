@@ -1,0 +1,63 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ChangePass>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@section Title{
+	<title>Rezervist | @Model.Value("title")</title>
+}
+
+
+<section class="cabinet">
+	<div class="container">
+		<h2 class="cabinet-title">@Model.Value("title")</h2>
+		<div class="cabinet-wrapper">
+			<div class="cabinet-left-side">
+				@Html.Partial("_CabnetNavPartial")
+			</div>
+			<div class="cabinet-right-side">
+				<form class="edit-personal-data" method="post" enctype="multipart/form-data" action="@Url.Action("ChangePassword", "Cabinet")">
+					@Html.AntiForgeryToken()
+					<div class="edit-personal-data-inputs new-edit-personal-data-inputs">
+						<div class="change-pass">
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="oldPass" type="password" class="sign-input" placeholder="@Model.Value("oldPass")">
+								<span class="sign-bar"></span>
+
+							</div>
+						</div>
+						<div class="change-pass">
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="newPass" type="password" class="sign-input" placeholder="@Model.Value("newPass")">
+								<span class="sign-bar"></span>
+
+							</div>
+						</div>
+						<div class="change-pass">
+							<div class="sign-input-group sign-input-group__edit">
+								<input name="confNewPass" type="password" class="sign-input" placeholder="@Model.Value("confirmPass")">
+								<span class="sign-bar"></span>
+
+							</div>
+						</div>
+						@if (TempData["ErrorString"] != null)
+						{
+							<div id="error" style="padding: 15px 10px;">@TempData["LoginErrorString"]</div>
+						}
+						<div class="change-pass">
+							<button type="submit" class="edit-personal-data__submit edit-personal-data-btn">@Model.Value("submit")</button>
+						</div>
+
+					</div>
+
+					<div class="eidt-personal-data-input__wrapper">
+						<a href="@(Model.Parent.Url)" class="sign-input">< @Model.Value("goBack")</a>
+					</div>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+</section>

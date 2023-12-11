@@ -1,0 +1,248 @@
+.edit-personal-data{
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background: #F5F5F5;   
+}
+
+.edit-personal-data__offer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.edit-personal-data__user h5{
+    color: #545456;
+    font-size: 1.286em;
+    letter-spacing: 0.05em;
+    margin-bottom: 29px;
+}
+
+.edit-personal-data__user-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.edit-personal-data__user-photo{
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+.edit-personal-data__user-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-personal-data__user-info h6{
+    color: #000;
+    font-size: 1.286em;
+    font-family: 'Neris-Light';
+    margin-bottom: 7px;
+}
+
+.change-photo{
+    color: #DCC28B;
+    font-family: 'Neris-Light';
+    font-size: 1.286em;
+}
+
+.file-upload{
+    display: none;
+}
+
+.edit-personal-data-btn{
+    max-width: 280px;
+    width: 280px;
+    padding: 11px 10px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.286em;
+    letter-spacing: 0.05em;
+    font-family: 'Neris-Light'; 
+    transition: all 0.25s ease-in;
+}
+
+.edit-personal-data-btn:hover{
+    transform: scale(0.98);
+}
+
+.edit-personal-data__submit{
+    background: #AAA050;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.edit-personal-data__reset{
+    border: 1px solid #707070;
+    background: none;
+    color: #707070;
+}
+
+.sign-input-group__edit{
+    width: 35.5%;
+}
+
+.eidt-personal-data-input__wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 90%; 
+    margin: 0 auto  
+}
+
+.chous {
+    width: 100%;
+    padding: 12px 10px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    transition: all 0.18s ease-in-out;
+    border: 1px solid #AAA050;
+    background: #AAA050;
+    color: #fff;
+    font-size: 1.286em;
+    font-family: 'Neris-Light';
+}
+
+.chous:hover {
+    color: white;
+    background-position: bottom left;
+}
+    
+.my {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.edit-personal-data-message h3{
+    color: #545456;
+    font-size: 1.286em;
+    font-family: 'Neris-Light';
+    margin-bottom: 40px;
+}
+
+.label--checkbox,
+.label--radio {
+  position: relative;
+  margin: .5rem;
+  cursor: pointer;
+  color: #545456;
+  font-family: 'Neris-Light';
+  font-size: 1.286em;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.checkbox {
+  position: relative !important;
+  top: rem(-6);
+  
+  margin: 0 1rem 0 0 ;
+  
+  cursor: pointer;
+  z-index: unset !important;
+  opacity: 1 !important;  
+}
+
+.checkbox:before{
+    transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
+    transform: rotate(-45deg) scale(0, 0);
+   
+    content: "";
+   
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    top: 2px;
+    left: 4px;
+   
+    border: 2px solid #DCC28B; 
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.checkbox:checked:before{
+    transform: rotate(-45deg) scale(1, 1);
+}
+
+.checkbox:after {
+    content: "";
+    
+    position: absolute;
+    top: rem(-2);
+    left: 0;
+    
+    width: 1rem;
+    height: 1rem;
+    
+    background: #F5F5F5;
+    
+    border: 2px solid #DCC28B;
+    
+    cursor: pointer;
+  }
+
+
+  .edit-personal-data-choose{
+      padding-left: 30px;
+  }
+
+  .radio {
+    position: relative;
+    
+    margin: 0 1rem 0 0 ;
+    
+    cursor: pointer;
+    
+    
+    
+  }
+
+  .radio:before{
+     transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
+     transform: scale(0,0);
+    
+    content: "";
+
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1;
+    
+    width: 10px;
+    height: 10px;
+    
+    background: #DCC28B;
+    
+    border-radius: 50%;
+  } 
+
+
+  .radio:checked:before{
+    transform: scale(1,1); 
+  }
+
+  .radio:after {
+    content: "";
+    
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    
+    background: #fff;
+    
+    border: 2px solid #DCC28B;
+    border-radius: 50%;
+  }

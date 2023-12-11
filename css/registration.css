@@ -1,0 +1,67 @@
+.registration{
+    padding: 240px 0 100px;
+}
+
+.registration > .container{
+    width: 95%;
+}
+
+.signUp-block__title{
+    text-align: center;
+}
+
+.signUp-form{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signUp-btn{
+    max-width: 500px;
+}
+
+.validation{
+    position: relative;
+}
+
+.val-tip{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(calc(100% + 10px), -50%);
+    padding: 20px;
+    border: 1px solid #595528;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    display: none;
+}
+
+.val-tip span{
+    display: block; 
+    margin-bottom: 7px;
+}
+
+.val-tip span:last-child{
+    margin-bottom: 0;
+}
+
+
+.val-tip svg{
+    margin-right: 5px;
+}
+
+.invalid{
+    color: rgb(214, 42, 42);
+}
+
+.valid{
+    color: rgb(15, 139, 15);
+}
+
+.submit-disabled{
+    pointer-events: none;
+    cursor: none;
+    z-index: -1;
+    background: #808080;
+}
+
